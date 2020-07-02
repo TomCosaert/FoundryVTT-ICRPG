@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15.01946mm"
+   height="12.353155mm"
+   viewBox="0 0 15.01946 12.353155"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="heart.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="35.209395"
+     inkscape:cy="34.172399"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="836"
+     inkscape:window-height="519"
+     inkscape:window-x="636"
+     inkscape:window-y="219"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-87.740269,-154.752)">
+    <path
+       style="fill:#bc0000;fill-opacity:1;stroke-width:0.26458338"
+       d="m 94.029381,166.14171 c -0.63223,-0.52991 -1.62576,-1.27097 -2.20784,-1.64681 -1.84573,-1.19174 -3.32848,-2.48406 -3.72098,-3.24307 -1.13934,-2.20324 0.58464,-6.02778 2.91411,-6.46479 1.01352,-0.19014 2.6184,0.41226 3.59798,1.35053 l 0.67445,0.646 1.03514,-0.52775 c 1.29685,-0.66117 3.710539,-0.70407 5.000609,-0.0889 1.0188,0.48583 1.62319,1.59604 1.38516,2.5444 -0.27077,1.07884 -2.21028,3.82037 -3.056289,4.32012 -0.4503,0.266 -0.81873,0.56529 -0.81873,0.66509 0,0.44357 -2.77628,3.40862 -3.1916,3.40862 -0.25437,0 -0.97978,-0.43356 -1.61201,-0.96346 z"
+       id="path949"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\79c1\AppData\Local\FoundryVTT\Data\systems\icrpg\images\heart.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+  </g>
+</svg>

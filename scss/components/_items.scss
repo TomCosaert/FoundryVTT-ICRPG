@@ -1,0 +1,75 @@
+.items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+
+  .item-header {
+    align-items: center;
+		padding: 5px;
+		margin: 5px 0;
+		background: rgba(0, 0, 0, 0.05);
+		border: 1px solid #AAA;
+		border-radius: 2px;
+    font-weight: bold;
+  }
+
+  .item {
+    height: 30px;
+    overflow-x: hidden;
+    line-height: 24px;
+    padding: 3px 0;
+
+    .item-image {
+      flex: 0 0 24px;
+      margin-right: 5px;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .item-name {
+    flex: 1 0 auto;
+    margin: 0;
+
+    .hidden {
+      @include hide;
+    }
+    &:hover {
+      .hidden {
+        display: inline;
+        color: #aaa;
+      }
+    }
+  }
+
+  .item-controls {
+    flex: 0 0 auto; /*flex: 0 0 86px;*/
+    text-align: right;
+    margin-right: 5px;
+
+    .item-loot {
+			background-image: url("../images/d100.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+      padding-left: 25px;
+      margin-left: 5px;
+      &:hover {
+        filter: drop-shadow(0 0 5px red);
+        text-shadow: none;
+      }
+    }
+  }
+
+  .item-description {
+    padding-bottom: 2px;
+    border-bottom: 1px solid $c-border;
+    word-wrap: break-word;
+    font-size: smaller;
+    font-style: italic;
+    color: $c-detail;
+    margin-left: 28px;
+  }
+}

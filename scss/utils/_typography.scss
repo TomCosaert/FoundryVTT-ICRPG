@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Pangolin:wght@400;800&display=swap");
+
+@font-face {
+    font-family: 'nusaliver';
+    src: url('../fonts/nusaliver-webfont.woff2') format('woff2'),
+         url('../fonts/nusaliver-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-primary: 'Pangolin', sans-serif;
+$font-secondary: 'nusaliver', sans-serif;

@@ -1,0 +1,160 @@
+.story > input {
+  width: 100%;
+}
+
+.attributes-content {
+  display: flex;
+  .resources {
+    display: flex;
+    flex-direction: column;
+    &:last-child {
+      margin-right: 5px;
+    }
+  }
+}
+
+.resource {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
+
+  &.header {
+    font-size: small;
+    .resource-label {
+      font-family: $font-primary;
+      flex: 0 0 32px;
+      margin: 3px 0 2px 5px;
+    }
+  }
+
+  .resource-content > * {
+    &:not(:last-child) {
+      margin-right: 2px;
+    }
+  }
+
+  .resource-label {
+    font-family: $font-secondary;
+    flex: 0 0 75px;
+    margin: 3px 0 2px 5px;
+  }
+
+  &.stat > .resource-label {
+    flex: 1 0 35px;
+    padding-top: 2px;      
+  }
+
+  &.coin {
+    margin-top: 5px;
+
+    &> .resource-label {
+      flex: 1 0 64px;
+      padding-top: 2px;
+    }
+    input {
+      text-align: right;
+    }
+  }
+
+  &.armor {
+    margin-top: 21px;
+  }
+
+  &.health .separator {
+    flex: 0;
+  }
+
+  &.effort > .resource-label,
+  &.armor > .resource-label,
+  &.health > .resource-label {
+    flex: 1 0 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
+    height: 20px;
+    padding-top: 2px;      
+  }
+
+  &.effort > .resource-label {
+    &:hover {
+      filter: drop-shadow(0 0 5px red);
+      text-shadow: none;
+    }
+  }
+
+  &.health > .resource-label { background-image: url("../images/heart.svg"); }
+  &.armor > .resource-label { background-image: url("../images/armor.svg"); }
+  &.basic > .resource-label { background-image: url("../images/d4.svg"); }
+  &.weapon > .resource-label { background-image: url("../images/d6.svg"); }
+  &.magic > .resource-label { background-image: url("../images/d8.svg"); }
+  &.ultimate > .resource-label { background-image: url("../images/d12.svg");}
+
+  &.death > .resource-label { 
+    background-image: url("../images/death.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
+    height: 50px;
+    &:hover {
+      filter: drop-shadow(0 0 5px red);
+      text-shadow: none;
+    }
+  }
+  &.death > .resource-content {
+    position: relative;
+    left: -10px;
+    top: 10px;
+  }
+  &.death .revive { 
+    font-family: $font-secondary;
+    background-image: url("../images/d20.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 25px;
+    height: 23px;
+    padding-top: 3px;
+    margin-left: 5px;
+    &:hover {
+      filter: drop-shadow(0 0 5px red);
+      text-shadow: none;
+    }
+  }
+  
+  &.herocoin {
+    margin-top: 10px;
+    .label {
+      flex: 1;
+    }
+    input[type=checkbox] {
+      display: none;
+      + label {
+        background-image: url("../images/herocoin.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 40px;
+        width: 40px;
+        opacity: 0.2;
+        margin-left: 10px;
+        &:hover {
+          filter: drop-shadow(0 0 5px red);
+          text-shadow: none;
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+      &:checked + label {
+        background-image: url("../images/herocoin.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 40px;
+        width: 40px;
+        opacity: 1;
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  .value {
+    font-weight: bold;
+  }
+}

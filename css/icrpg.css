@@ -1,0 +1,584 @@
+@import url("https://fonts.googleapis.com/css2?family=Pangolin:wght@400;800&display=swap");
+@font-face {
+  font-family: 'nusaliver';
+  src: url("../fonts/nusaliver-webfont.woff2") format("woff2"), url("../fonts/nusaliver-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global styles */
+.window-app {
+  font-family: "Pangolin", sans-serif;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+input::-moz-selection {
+  background: #aaa;
+}
+
+input::selection {
+  background: #aaa;
+}
+
+input::-moz-selection {
+  background: #aaa;
+}
+
+.grid,
+.grid-2col {
+  display: -ms-grid;
+  display: grid;
+  grid-column: span 2 / span 2;
+  -ms-grid-columns: (minmax(0, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  -ms-grid-columns: (minmax(0, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  -ms-grid-columns: (minmax(0, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  -ms-grid-columns: (minmax(0, 1fr))[5];
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  -ms-grid-columns: (minmax(0, 1fr))[5];
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  -ms-grid-columns: (minmax(0, 1fr))[7];
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  -ms-grid-columns: (minmax(0, 1fr))[8];
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  -ms-grid-columns: (minmax(0, 1fr))[9];
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  -ms-grid-columns: (minmax(0, 1fr))[10];
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  -ms-grid-columns: (minmax(0, 1fr))[11];
+      grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  -ms-grid-columns: (minmax(0, 1fr))[12];
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 5px;
+  /*border: 1px solid #999;*/
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* Styles limited to icrpg sheets */
+.icrpg .item-form {
+  font-family: "Pangolin", sans-serif;
+}
+
+.icrpg .window-content {
+  overflow: hidden;
+}
+
+.icrpg.sheet {
+  min-width: 367px;
+}
+
+.icrpg.sheet.actor {
+  min-height: 480px;
+  /*type-character: 480px; type-pc: 350px;*/
+}
+
+.icrpg.sheet.actor .type-character .attributes-content .resources:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40%;
+          flex: 1 0 40%;
+}
+
+.icrpg.sheet.actor .type-npc .attributes-content .resources:first-child,
+.icrpg.sheet.actor .type-npc .attributes-content .resources:nth-child(2) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 26%;
+          flex: 1 0 26%;
+}
+
+.icrpg.sheet.item {
+  min-height: 375px;
+}
+
+.icrpg.sheet.item .type-item .sheet-body {
+  border-top: 1px solid #AAA;
+}
+
+.icrpg.sheet.item .type-item .sheet-tabs {
+  display: none;
+}
+
+.icrpg .sheet-header {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 210px;
+          flex: 0 0 210px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.icrpg .sheet-header .profile-img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100px;
+          flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.icrpg .sheet-header .header-fields {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 5px;
+}
+
+.icrpg .sheet-header h1.charname {
+  height: 40px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+
+.icrpg .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.icrpg .sheet-tabs {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+}
+
+.icrpg .sheet-body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.icrpg .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.icrpg .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.icrpg .tox .tox-editor-container {
+  background: #fff;
+}
+
+.icrpg .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.icrpg .story > input {
+  width: 100%;
+}
+
+.icrpg .attributes-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.icrpg .attributes-content .resources {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.icrpg .attributes-content .resources:last-child {
+  margin-right: 5px;
+}
+
+.icrpg .resource {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 2px;
+}
+
+.icrpg .resource.header {
+  font-size: small;
+}
+
+.icrpg .resource.header .resource-label {
+  font-family: "Pangolin", sans-serif;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 32px;
+          flex: 0 0 32px;
+  margin: 3px 0 2px 5px;
+}
+
+.icrpg .resource .resource-content > *:not(:last-child) {
+  margin-right: 2px;
+}
+
+.icrpg .resource .resource-label {
+  font-family: "nusaliver", sans-serif;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 75px;
+          flex: 0 0 75px;
+  margin: 3px 0 2px 5px;
+}
+
+.icrpg .resource.stat > .resource-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 35px;
+          flex: 1 0 35px;
+  padding-top: 2px;
+}
+
+.icrpg .resource.coin {
+  margin-top: 5px;
+}
+
+.icrpg .resource.coin > .resource-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 64px;
+          flex: 1 0 64px;
+  padding-top: 2px;
+}
+
+.icrpg .resource.coin input {
+  text-align: right;
+}
+
+.icrpg .resource.armor {
+  margin-top: 21px;
+}
+
+.icrpg .resource.health .separator {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+}
+
+.icrpg .resource.effort > .resource-label,
+.icrpg .resource.armor > .resource-label,
+.icrpg .resource.health > .resource-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100px;
+          flex: 1 0 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 30px;
+  height: 20px;
+  padding-top: 2px;
+}
+
+.icrpg .resource.effort > .resource-label:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+}
+
+.icrpg .resource.health > .resource-label {
+  background-image: url("../images/heart.svg");
+}
+
+.icrpg .resource.armor > .resource-label {
+  background-image: url("../images/armor.svg");
+}
+
+.icrpg .resource.basic > .resource-label {
+  background-image: url("../images/d4.svg");
+}
+
+.icrpg .resource.weapon > .resource-label {
+  background-image: url("../images/d6.svg");
+}
+
+.icrpg .resource.magic > .resource-label {
+  background-image: url("../images/d8.svg");
+}
+
+.icrpg .resource.ultimate > .resource-label {
+  background-image: url("../images/d12.svg");
+}
+
+.icrpg .resource.death > .resource-label {
+  background-image: url("../images/death.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 30px;
+  height: 50px;
+}
+
+.icrpg .resource.death > .resource-label:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+}
+
+.icrpg .resource.death > .resource-content {
+  position: relative;
+  left: -10px;
+  top: 10px;
+}
+
+.icrpg .resource.death .revive {
+  font-family: "nusaliver", sans-serif;
+  background-image: url("../images/d20.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 25px;
+  height: 23px;
+  padding-top: 3px;
+  margin-left: 5px;
+}
+
+.icrpg .resource.death .revive:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+}
+
+.icrpg .resource.herocoin {
+  margin-top: 10px;
+}
+
+.icrpg .resource.herocoin .label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.icrpg .resource.herocoin input[type=checkbox] {
+  display: none;
+}
+
+.icrpg .resource.herocoin input[type=checkbox] + label {
+  background-image: url("../images/herocoin.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  opacity: 0.2;
+  margin-left: 10px;
+}
+
+.icrpg .resource.herocoin input[type=checkbox] + label:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.icrpg .resource.herocoin input[type=checkbox]:checked + label {
+  background-image: url("../images/herocoin.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  opacity: 1;
+  margin-left: 10px;
+}
+
+.icrpg .resource .value {
+  font-weight: bold;
+}
+
+.icrpg .tabs {
+  height: 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+
+.icrpg .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.icrpg .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.icrpg .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.icrpg .items-list .item-header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  margin: 5px 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.icrpg .items-list .item {
+  height: 30px;
+  overflow-x: hidden;
+  line-height: 24px;
+  padding: 3px 0;
+}
+
+.icrpg .items-list .item .item-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24px;
+          flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.icrpg .items-list .item img {
+  display: block;
+}
+
+.icrpg .items-list .item-name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  margin: 0;
+}
+
+.icrpg .items-list .item-name .hidden {
+  display: none;
+}
+
+.icrpg .items-list .item-name:hover .hidden {
+  display: inline;
+  color: #aaa;
+}
+
+.icrpg .items-list .item-controls {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  /*flex: 0 0 86px;*/
+  text-align: right;
+  margin-right: 5px;
+}
+
+.icrpg .items-list .item-controls .item-loot {
+  background-image: url("../images/d100.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 25px;
+  margin-left: 5px;
+}
+
+.icrpg .items-list .item-controls .item-loot:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+}
+
+.icrpg .items-list .item-description {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #bbb;
+  word-wrap: break-word;
+  font-size: smaller;
+  font-style: italic;
+  color: #444;
+  margin-left: 28px;
+}
