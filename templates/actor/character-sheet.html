@@ -138,7 +138,7 @@
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
                     <span class="item-name">
-                        <a class="item-control" data-action="edit">{{#if (ne item.data.quantity 1)}}{{item.data.quantity}}&nbsp;{{/if}}{{item.name}}</a>
+                        <a class="item-control" data-action="edit">{{#if (ne item.data.quantity 1)}}{{item.data.quantity}}x&nbsp;{{/if}}{{item.name}}</a>
                         <a class="item-control {{#if item.data.equipped}}{{else}}hidden{{/if}}" data-action="equip" title='{{localize "ICRPG.Equipped"}}'>
                             <i class="fas fa-star"></i>
                         </a>
