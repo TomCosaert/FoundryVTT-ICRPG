@@ -23,7 +23,7 @@
     font-family: $font-primary;
     font-size: small;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 7px;
     &.stat > .header:first-child {
       flex: 1 0 35px;
       text-align: left;
@@ -31,6 +31,12 @@
       max-width: 100%;
     }
     &.effort > .header:first-child {
+      flex: 1 0 100px;
+      text-align: left;
+      padding-left: 35px;
+      max-width: 100%;
+    }
+    &.armor > .header:first-child {
       flex: 1 0 100px;
       text-align: left;
       padding-left: 35px;
@@ -51,26 +57,18 @@
   .resource-label {
     font-family: $font-secondary;
     flex: 0 0 75px;
-    margin: 3px 0 2px 5px;
+    margin: 3px 2px 2px 5px;
   }
 
   &.stat > .resource-label {
     flex: 1 0 35px;
   }
 
-  &.coin {
-    margin-top: 5px;
-
-    & > .resource-label {
-      flex: 1 0 90px;
-    }
-    input {
-      text-align: right;
-    }
+  &.coin > .resource-label {
+    flex: 1 0 75px;
   }
-
-  &.armor {
-    margin-top: 21px;
+  &.coin input {
+    text-align: right;
   }
 
   &.health .separator {
@@ -78,13 +76,17 @@
   }
 
   &.effort > .resource-label,
-  &.armor > .resource-label,
-  &.health > .resource-label {
+  &.armor > .resource-label {
     flex: 1 0 100px;
     background-repeat: no-repeat;
     background-size: contain;
     padding-left: 30px;
-    height: 20px;
+  }
+  &.health > .resource-label {
+    flex: 1 0 85px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
   }
 
   &.effort > .resource-label {
@@ -114,10 +116,12 @@
   }
 
   &.death > .resource-label {
+    position: absolute;
     background-image: url("../images/death.svg");
     background-repeat: no-repeat;
     background-size: contain;
     padding-left: 30px;
+    margin-left: 5px;
     height: 50px;
     &:hover {
       filter: drop-shadow(0 0 5px red);
@@ -126,8 +130,11 @@
   }
   &.death > .resource-content {
     position: relative;
-    left: -10px;
-    top: 10px;
+    margin-left: 60px;
+    margin-top: 20px;
+    input {
+      max-width: 50px;
+    }
   }
   &.death .revive {
     background-image: url("../images/d20.svg");
@@ -147,6 +154,9 @@
     margin-top: 10px;
     .label {
       flex: 1;
+    }
+    .resource-label {
+      align-self: center;
     }
     input[type="checkbox"] {
       display: none;
@@ -179,5 +189,7 @@
 
   .value {
     font-weight: bold;
+    font-size: larger;
+    filter: drop-shadow(0 0 5px $c-white);
   }
 }

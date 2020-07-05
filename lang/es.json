@@ -20,8 +20,9 @@
     "ICRPG.EffortWeapon": "Armas",
     "ICRPG.EffortMagic": "Magia",
     "ICRPG.EffortUltimate": "Crítico",
+    "ICRPG.Health": "Salud",
     "ICRPG.Armor": "Armadura",
-    "ICRPG.HP": "Salud",
+    "ICRPG.HP": "PG",
     "ICRPG.Dying": "Muerte",
     "ICRPG.Revive": "Revivir",
     "ICRPG.Gear": "Equipo",
@@ -33,5 +34,6 @@
     "ICRPG.AreYouSure": "¿Estás seguro?",
     "ICRPG.Quantity": "Cantidad",
     "ICRPG.Notes": "Notas",
-    "ICRPG.Description": "Descripción"
+    "ICRPG.Description": "Descripción",
+    "ICRPG.Rolling": "Lanzando"
 }

@@ -58,9 +58,14 @@
                     </div>
                     {{/each}}
 
+                    {{!-- Header --}}
+                    <div class="resource health resource-header">
+                        <span class="header"></span> <!--{{localize "ICRPG.Coin"}}-->
+                    </div>
+
                     {{!-- Coin --}}
                     <div class="resource coin">
-                        <label for="data.coin.value" class="resource-label"><i class="fa fa-coins"></i>
+                        <label for="data.coin.value" class="resource-label"><!--<i class="fa fa-coins"></i>-->
                             {{localize "ICRPG.Coin"}}</label>
                         <input type="text" name="data.coin.value" value="{{data.coin.value}}" data-dtype="Number" />
                     </div>
@@ -77,10 +82,27 @@
                 <div class="resources">
 
                     {{!-- Header --}}
-                    <div class="resource effort resource-header">
-                        <span class="header">{{localize "ICRPG.Effort"}}</span>
+                    <div class="resource armor resource-header">
+                        <span class="header"></span> <!--{{localize "ICRPG.Armor"}}-->
                         <span class="header">{{localize "ICRPG.Base"}}</span>
                         <span class="header">{{localize "ICRPG.Loot"}}</span>
+                    </div>
+
+                    {{!-- Armor --}}
+                    <div class="resource armor">
+                        <label for="data.armor.value" class="resource-label"> {{localize "ICRPG.Armor"}} </label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <span class="value">{{data.armor.value}}</span>
+                            <input type="text" name="data.armor.base" value="{{data.armor.base}}" data-dtype="Number" />
+                            <input type="text" name="data.armor.loot" value="{{data.armor.loot}}" data-dtype="Number" />
+                        </div>
+                    </div>
+
+                    {{!-- Header --}}
+                    <div class="resource effort resource-header">
+                        <span class="header">{{localize "ICRPG.Effort"}}</span>
+                        <span class="header"></span> <!--{{localize "ICRPG.Base"}}-->
+                        <span class="header"></span> <!--{{localize "ICRPG.Loot"}}-->
                     </div>
 
                     {{!-- Effort --}}
@@ -102,17 +124,12 @@
                     </div>
                     {{/each}}
 
-                    {{!-- Armor --}}
-                    <div class="resource armor">
-                        <label for="data.armor.value" class="resource-label"> {{localize "ICRPG.Armor"}} </label>
-                        <div class="resource-content flexrow flex-center flex-between">
-                            <span class="value">{{data.armor.value}}</span>
-                            <input type="text" name="data.armor.base" value="{{data.armor.base}}" data-dtype="Number" />
-                            <input type="text" name="data.armor.loot" value="{{data.armor.loot}}" data-dtype="Number" />
-                        </div>
+                    {{!-- Header --}}
+                    <div class="resource health resource-header">
+                        <span class="header"></span> <!--{{localize "ICRPG.Health"}}-->
                     </div>
 
-                    {{!-- Health --}}
+                    {{!-- HP --}}
                     <div class="resource health">
                         <label for="data.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
                         <div class="resource-content flexrow flex-center flex-between">
@@ -172,7 +189,7 @@
                     </div>
                 </li>
                 <li class="item-description flexrow">
-                    <span>{{preview item.data.description 100}}</span>
+                    <span>{{preview item.data.description 125}}</span>
                 </li>
                 {{/each}}
             </ol>

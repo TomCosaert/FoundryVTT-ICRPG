@@ -17,9 +17,10 @@
     "ICRPG.HeroCoin": "Hero Coin",
     "ICRPG.Effort": "Effort",
     "ICRPG.EffortBasic": "Basic",
-    "ICRPG.EffortWeapon": "Weapon",
+    "ICRPG.EffortWeapon": "Weapons",
     "ICRPG.EffortMagic": "Magic",
     "ICRPG.EffortUltimate": "Ultimate",
+    "ICRPG.Health": "Health",
     "ICRPG.Armor": "Armor",
     "ICRPG.HP": "HP",
     "ICRPG.Dying": "Dying",
@@ -33,5 +34,6 @@
     "ICRPG.AreYouSure": "Are you sure?",
     "ICRPG.Quantity": "Quantity",
     "ICRPG.Notes": "Notes",
-    "ICRPG.Description": "Description"
+    "ICRPG.Description": "Description",
+    "ICRPG.Rolling": "Rolling"
 }
