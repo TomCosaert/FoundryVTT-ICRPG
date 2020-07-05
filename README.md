@@ -10,6 +10,8 @@ This **game system** (i.e. plug-in) for Foundry VTT allows easy creation and man
 
 ![screenshot|441x500](https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/screenshot.png)
 
+## Features
+
 To highlight some of its **features** that might not be obvious at first glance:
 - Character sheet attributes are **roll-able** to the chat window by clicking the Stats, Effort, Dying, Revive labels in the Attributes tab, or the Loot label in the Gear tab. If applicable, any modifiers are automatically applied to the roll.
 - The character sheet allows **adding new items** without having to first create them as stand-alone ones, by clicking the plus icon.
@@ -18,14 +20,27 @@ To highlight some of its **features** that might not be obvious at first glance:
 
 Items do not support attributes to be automatically added to the loot values of the character sheet, as it would be hard to differentiate between situations in which item bonuses are applicable and in which not. This is something users have to track themselves.
 
-I acquired **permission** from the author/designer Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) to make this game system available to the Foundry VTT community as-is, but without including any source material content such as item loot tables as compendia.
+## Improvements
 
-Planned **future** improvements include adding support for scene Target Numbers (TN), Timers, optional Stun and Supply attributes and more…
+Planned **future** improvements include:
+- adding support for scene Target Numbers (TN) and Timers
+- adding optional Stun and Supply attributes
+- adding more translations
+
+## Installation
 
 In Foundry VTT, use the following **Manifest URL** to install the game system:
 ```
 https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/system.json
 ```
+
+## Attribution
+
+I acquired **permission** from the author/designer Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) to make this game system available to the Foundry VTT community as-is, but without including any source material content such as item loot tables as compendia.
+
+Thanks to Diego Martinez for the Spanish translations!
+
+## Links
 
 For more information, visit the following pages:
 * [Personal Blog](https://alphacore.be/foundryvtt-icrpg/)

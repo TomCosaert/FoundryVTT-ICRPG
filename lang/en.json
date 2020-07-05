@@ -4,40 +4,34 @@
     "ICRPG.Class": "Class",
     "ICRPG.BioForm": "Bio-Form",
     "ICRPG.Story": "Story",
-
+    "ICRPG.Stats": "Stats",
     "ICRPG.Base": "Base",
     "ICRPG.Loot": "Loot",
-
-    "ICRPG.Stats": "Stats",
     "ICRPG.STR": "STR",
     "ICRPG.DEX": "DEX",
     "ICRPG.CON": "CON",
     "ICRPG.INT": "INT",
     "ICRPG.WIS": "WIS",
     "ICRPG.CHA": "CHA",
-
-    "ICRPG.Armor": "Armor",
-
+    "ICRPG.Coin": "Coin",
+    "ICRPG.HeroCoin": "Hero Coin",
     "ICRPG.Effort": "Effort",
     "ICRPG.EffortBasic": "Basic",
     "ICRPG.EffortWeapon": "Weapon",
     "ICRPG.EffortMagic": "Magic",
     "ICRPG.EffortUltimate": "Ultimate",
-
+    "ICRPG.Armor": "Armor",
     "ICRPG.HP": "HP",
     "ICRPG.Dying": "Dying",
     "ICRPG.Revive": "Revive",
-    "ICRPG.Coin": "Coin",
-    "ICRPG.HeroCoin": "Hero Coin",
-
     "ICRPG.Gear": "Gear",
-    "ICRPG.Equipped": "Equipped",
     "ICRPG.AddItem": "Add Item",
+    "ICRPG.LootRoll": "Loot",
+    "ICRPG.Equipped": "Equipped",
     "ICRPG.EditItem": "Edit Item",
     "ICRPG.DeleteItem": "Delete Item",
     "ICRPG.AreYouSure": "Are you sure?",
     "ICRPG.Quantity": "Quantity",
-
     "ICRPG.Notes": "Notes",
     "ICRPG.Description": "Description"
 }

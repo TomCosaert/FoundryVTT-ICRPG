@@ -8,7 +8,7 @@
 
 /* Global styles */
 .window-app {
-  font-family: "Pangolin", sans-serif;
+  font-family: "Pangolin", cursive;
 }
 
 .rollable:hover, .rollable:focus {
@@ -147,7 +147,7 @@ input::-moz-selection {
 
 /* Styles limited to icrpg sheets */
 .icrpg .item-form {
-  font-family: "Pangolin", sans-serif;
+  font-family: "Pangolin", cursive;
 }
 
 .icrpg .window-content {
@@ -169,7 +169,7 @@ input::-moz-selection {
           flex: 1 0 40%;
 }
 
-.icrpg.sheet.actor .type-npc .attributes-content .resources:first-child,
+.icrpg.sheet.actor .type-npc .attributes-content .resources:nth-child(1),
 .icrpg.sheet.actor .type-npc .attributes-content .resources:nth-child(2) {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 26%;
@@ -221,6 +221,10 @@ input::-moz-selection {
       -ms-flex: 1;
           flex: 1;
   margin-right: 5px;
+}
+
+.icrpg .sheet-header .header-fields .resource > input:not(:last-child) {
+  margin-right: 2px;
 }
 
 .icrpg .sheet-header h1.charname {
@@ -299,16 +303,38 @@ input::-moz-selection {
   margin-bottom: 2px;
 }
 
-.icrpg .resource.header {
+.icrpg .resource.resource-header {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-family: "Pangolin", cursive;
   font-size: small;
+  text-align: center;
 }
 
-.icrpg .resource.header .resource-label {
-  font-family: "Pangolin", sans-serif;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 32px;
-          flex: 0 0 32px;
-  margin: 3px 0 2px 5px;
+.icrpg .resource.resource-header.stat > .header:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 35px;
+          flex: 1 0 35px;
+  text-align: left;
+  padding-left: 5px;
+  max-width: 100%;
+}
+
+.icrpg .resource.resource-header.effort > .header:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100px;
+          flex: 1 0 100px;
+  text-align: left;
+  padding-left: 35px;
+  max-width: 100%;
+}
+
+.icrpg .resource.resource-header .header {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 121px;
 }
 
 .icrpg .resource .resource-content > *:not(:last-child) {
@@ -316,7 +342,8 @@ input::-moz-selection {
 }
 
 .icrpg .resource .resource-label {
-  font-family: "nusaliver", sans-serif;
+  font-family: "nusaliver", cursive;
+  font-size: 14px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 75px;
           flex: 0 0 75px;
@@ -336,8 +363,8 @@ input::-moz-selection {
 
 .icrpg .resource.coin > .resource-label {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 64px;
-          flex: 1 0 64px;
+      -ms-flex: 1 0 75px;
+          flex: 1 0 75px;
   padding-top: 2px;
 }
 
@@ -419,7 +446,6 @@ input::-moz-selection {
 }
 
 .icrpg .resource.death .revive {
-  font-family: "nusaliver", sans-serif;
   background-image: url("../images/d20.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -555,12 +581,13 @@ input::-moz-selection {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  /*flex: 0 0 86px;*/
   text-align: right;
   margin-right: 5px;
 }
 
 .icrpg .items-list .item-controls .item-loot {
+  font-family: "nusaliver", cursive;
+  font-size: 14px;
   background-image: url("../images/d100.svg");
   background-repeat: no-repeat;
   background-size: contain;

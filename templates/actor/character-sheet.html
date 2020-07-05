@@ -31,13 +31,10 @@
                 <div class="resources">
 
                     {{!-- Header --}}
-                    <div class="resource stat header">
-                        <label class="resource-label">{{localize "ICRPG.Stats"}}</label>
-                        <div class="resource-content flexrow flex-center flex-between">
-                            <span class="value">&nbsp;</span>
-                            <span class="header">{{localize "ICRPG.Base"}}&nbsp;&nbsp;&nbsp;</span>
-                            <span class="header">{{localize "ICRPG.Loot"}}&nbsp;</span>
-                        </div>
+                    <div class="resource stat resource-header">
+                        <span class="header">{{localize "ICRPG.Stats"}}</span>
+                        <span class="header">{{localize "ICRPG.Base"}}</span>
+                        <span class="header">{{localize "ICRPG.Loot"}}</span>
                     </div>
 
                     {{!-- Stats --}}
@@ -72,13 +69,10 @@
                 <div class="resources">
 
                     {{!-- Header --}}
-                    <div class="resource effort header">
-                        <label class="resource-label">{{localize "ICRPG.Effort"}}</label>
-                        <div class="resource-content flexrow flex-center flex-between">
-                            <span class="value">&nbsp;</span>
-                            <span class="header">{{localize "ICRPG.Base"}}&nbsp;&nbsp;&nbsp;</span>
-                            <span class="header">{{localize "ICRPG.Loot"}}&nbsp;</span>
-                        </div>
+                    <div class="resource effort resource-header">
+                        <span class="header">{{localize "ICRPG.Effort"}}</span>
+                        <span class="header">{{localize "ICRPG.Base"}}</span>
+                        <span class="header">{{localize "ICRPG.Loot"}}</span>
                     </div>
 
                     {{!-- Effort --}}
@@ -121,7 +115,7 @@
                         <label for="data.dying.value" class="resource-label rollable" data-roll='1d6' data-label='{{localize "ICRPG.Dying"}}'>{{localize "ICRPG.Dying"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <input type="text" name="data.dying.value" value="{{data.dying.value}}" data-dtype="Number"/>
-                            <a class="revive rollable" data-roll='1d20' data-label='{{localize "ICRPG.Revive"}}'>{{localize "ICRPG.Revive"}}</a>
+                            <a class="resource-label revive rollable" data-roll='1d20' data-label='{{localize "ICRPG.Revive"}}'>{{localize "ICRPG.Revive"}}</a>
                         </div>
                     </div>
 
@@ -136,8 +130,8 @@
                   <div class="item-image"></div>
                   <div class="item-name">{{localize "ICRPG.Name"}}</div>
                   <div class="item-controls">
-                    <a class="item-control item-create" data-action="create" title="Create item" data-type="item"><i class="fas fa-plus"></i></a>
-                    <a class="item-control item-loot rollable" data-roll='1d100' data-label='{{localize "ICRPG.Loot"}}'>{{localize "ICRPG.Loot"}}</a>
+                    <a class="item-control item-create" data-action="create" title='{{localize "ICRPG.AddItem"}}' data-type="item"><i class="fas fa-plus"></i></a>
+                    <a class="item-control item-loot rollable" data-roll='1d100' data-label='{{localize "ICRPG.LootRoll"}}'>{{localize "ICRPG.LootRoll"}}</a>
                   </div>
                 </li>
             {{#each actor.items as |item id|}}

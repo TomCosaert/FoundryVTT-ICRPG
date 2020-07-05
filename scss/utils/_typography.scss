@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Pangolin:wght@400;800&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush:wght@400&display=swap");
 
 @font-face {
     font-family: 'nusaliver';
@@ -8,5 +9,8 @@
     font-style: normal;
 }
 
-$font-primary: 'Pangolin', sans-serif;
-$font-secondary: 'nusaliver', sans-serif;
+$font-primary: 'Pangolin', cursive;
+$font-secondary: 'nusaliver', cursive;
+//$font-secondary: 'Caveat Brush', cursive;
+$font-secondary-size: 14px;
+//$font-secondary-size: 24px;

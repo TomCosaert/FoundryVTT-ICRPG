@@ -47,11 +47,13 @@
   }
 
   .item-controls {
-    flex: 0 0 auto; /*flex: 0 0 86px;*/
+    flex: 0 0 auto;
     text-align: right;
     margin-right: 5px;
 
     .item-loot {
+      font-family: $font-secondary;
+      font-size: $font-secondary-size;
 			background-image: url("../images/d100.svg");
 			background-repeat: no-repeat;
 			background-size: contain;

@@ -13,7 +13,7 @@
     .type-character .attributes-content .resources:first-child {
       flex: 1 0 40%;
     }
-    .type-npc .attributes-content .resources:first-child,
+    .type-npc .attributes-content .resources:nth-child(1),
     .type-npc .attributes-content .resources:nth-child(2) {
       flex: 1 0 26%;
     }
@@ -47,6 +47,9 @@
   .header-fields {
     flex: 1;
     margin-right: 5px;
+    .resource > input:not(:last-child) {
+      margin-right: 2px;
+    }
   }
 
   h1.charname {
