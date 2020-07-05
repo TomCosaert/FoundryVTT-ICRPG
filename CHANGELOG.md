@@ -5,6 +5,7 @@
 ## [1.0.1] - 2020-07-05
 ### Added
 - Added Spanish translation (thanks to Diego Martinez)
+- Added missing glyphs for Spanish to 'nusaliver' font
 ### Changed
 - Changed quantity representation of items to avoid pluralization issues
 ### Fixed
