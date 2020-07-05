@@ -1,6 +1,9 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [
+      "character",
+      "npc"
+    ],
     "templates": {
       "base": {
         "stats": {
@@ -23,7 +26,7 @@
             "value": 0
           }
         },
-        "effort" : {
+        "effort": {
           "basic": {
             "value": 0
           },
@@ -46,7 +49,9 @@
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "class": "",
       "bioform": "",
       "story": "",
@@ -76,7 +81,7 @@
           "loot": 0
         }
       },
-      "effort" : {
+      "effort": {
         "basic": {
           "base": 0,
           "loot": 0
@@ -108,18 +113,24 @@
       "herocoin": false
     },
     "npc": {
-      "templates": ["base"]
+      "templates": [
+        "base"
+      ]
     }
   },
   "Item": {
-    "types": ["item"],
+    "types": [
+      "item"
+    ],
     "templates": {
       "base": {
         "description": ""
       }
     },
     "item": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "quantity": 1,
       "equipped": false
     }

@@ -7,7 +7,7 @@ import { IcrpgItemSheet } from "./item/item-sheet.js";
 import { IcrpgRegisterHelpers } from "./handlebars.js";
 import { IcrpgUtility } from "./utility.js";
 
-Hooks.once('init', async function() {
+Hooks.once('init', async function () {
 
   game.icrpg = {
     IcrpgActor,
@@ -15,16 +15,16 @@ Hooks.once('init', async function() {
     IcrpgUtility
   };
 
-	/**
-	 * Set an initiative formula for the system
-	 * @type {String}
-	 */
-	CONFIG.Combat.initiative = {
-	  formula: "1d20",
+  /**
+   * Set an initiative formula for the system
+   * @type {String}
+   */
+  CONFIG.Combat.initiative = {
+    formula: "1d20",
     decimals: 2
   };
 
-	// Define custom Entity classes
+  // Define custom Entity classes
   CONFIG.Actor.entityClass = IcrpgActor;
   CONFIG.Item.entityClass = IcrpgItem;
 
@@ -33,7 +33,7 @@ Hooks.once('init', async function() {
   Actors.registerSheet("icrpg", IcrpgCharacterSheet, { types: ["character"], makeDefault: true });
   Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("icrpg", IcrpgItemSheet, {makeDefault: true});
+  Items.registerSheet("icrpg", IcrpgItemSheet, { makeDefault: true });
 
   IcrpgRegisterHelpers.init();
 });

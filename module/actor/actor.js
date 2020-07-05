@@ -53,12 +53,12 @@ export class IcrpgActor extends Actor {
     data.effort.ultimate.die = "d12";
 
     data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
-/*
-    data.armour = actorData
-      .items
-      .map(item => item.data.armour * item.data.equipped)
-      .reduce((a,b) => a + b, 0)
-*/
+    /*
+        data.armour = actorData
+          .items
+          .map(item => item.data.armour * item.data.equipped)
+          .reduce((a,b) => a + b, 0)
+    */
   }
 
   /**
@@ -66,26 +66,26 @@ export class IcrpgActor extends Actor {
    */
   _prepareNpcData(actorData) {
     const data = actorData.data;
-    
+
   }
 
   getRollData() {
     const data = super.getRollData();
     // Let us do @str etc, instead of @stats.str.value
-    for (let [id, stat] of Object.entries(data.stats) ) {
+    for (let [id, stat] of Object.entries(data.stats)) {
       if (!(id in data)) data[id] = stat.value;
     }
     return data
   }
-  
-/* TODO: quantity decrease not applied after refreshing page
-  deleteOwnedItem(itemId) {
-    const item = this.getOwnedItem(itemId);
-    if (item.data.data.quantity > 1) {
-      item.data.data.quantity--;
-    } else {
-      super.deleteOwnedItem(itemId);
+
+  /* TODO: quantity decrease not applied after refreshing page
+    deleteOwnedItem(itemId) {
+      const item = this.getOwnedItem(itemId);
+      if (item.data.data.quantity > 1) {
+        item.data.data.quantity--;
+      } else {
+        super.deleteOwnedItem(itemId);
+      }
     }
-  }
-*/
+  */
 }

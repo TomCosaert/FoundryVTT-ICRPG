@@ -7,14 +7,14 @@ import { IcrpgUtility } from "../utility.js";
 export class IcrpgCharacterSheet extends ActorSheet {
 
   /** @override */
-	static get defaultOptions() {
-	  return mergeObject(super.defaultOptions, {
-  	  classes: ["icrpg", "sheet", "actor"],
-  	  template: "systems/icrpg/templates/actor/character-sheet.html",
-      width: 367,
-      height: 480,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["icrpg", "sheet", "actor"],
+      template: "systems/icrpg/templates/actor/character-sheet.html",
+      width: 375,
+      height: 475,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }
 
@@ -48,7 +48,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
-  setPosition(options={}) {
+  setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetHeader = this.element.find(".sheet-header");
     const sheetBody = this.element.find(".sheet-body");
@@ -70,7 +70,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     const action = header.dataset.action;
 
     // Create new item
-    if ( action === "create" ) {
+    if (action === "create") {
       // Get the type of item to create.
       const type = header.dataset.type;
       // Grab any data associated with this control.
@@ -93,16 +93,16 @@ export class IcrpgCharacterSheet extends ActorSheet {
     else if (action === "equip") {
       const li = $(header).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
-      await item.update({"data.equipped": !item.data.data.equipped});
+      await item.update({ "data.equipped": !item.data.data.equipped });
     }
 
-    else if ( action === "edit" ) {
+    else if (action === "edit") {
       const li = $(header).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     }
 
-    else if ( action === "delete" ) {
+    else if (action === "delete") {
       let d = Dialog.confirm({
         title: game.i18n.localize("ICRPG.DeleteItem"),
         content: "<p>" + game.i18n.localize("ICRPG.AreYouSure") + "</p>",
@@ -111,11 +111,11 @@ export class IcrpgCharacterSheet extends ActorSheet {
           this.actor.deleteOwnedItem(li.data("itemId"));
           li.slideUp(200, () => this.render(false));
         },
-        no: () => { 
-          return; 
+        no: () => {
+          return;
         },
         defaultYes: false
-       });
+      });
     }
   }
 
@@ -138,6 +138,6 @@ export class IcrpgCharacterSheet extends ActorSheet {
       });
     }
   }
-  
+
   /* -------------------------------------------- */
 }

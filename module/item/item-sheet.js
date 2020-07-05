@@ -5,13 +5,13 @@
 export class IcrpgItemSheet extends ItemSheet {
 
   /** @override */
-	static get defaultOptions() {
-	  return mergeObject(super.defaultOptions, {
-        classes: ["icrpg", "sheet", "item"],
-        template: "systems/icrpg/templates/item/item-sheet.html",
-        width: 367,
-        height: 367,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["icrpg", "sheet", "item"],
+      template: "systems/icrpg/templates/item/item-sheet.html",
+      width: 375,
+      height: 275,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
 
@@ -36,7 +36,7 @@ export class IcrpgItemSheet extends ItemSheet {
 
   /* -------------------------------------------- */
 
-  setPosition(options={}) {
+  setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetHeader = this.element.find(".sheet-header");
     const sheetBody = this.element.find(".sheet-body");
@@ -48,7 +48,7 @@ export class IcrpgItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-	activateListeners(html) {
+  activateListeners(html) {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable

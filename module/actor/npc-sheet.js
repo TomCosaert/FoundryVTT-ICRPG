@@ -7,13 +7,13 @@ import { IcrpgUtility } from "../utility.js";
 export class IcrpgNpcSheet extends ActorSheet {
 
   /** @override */
-	static get defaultOptions() {
-	  return mergeObject(super.defaultOptions, {
-  	  classes: ["icrpg", "sheet", "actor"],
-  	  template: "systems/icrpg/templates/actor/npc-sheet.html",
-      width: 367,
-      height: 450,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["icrpg", "sheet", "actor"],
+      template: "systems/icrpg/templates/actor/npc-sheet.html",
+      width: 375,
+      height: 475,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
     });
   }
 
@@ -32,7 +32,7 @@ export class IcrpgNpcSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-	activateListeners(html) {
+  activateListeners(html) {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -44,7 +44,7 @@ export class IcrpgNpcSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
-  setPosition(options={}) {
+  setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetHeader = this.element.find(".sheet-header");
     const sheetBody = this.element.find(".sheet-body");
@@ -74,6 +74,6 @@ export class IcrpgNpcSheet extends ActorSheet {
       });
     }
   }
-  
+
   /* -------------------------------------------- */
 }

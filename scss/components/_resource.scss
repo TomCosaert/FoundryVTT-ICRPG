@@ -20,22 +20,23 @@
 
   &.resource-header {
     justify-content: flex-end;
-    font-family: $font-primary;    
+    font-family: $font-primary;
     font-size: small;
     text-align: center;
+    margin-top: 5px;
     &.stat > .header:first-child {
-       flex: 1 0 35px; 
-       text-align: left; 
-       padding-left: 5px;
-       max-width: 100%;
+      flex: 1 0 35px;
+      text-align: left;
+      padding-left: 5px;
+      max-width: 100%;
     }
     &.effort > .header:first-child {
-      flex: 1 0 100px; 
-      text-align: left; 
+      flex: 1 0 100px;
+      text-align: left;
       padding-left: 35px;
       max-width: 100%;
     }
-    .header { 
+    .header {
       flex: 1;
       max-width: 121px;
     }
@@ -49,22 +50,19 @@
 
   .resource-label {
     font-family: $font-secondary;
-    font-size: 14px;
     flex: 0 0 75px;
     margin: 3px 0 2px 5px;
   }
 
   &.stat > .resource-label {
     flex: 1 0 35px;
-    padding-top: 2px;      
   }
 
   &.coin {
     margin-top: 5px;
 
-    &> .resource-label {
-      flex: 1 0 75px;
-      padding-top: 2px;
+    & > .resource-label {
+      flex: 1 0 90px;
     }
     input {
       text-align: right;
@@ -87,7 +85,6 @@
     background-size: contain;
     padding-left: 30px;
     height: 20px;
-    padding-top: 2px;      
   }
 
   &.effort > .resource-label {
@@ -97,14 +94,26 @@
     }
   }
 
-  &.health > .resource-label { background-image: url("../images/heart.svg"); }
-  &.armor > .resource-label { background-image: url("../images/armor.svg"); }
-  &.basic > .resource-label { background-image: url("../images/d4.svg"); }
-  &.weapon > .resource-label { background-image: url("../images/d6.svg"); }
-  &.magic > .resource-label { background-image: url("../images/d8.svg"); }
-  &.ultimate > .resource-label { background-image: url("../images/d12.svg");}
+  &.health > .resource-label {
+    background-image: url("../images/heart.svg");
+  }
+  &.armor > .resource-label {
+    background-image: url("../images/armor.svg");
+  }
+  &.basic > .resource-label {
+    background-image: url("../images/d4.svg");
+  }
+  &.weapon > .resource-label {
+    background-image: url("../images/d6.svg");
+  }
+  &.magic > .resource-label {
+    background-image: url("../images/d8.svg");
+  }
+  &.ultimate > .resource-label {
+    background-image: url("../images/d12.svg");
+  }
 
-  &.death > .resource-label { 
+  &.death > .resource-label {
     background-image: url("../images/death.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -133,13 +142,13 @@
       text-shadow: none;
     }
   }
-  
+
   &.herocoin {
     margin-top: 10px;
     .label {
       flex: 1;
     }
-    input[type=checkbox] {
+    input[type="checkbox"] {
       display: none;
       + label {
         background-image: url("../images/herocoin.svg");
@@ -167,7 +176,7 @@
       }
     }
   }
-  
+
   .value {
     font-weight: bold;
   }

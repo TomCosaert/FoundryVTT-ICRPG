@@ -7,9 +7,9 @@
 }
 
 &.sheet {
-  min-width: 367px;
+  min-width: 375px;
   &.actor {
-    min-height: 480px; /*type-character: 480px; type-pc: 350px;*/
+    min-height: 475px; /*type-character: 480px; type-pc: 350px;*/
     .type-character .attributes-content .resources:first-child {
       flex: 1 0 40%;
     }
@@ -19,9 +19,9 @@
     }
   }
   &.item {
-    min-height: 375px;
+    min-height: 275px;
     .type-item .sheet-body {
-      border-top: 1px solid #AAA;
+      border-top: 1px solid #aaa;
     }
     .type-item .sheet-tabs {
       display: none;
@@ -73,8 +73,7 @@
   overflow: hidden;
   height: 100%;
 }
-.sheet-body .tab
-{
+.sheet-body .tab {
   height: 100%;
   overflow-y: auto;
 }

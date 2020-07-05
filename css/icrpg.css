@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Pangolin:wght@400;800&display=swap");
 @font-face {
-  font-family: 'nusaliver';
-  src: url("../fonts/nusaliver-webfont.woff2") format("woff2"), url("../fonts/nusaliver-webfont.woff") format("woff");
+  font-family: "nusaliver";
+  src: url("../fonts/nusaliver/nusaliver-webfont.woff2") format("woff2"), url("../fonts/nusaliver/nusaliver-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -155,11 +155,11 @@ input::-moz-selection {
 }
 
 .icrpg.sheet {
-  min-width: 367px;
+  min-width: 375px;
 }
 
 .icrpg.sheet.actor {
-  min-height: 480px;
+  min-height: 475px;
   /*type-character: 480px; type-pc: 350px;*/
 }
 
@@ -177,11 +177,11 @@ input::-moz-selection {
 }
 
 .icrpg.sheet.item {
-  min-height: 375px;
+  min-height: 275px;
 }
 
 .icrpg.sheet.item .type-item .sheet-body {
-  border-top: 1px solid #AAA;
+  border-top: 1px solid #aaa;
 }
 
 .icrpg.sheet.item .type-item .sheet-tabs {
@@ -310,6 +310,7 @@ input::-moz-selection {
   font-family: "Pangolin", cursive;
   font-size: small;
   text-align: center;
+  margin-top: 5px;
 }
 
 .icrpg .resource.resource-header.stat > .header:first-child {
@@ -343,7 +344,6 @@ input::-moz-selection {
 
 .icrpg .resource .resource-label {
   font-family: "nusaliver", cursive;
-  font-size: 14px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 75px;
           flex: 0 0 75px;
@@ -354,7 +354,6 @@ input::-moz-selection {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 35px;
           flex: 1 0 35px;
-  padding-top: 2px;
 }
 
 .icrpg .resource.coin {
@@ -363,9 +362,8 @@ input::-moz-selection {
 
 .icrpg .resource.coin > .resource-label {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 75px;
-          flex: 1 0 75px;
-  padding-top: 2px;
+      -ms-flex: 1 0 90px;
+          flex: 1 0 90px;
 }
 
 .icrpg .resource.coin input {
@@ -392,7 +390,6 @@ input::-moz-selection {
   background-size: contain;
   padding-left: 30px;
   height: 20px;
-  padding-top: 2px;
 }
 
 .icrpg .resource.effort > .resource-label:hover {
@@ -471,11 +468,11 @@ input::-moz-selection {
           flex: 1;
 }
 
-.icrpg .resource.herocoin input[type=checkbox] {
+.icrpg .resource.herocoin input[type="checkbox"] {
   display: none;
 }
 
-.icrpg .resource.herocoin input[type=checkbox] + label {
+.icrpg .resource.herocoin input[type="checkbox"] + label {
   background-image: url("../images/herocoin.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -485,7 +482,7 @@ input::-moz-selection {
   margin-left: 10px;
 }
 
-.icrpg .resource.herocoin input[type=checkbox] + label:hover {
+.icrpg .resource.herocoin input[type="checkbox"] + label:hover {
   -webkit-filter: drop-shadow(0 0 5px red);
           filter: drop-shadow(0 0 5px red);
   text-shadow: none;
@@ -493,7 +490,7 @@ input::-moz-selection {
   cursor: pointer;
 }
 
-.icrpg .resource.herocoin input[type=checkbox]:checked + label {
+.icrpg .resource.herocoin input[type="checkbox"]:checked + label {
   background-image: url("../images/herocoin.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -509,8 +506,8 @@ input::-moz-selection {
 
 .icrpg .tabs {
   height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
 }
 
 .icrpg .tabs .item {
@@ -537,7 +534,7 @@ input::-moz-selection {
   padding: 5px;
   margin: 0 0 5px 0;
   background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   border-radius: 2px;
   font-weight: bold;
   overflow-y: hidden;
@@ -586,8 +583,6 @@ input::-moz-selection {
 }
 
 .icrpg .items-list .item-controls .item-loot {
-  font-family: "nusaliver", cursive;
-  font-size: 14px;
   background-image: url("../images/d100.svg");
   background-repeat: no-repeat;
   background-size: contain;

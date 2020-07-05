@@ -6,11 +6,11 @@
 
   .item-header {
     align-items: center;
-		padding: 5px;
-		margin: 0 0 5px 0;
-		background: rgba(0, 0, 0, 0.05);
-		border: 1px solid #AAA;
-		border-radius: 2px;
+    padding: 5px;
+    margin: 0 0 5px 0;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #aaa;
+    border-radius: 2px;
     font-weight: bold;
     overflow-y: hidden;
   }
@@ -52,11 +52,9 @@
     margin-right: 5px;
 
     .item-loot {
-      font-family: $font-secondary;
-      font-size: 14px;
-			background-image: url("../images/d100.svg");
-			background-repeat: no-repeat;
-			background-size: contain;
+      background-image: url("../images/d100.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
       padding-left: 25px;
       margin-left: 5px;
       &:hover {
