@@ -4,22 +4,20 @@
 
 ## [1.0.1] - 2020-07-07
 ### Added
-- Added Spanish localization (thanks to Diego Martinez)
-- Added German localization
-- Added Dutch localization
-- Added missing glyphs for languages to 'nusaliver' font
+- Spanish translation (thanks to Diego Martinez).
+- German translation.
+- Dutch translation.
 ### Changed
-- Updated Foundry VTT core compatibility version to 0.6.5
-- Changed minimum actor sheet width to 400 to fit translations
-- Changed quantity representation of items to avoid pluralization issues
+- Foundry VTT core compatibility version updated to 0.6.5.
+- Minimum actor sheet width increased to fit translations.
+- Inline item quantity representation (no pluralization required).
 ### Fixed
-- Fixed undesired scroll bar in item list header
-- Fixed Base/Loot attribute header resizing issue
-- Fixed minor margin issue in character sheet header
-- Fixed "Add Item" tooltip that was not translated
-- Fixed Dying label and input layout
-- Fixed Hero Coin ID bug when having multiple sheets open, now randomized
+- Fixed toggling Hero Coin when multiple sheets open.
+- Fixed Base/Loot attribute header positions when resizing window.
+- Fixed scroll bar showing up in item list header.
+- Fixed missing glyphs in 'nusaliver' font (multiple languages).
+- Fixed minor layout issues in actor and item sheets.
 
 ## [1.0.0] - 2020-06-30
 ### Added
-- Index Card RPG (ICRPG) system for Foundry VTT
+- Index Card RPG (ICRPG) system for Foundry VTT.
