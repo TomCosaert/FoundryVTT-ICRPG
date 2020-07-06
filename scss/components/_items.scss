@@ -41,7 +41,7 @@
     &:hover {
       .hidden {
         display: inline;
-        color: #aaa;
+        color: #777;
       }
     }
   }
@@ -71,5 +71,6 @@
     font-size: smaller;
     color: $c-detail;
     margin-left: 28px;
+    overflow: hidden;
   }
 }

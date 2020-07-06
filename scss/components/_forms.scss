@@ -1,29 +1,26 @@
-.item-form {
-  font-family: $font-primary;
-}
-
 .window-content {
   overflow: hidden;
 }
 
 &.sheet {
-  min-width: 375px;
   &.actor {
-    min-height: 475px; /*type-character: 480px; type-pc: 350px;*/
-    .type-character .attributes-content .resources:first-child {
+    min-width: 400px;
+    min-height: 475px; /*character-form: 475px; npc-form: 375px;*/
+    .character-form .attributes-content .resources:first-child {
       flex: 1 0 40%;
     }
-    .type-npc .attributes-content .resources:nth-child(1),
-    .type-npc .attributes-content .resources:nth-child(2) {
+    .npc-form .attributes-content .resources:nth-child(1),
+    .npc-form .attributes-content .resources:nth-child(2) {
       flex: 1 0 26%;
     }
   }
   &.item {
-    min-height: 275px;
-    .type-item .sheet-body {
+    min-width: 375px;
+    min-height: 375px;
+    .item-form .sheet-body {
       border-top: 1px solid #aaa;
     }
-    .type-item .sheet-tabs {
+    .item-form .sheet-tabs {
       display: none;
     }
   }

@@ -11,7 +11,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["icrpg", "sheet", "actor"],
       template: "systems/icrpg/templates/actor/character-sheet.html",
-      width: 375,
+      width: 400,
       height: 475,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]

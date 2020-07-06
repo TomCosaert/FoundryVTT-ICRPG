@@ -2,12 +2,13 @@
 
 ## [Unreleased]
 
-## [1.0.1] - 2020-07-05
+## [1.0.1] - 2020-07-06
 ### Added
 - Added Spanish localization (thanks to Diego Martinez)
 - Added missing glyphs for Spanish to 'nusaliver' font
 ### Changed
 - Updated Foundry VTT core compatibility version to 0.6.5
+- Changed minimum actor sheet width to 400 to fit translations
 - Changed quantity representation of items to avoid pluralization issues
 ### Fixed
 - Fixed undesired scroll bar in item list header

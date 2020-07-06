@@ -11,7 +11,7 @@ export class IcrpgNpcSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["icrpg", "sheet", "actor"],
       template: "systems/icrpg/templates/actor/npc-sheet.html",
-      width: 375,
+      width: 400,
       height: 475,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
     });

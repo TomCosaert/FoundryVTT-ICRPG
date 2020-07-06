@@ -10,7 +10,7 @@ export class IcrpgItemSheet extends ItemSheet {
       classes: ["icrpg", "sheet", "item"],
       template: "systems/icrpg/templates/item/item-sheet.html",
       width: 375,
-      height: 275,
+      height: 375,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }

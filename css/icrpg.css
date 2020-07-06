@@ -146,45 +146,39 @@ input::-moz-selection {
 }
 
 /* Styles limited to icrpg sheets */
-.icrpg .item-form {
-  font-family: "Pangolin", cursive;
-}
-
 .icrpg .window-content {
   overflow: hidden;
 }
 
-.icrpg.sheet {
-  min-width: 375px;
-}
-
 .icrpg.sheet.actor {
+  min-width: 400px;
   min-height: 475px;
-  /*type-character: 480px; type-pc: 350px;*/
+  /*character-form: 475px; npc-form: 375px;*/
 }
 
-.icrpg.sheet.actor .type-character .attributes-content .resources:first-child {
+.icrpg.sheet.actor .character-form .attributes-content .resources:first-child {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 40%;
           flex: 1 0 40%;
 }
 
-.icrpg.sheet.actor .type-npc .attributes-content .resources:nth-child(1),
-.icrpg.sheet.actor .type-npc .attributes-content .resources:nth-child(2) {
+.icrpg.sheet.actor .npc-form .attributes-content .resources:nth-child(1),
+.icrpg.sheet.actor .npc-form .attributes-content .resources:nth-child(2) {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 26%;
           flex: 1 0 26%;
 }
 
 .icrpg.sheet.item {
-  min-height: 275px;
+  min-width: 375px;
+  min-height: 375px;
 }
 
-.icrpg.sheet.item .type-item .sheet-body {
+.icrpg.sheet.item .item-form .sheet-body {
   border-top: 1px solid #aaa;
 }
 
-.icrpg.sheet.item .type-item .sheet-tabs {
+.icrpg.sheet.item .item-form .sheet-tabs {
   display: none;
 }
 
@@ -367,8 +361,8 @@ input::-moz-selection {
 
 .icrpg .resource.coin > .resource-label {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 75px;
-          flex: 1 0 75px;
+      -ms-flex: 1 0 85px;
+          flex: 1 0 85px;
 }
 
 .icrpg .resource.coin input {
@@ -473,7 +467,7 @@ input::-moz-selection {
 }
 
 .icrpg .resource.herocoin {
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .icrpg .resource.herocoin .label {
@@ -594,7 +588,7 @@ input::-moz-selection {
 
 .icrpg .items-list .item-name:hover .hidden {
   display: inline;
-  color: #aaa;
+  color: #777;
 }
 
 .icrpg .items-list .item-controls {
@@ -626,4 +620,5 @@ input::-moz-selection {
   font-size: smaller;
   color: #444;
   margin-left: 28px;
+  overflow: hidden;
 }
