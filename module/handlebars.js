@@ -1,5 +1,18 @@
+import { IcrpgUtility } from "./utility.js";
+
 export class IcrpgRegisterHelpers {
     static init() {
+        Handlebars.registerHelper('assign', function (varName, varValue, options) {
+            if (!options.data.root) {
+                options.data.root = {};
+            }
+            options.data.root[varName] = varValue;
+        });
+
+        Handlebars.registerHelper('randomid', function (prefix) {
+            return IcrpgUtility.getRandomId(prefix);
+        });
+
         Handlebars.registerHelper('concat', function () {
             var outStr = '';
             for (var arg in arguments) {

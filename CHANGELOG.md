@@ -16,6 +16,7 @@
 - Fixed minor margin issue in character sheet header
 - Fixed "Add Item" tooltip that was not translated
 - Fixed Dying label and input layout
+- Fixed Hero Coin ID bug when having multiple sheets open, now randomized
 
 ## [1.0.0] - 2020-06-30
 ### Added

@@ -29,7 +29,9 @@ https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/system.json
 
 ## Attribution
 
-I acquired **permission** from the author/designer Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) to make this game system available to the Foundry VTT community as-is, but without including any source material content such as item loot tables as compendia.
+Many thanks to Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) for designing Index Card RPG!
+
+I acquired **permission** from him to make this game system available to the Foundry VTT community as-is, but without including any source material content such as item loot tables as compendia.
 
 Thanks to Diego Martinez for the Spanish localization!
 

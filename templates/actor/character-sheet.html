@@ -72,9 +72,10 @@
 
                     {{!-- Hero Coin --}}
                     <div class="resource herocoin">
+                        {{assign 'icrpg-herocoin-id' (randomid 'icrpg-herocoin-')}}
                         <input type="checkbox" {{checked data.herocoin}} name="data.herocoin" value="{{data.herocoin}}"
-                            data-dtype="Boolean" id="icrpg-herocoin" />
-                        <label for="icrpg-herocoin"></label>
+                            data-dtype="Boolean" id="{{@root.icrpg-herocoin-id}}" />
+                        <label for="{{@root.icrpg-herocoin-id}}"></label>
                         <label for="data.herocoin" class="resource-label">{{localize "ICRPG.HeroCoin"}}</span>
                     </div>
 
