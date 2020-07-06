@@ -2,10 +2,12 @@
 
 ## [Unreleased]
 
-## [1.0.1] - 2020-07-06
+## [1.0.1] - 2020-07-07
 ### Added
 - Added Spanish localization (thanks to Diego Martinez)
-- Added missing glyphs for Spanish to 'nusaliver' font
+- Added German localization
+- Added Dutch localization
+- Added missing glyphs for languages to 'nusaliver' font
 ### Changed
 - Updated Foundry VTT core compatibility version to 0.6.5
 - Changed minimum actor sheet width to 400 to fit translations
