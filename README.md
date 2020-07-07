@@ -4,7 +4,7 @@
 
 [Index Card RPG](https://www.icrpg.com/) (**ICRPG**) takes classic tabletop mechanics for telling stories, making monsters and rolling dice, but throws out all the clunky parts that keep most folks from trying an adventure or two.
 
-This **game system** (i.e. plug-in) for Foundry VTT allows easy creation and management of ICRPG character sheets, NPC sheets and items.
+This **game system** (i.e. plug-in) for Foundry VTT allows easy creation and management of ICRPG player characters, NPCs and items.
 
 > Foundry VTT users now have no excuses anymore to not be playing ICRPG!
 
@@ -20,6 +20,8 @@ To highlight some of its **features** that might not be obvious at first glance:
 
 Items do not support attributes to be automatically added to the loot values of the character sheet, as it would be hard to differentiate between situations in which item bonuses are applicable and in which not. This is something users have to track themselves.
 
+The following languages are currently supported: **English**, **Spanish**, **German** and **Dutch**. Reach out if you feel like contributing!
+
 ## Installation
 
 In Foundry VTT, use the following **Manifest URL** to install the game system:
@@ -29,9 +31,7 @@ https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/system.json
 
 ## Attribution
 
-Many thanks to Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) for designing Index Card RPG!
-
-I acquired **permission** from him to make this game system available to the Foundry VTT community as-is, but without including any source material content such as item loot tables as compendia.
+Many thanks to Brandish Gilhelm (also known as Hankerin Ferinale) of [Runehammer Games](https://www.runehammer.online/) for designing Index Card RPG! I acquired his **permission** to make this game system available to the Foundry VTT community as-is, without including any source material content such as item loot tables as compendia.
 
 Thanks to Diego Martinez for the Spanish localization!
 
