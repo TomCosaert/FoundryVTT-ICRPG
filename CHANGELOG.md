@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.0.3] - 2020-09-04
+### Fixed
+- Fixed possible Handlebars helper registration conflicts (fixes #2).
+
 ## [1.0.2] - 2020-09-04
 ### Added
 - Added effort attribute shortcut mappings.

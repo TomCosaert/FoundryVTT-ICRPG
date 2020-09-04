@@ -117,8 +117,8 @@
                     <div class="resource effort {{id}}">
                         <label for="data.effort.{{id}}.value" class="resource-label rollable"
                             data-roll='1{{eff.die}}+{{eff.value}}'
-                            data-label='{{localize (concat "ICRPG.Effort" (capitalize id))}}'>
-                            {{localize (concat "ICRPG.Effort" (capitalize id))}}
+                            data-label='{{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}'>
+                            {{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}
                         </label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <input type="text" name="data.effort.{{id}}.value" value="{{eff.value}}"

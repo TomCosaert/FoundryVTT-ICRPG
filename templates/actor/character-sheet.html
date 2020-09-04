@@ -44,8 +44,8 @@
                     <div class="resource stat {{id}}">
                         <label for="data.stats.{{id}}.value" class="resource-label rollable"
                             data-roll='1d20+{{stat.value}}'
-                            data-label='{{localize (concat "ICRPG." (toUpperCase id))}}'>
-                            {{localize (concat "ICRPG." (toUpperCase id))}}
+                            data-label='{{localize (icrpg-concat "ICRPG." (icrpg-toUpperCase id))}}'>
+                            {{localize (icrpg-concat "ICRPG." (icrpg-toUpperCase id))}}
                         </label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <span class="value"
@@ -72,7 +72,7 @@
 
                     {{!-- Hero Coin --}}
                     <div class="resource herocoin">
-                        {{assign 'icrpg-herocoin-id' (randomid 'icrpg-herocoin-')}}
+                        {{icrpg-assign 'icrpg-herocoin-id' (icrpg-randomid 'icrpg-herocoin-')}}
                         <input type="checkbox" {{checked data.herocoin}} name="data.herocoin" value="{{data.herocoin}}"
                             data-dtype="Boolean" id="{{@root.icrpg-herocoin-id}}" />
                         <label for="{{@root.icrpg-herocoin-id}}"></label>
@@ -94,8 +94,8 @@
                     <div class="resource effort {{id}}">
                         <label for="data.effort.{{id}}.value" class="resource-label rollable"
                             data-roll='1{{eff.die}}+{{eff.value}}'
-                            data-label='{{localize (concat "ICRPG.Effort" (capitalize id))}}'>
-                            {{localize (concat "ICRPG.Effort" (capitalize id))}}
+                            data-label='{{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}'>
+                            {{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}
                         </label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <span class="value"
@@ -193,7 +193,7 @@
                     </div>
                 </li>
                 <li class="item-description flexrow">
-                    <span>{{preview item.data.description 150}}</span>
+                    <span>{{icrpg-preview item.data.description 150}}</span>
                 </li>
                 {{/each}}
             </ol>
