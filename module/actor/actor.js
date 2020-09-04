@@ -72,8 +72,11 @@ export class IcrpgActor extends Actor {
   getRollData() {
     const data = super.getRollData();
     // Let us do @str etc, instead of @stats.str.value
-    for (let [id, stat] of Object.entries(data.stats)) {
+    for (let [id, stat] of Object.entries(data.stats)) { // @stats.*.value
       if (!(id in data)) data[id] = stat.value;
+    }
+    for (let [id, eff] of Object.entries(data.effort)) { // @effort.*.value
+      if (!(id in data)) data[id] = eff.value;
     }
     return data
   }

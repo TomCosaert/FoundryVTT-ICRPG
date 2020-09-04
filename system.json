@@ -2,11 +2,11 @@
   "name": "icrpg",
   "title": "Index Card RPG",
   "description": "Index Card RPG (ICRPG) system for Foundry VTT.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.6.5",
+  "compatibleCoreVersion": "0.6.6",
   "templateVersion": 2,
-  "author": "TomCosaert",
+  "author": "Tom Cosaert#1943",
   "esmodules": [
     "module/icrpg.js"
   ],

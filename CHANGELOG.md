@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.0.2] - 2020-09-04
+### Added
+- Added effort attribute shortcut mappings.
+### Changed
+- Foundry VTT core compatibility version updated to 0.6.6.
+
 ## [1.0.1] - 2020-07-07
 ### Added
 - Spanish translation (thanks to Diego Martinez).
