@@ -12,7 +12,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
       classes: ["icrpg", "sheet", "actor"],
       template: "systems/icrpg/templates/actor/character-sheet.html",
       width: 400,
-      height: 475,
+      height: 500,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });

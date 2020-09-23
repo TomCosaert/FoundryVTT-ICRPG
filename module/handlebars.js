@@ -40,5 +40,24 @@ export class IcrpgRegisterHelpers {
             return TextEditor.previewHTML(content, Number(length));
         });
 
+        Handlebars.registerHelper('icrpg-array', function() {
+            return Array.prototype.slice.call(arguments, 0, -1);
+        });
+
+        Handlebars.registerHelper('icrpg-includes', function (array, value) {
+            return array.includes(value);
+        });
+
+        Handlebars.registerHelper('icrpg-is', function(a, b, opts) {
+            if (a == b) {
+                return opts.fn(this)
+            } else {
+                return opts.inverse(this)
+            }
+        });
+
+        Handlebars.registerHelper("icrpg-sum", function (a, b) {
+            return a + b;
+        });
     }
 }

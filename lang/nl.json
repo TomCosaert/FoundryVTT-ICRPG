@@ -1,8 +1,8 @@
 {
     "ICRPG.Attributes": "Attributen",
     "ICRPG.Name": "Naam",
-    "ICRPG.Class": "Klasse",
-    "ICRPG.BioForm": "Bio-Vorm",
+    "ICRPG.Type": "Type",
+    "ICRPG.LifeForm": "Levensvorm",
     "ICRPG.Story": "Achtergrond",
     "ICRPG.Stats": "Scores",
     "ICRPG.Base": "Basis",
@@ -18,14 +18,14 @@
     "ICRPG.Effort": "Inspanning",
     "ICRPG.EffortBasic": "Basis",
     "ICRPG.EffortWeapon": "Wapens",
+    "ICRPG.EffortGun": "Geweren",
     "ICRPG.EffortMagic": "Magie",
     "ICRPG.EffortUltimate": "Kritisch",
     "ICRPG.Health": "Gezondheid",
-    "ICRPG.Armor": "Pantser",
+    "ICRPG.Defense": "Verdedig.",
     "ICRPG.HP": "TP",
     "ICRPG.Dying": "Stervende",
     "ICRPG.Revive": "Herleven",
-    "ICRPG.Gear": "Uitrusting",
     "ICRPG.AddItem": "Voorwerp toevoegen",
     "ICRPG.LootRoll": "Buit",
     "ICRPG.Equipped": "Uitgerust",
@@ -35,5 +35,6 @@
     "ICRPG.Quantity": "Aantal",
     "ICRPG.Notes": "Notities",
     "ICRPG.Description": "Omschrijving",
-    "ICRPG.Rolling": "Rolt"
+    "ICRPG.Rolling": "Rolt",
+    "ICRPG.Mastery": "Meesterschap"
 }

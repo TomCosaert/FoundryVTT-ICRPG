@@ -152,7 +152,7 @@ input::-moz-selection {
 
 .icrpg.sheet.actor {
   min-width: 400px;
-  min-height: 475px;
+  min-height: 500px;
   /*character-form: 475px; npc-form: 375px;*/
 }
 
@@ -364,6 +364,16 @@ input::-moz-selection {
   text-align: right;
 }
 
+.icrpg .resource.mastery > .resource-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 107px;
+          flex: 1 0 107px;
+}
+
+.icrpg .resource.mastery input {
+  text-align: center;
+}
+
 .icrpg .resource.health .separator {
   -webkit-box-flex: 0;
       -ms-flex: 0;
@@ -389,10 +399,31 @@ input::-moz-selection {
   padding-left: 30px;
 }
 
-.icrpg .resource.effort > .resource-label:hover {
+.icrpg .resource.effort > .resource-label:hover,
+.icrpg .resource.armor > .resource-label.rollable:hover {
   -webkit-filter: drop-shadow(0 0 5px red);
           filter: drop-shadow(0 0 5px red);
   text-shadow: none;
+}
+
+.icrpg .resource.effort > .resource-label.d4 {
+  background-image: url("../images/d4.svg");
+}
+
+.icrpg .resource.effort > .resource-label.d6 {
+  background-image: url("../images/d6.svg");
+}
+
+.icrpg .resource.effort > .resource-label.d8 {
+  background-image: url("../images/d8.svg");
+}
+
+.icrpg .resource.effort > .resource-label.d10 {
+  background-image: url("../images/d10.svg");
+}
+
+.icrpg .resource.effort > .resource-label.d12 {
+  background-image: url("../images/d12.svg");
 }
 
 .icrpg .resource.health > .resource-label {
@@ -403,30 +434,21 @@ input::-moz-selection {
   background-image: url("../images/armor.svg");
 }
 
-.icrpg .resource.basic > .resource-label {
-  background-image: url("../images/d4.svg");
-}
-
-.icrpg .resource.weapon > .resource-label {
-  background-image: url("../images/d6.svg");
-}
-
-.icrpg .resource.magic > .resource-label {
-  background-image: url("../images/d8.svg");
-}
-
-.icrpg .resource.ultimate > .resource-label {
-  background-image: url("../images/d12.svg");
-}
-
 .icrpg .resource.death > .resource-label {
   position: absolute;
-  background-image: url("../images/death.svg");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 30px;
   margin-left: 5px;
   height: 50px;
+}
+
+.icrpg .resource.death > .resource-label.death-d6 {
+  background-image: url("../images/death-d6.svg");
+}
+
+.icrpg .resource.death > .resource-label.death-d4 {
+  background-image: url("../images/death-d4.svg");
 }
 
 .icrpg .resource.death > .resource-label:hover {

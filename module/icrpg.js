@@ -1,7 +1,9 @@
 // Import Modules
 import { IcrpgActor } from "./actor/actor.js";
 import { IcrpgCharacterSheet } from "./actor/character-sheet.js";
+import { IcrpgCharacterSheet2E } from "./actor/character-sheet-2e.js";
 import { IcrpgNpcSheet } from "./actor/npc-sheet.js";
+import { IcrpgNpcSheet2E } from "./actor/npc-sheet-2e.js";
 import { IcrpgItem } from "./item/item.js";
 import { IcrpgItemSheet } from "./item/item-sheet.js";
 import { IcrpgRegisterHelpers } from "./handlebars.js";
@@ -30,8 +32,10 @@ Hooks.once('init', async function () {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("icrpg", IcrpgCharacterSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("icrpg", IcrpgCharacterSheet2E, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("icrpg", IcrpgCharacterSheet, { types: ["character"] });
+  Actors.registerSheet("icrpg", IcrpgNpcSheet2E, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("icrpg", IcrpgItemSheet, { makeDefault: true });
 

@@ -69,6 +69,13 @@
     text-align: right;
   }
 
+  &.mastery > .resource-label {
+    flex: 1 0 107px;
+  }
+  &.mastery input {
+    text-align: center;
+  }
+
   &.health .separator {
     flex: 0;
   }
@@ -87,11 +94,28 @@
     padding-left: 30px;
   }
 
-  &.effort > .resource-label {
+  &.effort > .resource-label,
+  &.armor > .resource-label.rollable {
     &:hover {
       filter: drop-shadow(0 0 5px red);
       text-shadow: none;
     }
+  }
+
+  &.effort > .resource-label.d4 {
+    background-image: url("../images/d4.svg");
+  }
+  &.effort > .resource-label.d6 {
+    background-image: url("../images/d6.svg");
+  }
+  &.effort > .resource-label.d8 {
+    background-image: url("../images/d8.svg");
+  }
+  &.effort > .resource-label.d10 {
+    background-image: url("../images/d10.svg");
+  }
+  &.effort > .resource-label.d12 {
+    background-image: url("../images/d12.svg");
   }
 
   &.health > .resource-label {
@@ -100,22 +124,15 @@
   &.armor > .resource-label {
     background-image: url("../images/armor.svg");
   }
-  &.basic > .resource-label {
-    background-image: url("../images/d4.svg");
-  }
-  &.weapon > .resource-label {
-    background-image: url("../images/d6.svg");
-  }
-  &.magic > .resource-label {
-    background-image: url("../images/d8.svg");
-  }
-  &.ultimate > .resource-label {
-    background-image: url("../images/d12.svg");
-  }
-
+  
   &.death > .resource-label {
     position: absolute;
-    background-image: url("../images/death.svg");
+    &.death-d6 {
+      background-image: url("../images/death-d6.svg");
+    }
+    &.death-d4 {
+      background-image: url("../images/death-d4.svg");
+    }
     background-repeat: no-repeat;
     background-size: contain;
     padding-left: 30px;

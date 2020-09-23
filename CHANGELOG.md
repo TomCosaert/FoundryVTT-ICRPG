@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [1.1.0] - 2020-09-23
+### Added
+- Added Quickstart 2E character sheet support (default).
 
 ## [1.0.3] - 2020-09-04
 ### Fixed

@@ -1,8 +1,8 @@
 {
     "ICRPG.Attributes": "Attribute",
     "ICRPG.Name": "Name",
-    "ICRPG.Class": "Klasse",
-    "ICRPG.BioForm": "Bio-Form",
+    "ICRPG.Type": "Art",
+    "ICRPG.LifeForm": "Lebensform",
     "ICRPG.Story": "Hintergrund",
     "ICRPG.Stats": "Werte",
     "ICRPG.Base": "Basis",
@@ -18,14 +18,14 @@
     "ICRPG.Effort": "Aufwand",
     "ICRPG.EffortBasic": "Basis",
     "ICRPG.EffortWeapon": "Waffen",
+    "ICRPG.EffortGun": "Gewehre",
     "ICRPG.EffortMagic": "Magie",
     "ICRPG.EffortUltimate": "Kritisch",
     "ICRPG.Health": "Gesuntheit",
-    "ICRPG.Armor": "Rüstung",
+    "ICRPG.Defense": "Verteidig.",
     "ICRPG.HP": "TP",
     "ICRPG.Dying": "Sterbend",
     "ICRPG.Revive": "Wiederbeleben",
-    "ICRPG.Gear": "Ausrüstung",
     "ICRPG.AddItem": "Gegenstand hinzufügen",
     "ICRPG.LootRoll": "Beute",
     "ICRPG.Equipped": "Ausgerüstet",
@@ -35,5 +35,6 @@
     "ICRPG.Quantity": "Anzahl",
     "ICRPG.Notes": "Notizen",
     "ICRPG.Description": "Beschreibung",
-    "ICRPG.Rolling": "Würfelt"
+    "ICRPG.Rolling": "Würfelt",
+    "ICRPG.Mastery": "Meisterschaft"
 }

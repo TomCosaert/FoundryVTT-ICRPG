@@ -29,7 +29,10 @@ export class IcrpgActor extends Actor {
 
     data.effort.basic.die = "d4";
     data.effort.weapon.die = "d6";
-    data.effort.magic.die = "d8";
+    if (!data.effort.gun)
+      data.effort.gun = { value: 0, base: 0, loot: 0 };
+    data.effort.gun.die = "d8";
+    data.effort.magic.die = "d10";
     data.effort.ultimate.die = "d12";
   }
 
@@ -46,11 +49,6 @@ export class IcrpgActor extends Actor {
     for (let [id, eff] of Object.entries(data.effort)) {
       eff.value = Number(eff.base) + Number(eff.loot);
     }
-
-    data.effort.basic.die = "d4";
-    data.effort.weapon.die = "d6";
-    data.effort.magic.die = "d8";
-    data.effort.ultimate.die = "d12";
 
     data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
     /*

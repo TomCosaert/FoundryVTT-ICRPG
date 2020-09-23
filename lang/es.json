@@ -1,8 +1,8 @@
 {
     "ICRPG.Attributes": "Atributos",
     "ICRPG.Name": "Nombre",
-    "ICRPG.Class": "Clase",
-    "ICRPG.BioForm": "Bio-Forma",
+    "ICRPG.Type": "Typo",
+    "ICRPG.LifeForm": "Forma de vida",
     "ICRPG.Story": "Trasfondo",
     "ICRPG.Stats": "Estadísticas",
     "ICRPG.Base": "Base",
@@ -18,14 +18,14 @@
     "ICRPG.Effort": "Esfuerzo",
     "ICRPG.EffortBasic": "Básico",
     "ICRPG.EffortWeapon": "Armas",
+    "ICRPG.EffortGun": "Pistolas",
     "ICRPG.EffortMagic": "Magia",
     "ICRPG.EffortUltimate": "Crítico",
     "ICRPG.Health": "Salud",
-    "ICRPG.Armor": "Armadura",
+    "ICRPG.Defense": "Defensa",
     "ICRPG.HP": "PG",
     "ICRPG.Dying": "Muerte",
     "ICRPG.Revive": "Revivir",
-    "ICRPG.Gear": "Equipo",
     "ICRPG.AddItem": "Añadir item",
     "ICRPG.LootRoll": "Recompensa",
     "ICRPG.Equipped": "Equipado",
@@ -35,5 +35,6 @@
     "ICRPG.Quantity": "Cantidad",
     "ICRPG.Notes": "Notas",
     "ICRPG.Description": "Descripción",
-    "ICRPG.Rolling": "Lanzando"
+    "ICRPG.Rolling": "Lanzando",
+    "ICRPG.Mastery": "Maestría"
 }
