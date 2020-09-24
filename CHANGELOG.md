@@ -5,6 +5,7 @@
 - Added ability item type and Abilities tab to character sheet.
 ### Fixed
 - Fixed labels on classic character sheet.
+- Fixed character sheet item drag selector.
 
 ## [1.1.0] - 2020-09-23
 ### Added

@@ -14,7 +14,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
       width: 400,
       height: 500,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
+      dragDrop: [{ dragSelector: ".items-list .item", dropSelector: null }]
     });
   }
 
