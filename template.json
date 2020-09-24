@@ -126,7 +126,8 @@
   },
   "Item": {
     "types": [
-      "item"
+      "item",
+      "ability"
     ],
     "templates": {
       "base": {
@@ -139,6 +140,11 @@
       ],
       "quantity": 1,
       "equipped": false
+    },
+    "ability": {
+      "templates": [
+        "base"
+      ]
     }
   }
 }

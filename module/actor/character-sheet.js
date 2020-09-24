@@ -103,11 +103,13 @@ export class IcrpgCharacterSheet extends ActorSheet {
     }
 
     else if (action === "delete") {
+      const li = $(header).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const itemTypeCapitalized = item.type.charAt(0).toUpperCase() + item.type.slice(1);
       let d = Dialog.confirm({
-        title: game.i18n.localize("ICRPG.DeleteItem"),
+        title: game.i18n.localize("ICRPG.Delete" + itemTypeCapitalized),
         content: "<p>" + game.i18n.localize("ICRPG.AreYouSure") + "</p>",
         yes: () => {
-          const li = $(header).parents(".item");
           this.actor.deleteOwnedItem(li.data("itemId"));
           li.slideUp(200, () => this.render(false));
         },

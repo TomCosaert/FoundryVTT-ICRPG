@@ -7,9 +7,9 @@
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}"
                     placeholder='{{localize "ICRPG.Name"}}' /></h1>
             <div class="resource grid grid-2col">
-                <input type="text" name="data.class" value="{{data.class}}" placeholder='{{localize "ICRPG.Type"}}' />
+                <input type="text" name="data.class" value="{{data.class}}" placeholder='{{localize "ICRPG.Class"}}' />
                 <input type="text" name="data.bioform" value="{{data.bioform}}"
-                    placeholder='{{localize "ICRPG.LifeForm"}}' />
+                    placeholder='{{localize "ICRPG.BioForm"}}' />
             </div>
             <div class="resource story">
                 <input type="text" name="data.story" value="{{data.story}}" placeholder='{{localize "ICRPG.Story"}}' />
@@ -20,7 +20,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="attributes">{{localize "ICRPG.Attributes"}}</a>
-        <a class="item" data-tab="items">{{localize "ICRPG.Loot"}}</a>
+        <a class="item" data-tab="items">{{localize "ICRPG.Gear"}}</a>
         <a class="item" data-tab="description">{{localize "ICRPG.Notes"}}</a>
     </nav>
 
@@ -117,12 +117,12 @@
                     {{!-- Header --}}
                     <div class="resource armor resource-header">
                         <span class="header">
-                            <!--{{localize "ICRPG.Defense"}}--></span>
+                            <!--{{localize "ICRPG.Armor"}}--></span>
                     </div>
 
                     {{!-- Armor --}}
                     <div class="resource armor">
-                        <label for="data.armor.value" class="resource-label"> {{localize "ICRPG.Defense"}} </label>
+                        <label for="data.armor.value" class="resource-label"> {{localize "ICRPG.Armor"}} </label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <span class="value">{{data.armor.value}}</span>
                             <input type="text" name="data.armor.base" value="{{data.armor.base}}" data-dtype="Number" />
@@ -183,6 +183,7 @@
                     </div>
                 </li>
                 {{#each actor.items as |item id|}}
+                {{#icrpg-is item.type "item"}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                     </div>
@@ -204,6 +205,7 @@
                 <li class="item-description flexrow">
                     <span>{{icrpg-preview item.data.description 150}}</span>
                 </li>
+                {{/icrpg-is}}
                 {{/each}}
             </ol>
         </div>

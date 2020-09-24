@@ -12,4 +12,14 @@ export class IcrpgCharacterSheet2E extends IcrpgCharacterSheet {
       template: "systems/icrpg/templates/actor/character-sheet-2e.html",
     });
   }
+  
+  /* -------------------------------------------- */
+
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Item controls
+    html.find(".abilities").on("click", ".item-control", this._onClickItemControl.bind(this));
+  }
 }
