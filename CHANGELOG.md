@@ -1,8 +1,9 @@
 # Changelog
 
-## [1.1.1] - 2020-09-25
+## [1.2.0] - 2020-09-25
 ### Added
 - Added ability item type and Abilities tab to character sheet.
+- Added item filters (all, equipped, unequipped).
 ### Fixed
 - Fixed labels on classic character sheet.
 - Fixed character sheet item drag selector.

@@ -562,16 +562,26 @@ input::-moz-selection {
 }
 
 .icrpg .items-list .item-header {
+  height: 30px;
+  overflow-x: hidden;
+  line-height: 24px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5px;
+  padding: 3px 0;
   margin: 0 0 5px 0;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid #aaa;
   border-radius: 2px;
   font-weight: bold;
   overflow-y: hidden;
+}
+
+.icrpg .items-list .item-header .item-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24px;
+          flex: 0 0 24px;
+  margin-right: 5px;
 }
 
 .icrpg .items-list .item {
@@ -622,6 +632,7 @@ input::-moz-selection {
   background-size: contain;
   padding-left: 25px;
   margin-left: 5px;
+  margin-right: 10px;
 }
 
 .icrpg .items-list .item-controls .item-loot:hover {
@@ -638,4 +649,28 @@ input::-moz-selection {
   color: #444;
   margin-left: 28px;
   overflow: hidden;
+}
+
+.icrpg .items-list .item-filters {
+  display: inline-block;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  margin-right: 5px;
+  font-weight: normal;
+}
+
+.icrpg .items-list .item-filters label {
+  position: relative;
+  cursor: pointer;
+}
+
+.icrpg .items-list .item-filters label:hover {
+  -webkit-filter: drop-shadow(0 0 5px red);
+          filter: drop-shadow(0 0 5px red);
+  text-shadow: none;
+}
+
+.icrpg .items-list .is-hidden {
+  display: none;
 }

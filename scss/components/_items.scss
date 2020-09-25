@@ -5,14 +5,22 @@
   overflow-y: auto;
 
   .item-header {
+    height: 30px;
+    overflow-x: hidden;
+    line-height: 24px;
     align-items: center;
-    padding: 5px;
+    padding: 3px 0;
     margin: 0 0 5px 0;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #aaa;
     border-radius: 2px;
     font-weight: bold;
     overflow-y: hidden;
+
+    .item-image {
+      flex: 0 0 24px;
+      margin-right: 5px;
+    }
   }
 
   .item {
@@ -57,6 +65,7 @@
       background-size: contain;
       padding-left: 25px;
       margin-left: 5px;
+      margin-right: 10px;
       &:hover {
         filter: drop-shadow(0 0 5px red);
         text-shadow: none;
@@ -72,5 +81,25 @@
     color: $c-detail;
     margin-left: 28px;
     overflow: hidden;
+  }
+
+  .item-filters {
+    display: inline-block;
+    flex: 1 0 auto;
+    margin-right: 5px;
+    font-weight: normal;
+
+    label {
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        filter: drop-shadow(0 0 5px red);
+        text-shadow: none;
+      }
+    }
+  }
+
+  .is-hidden {
+    @include hide;
   }
 }

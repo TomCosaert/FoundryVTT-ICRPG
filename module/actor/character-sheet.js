@@ -41,6 +41,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
 
     // Item controls
     html.find(".items").on("click", ".item-control", this._onClickItemControl.bind(this));
+    html.find(".items").on("change", "input[name='equipped']", this._onClickItemFilter.bind(this));
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -121,6 +122,8 @@ export class IcrpgCharacterSheet extends ActorSheet {
     }
   }
 
+  /* -------------------------------------------- */
+
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
@@ -139,6 +142,38 @@ export class IcrpgCharacterSheet extends ActorSheet {
         flavor: label
       });
     }
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+       * Listen for click events on a filter to modify the item list in the sheet
+       * @param {MouseEvent} event    The originating left click event
+       * @private
+       */
+  async _onClickItemFilter(event) {
+    event.stopPropagation();
+
+    const el_filters = document.querySelectorAll(".items input[name='equipped']"),
+      el_filterable = document.querySelectorAll(".items .item[data-filterable], .items .item-description[data-filterable]");
+
+    // Filter checked inputs
+    const el_checked = [...el_filters].filter(el => el.checked && el.value);
+
+    // Collect checked inputs values to array
+    const filters = [...el_checked].map(el => el.value);
+
+    // Get elements to filter
+    const el_filtered = [...el_filterable].filter(el => {
+      const props = el.getAttribute('data-filterable').trim().split(/\s+/);
+      return filters.every(fi => props.includes(fi))
+    });
+
+    // Hide all
+    el_filterable.forEach(el => el.classList.add('is-hidden'));
+
+    // Show filtered
+    el_filtered.forEach(el => el.classList.remove('is-hidden'));
   }
 
   /* -------------------------------------------- */
