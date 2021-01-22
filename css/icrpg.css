@@ -152,7 +152,7 @@ input::-moz-selection {
 
 .icrpg.sheet.actor {
   min-width: 400px;
-  min-height: 500px;
+  min-height: 520px;
   /*character-form: 475px; npc-form: 375px;*/
 }
 

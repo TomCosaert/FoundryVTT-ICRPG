@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1] - 2021-01-22
+### Changed
+- Foundry VTT core compatibility version updated to 0.7.9.
+### Security
+- Bumped ini from 1.3.5 to 1.3.8.
+
 ## [1.2.0] - 2020-09-25
 ### Added
 - Added ability item type and Abilities tab to character sheet.
@@ -21,6 +27,8 @@
 - Added effort attribute shortcut mappings.
 ### Changed
 - Foundry VTT core compatibility version updated to 0.6.6.
+### Security
+- Bumped lodash from 4.17.15 to 4.17.19.
 
 ## [1.0.1] - 2020-07-07
 ### Added

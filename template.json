@@ -93,6 +93,10 @@
           "base": 0,
           "loot": 0
         },
+        "gun": {
+          "base": 0,
+          "loot": 0
+        },
         "magic": {
           "base": 0,
           "loot": 0
