@@ -98,7 +98,7 @@
                     <div class="resource effort {{id}}">
                         <label for="data.effort.{{id}}.value"
                             class="resource-label {{#icrpg-is id 'magic'}}d8{{else}}{{eff.die}}{{/icrpg-is}} rollable"
-                            data-roll='{{#icrpg-is id "magic"}}1d8{{else}}{{eff.die}}{{/icrpg-is}}+{{eff.value}}'
+                            data-roll='1{{#icrpg-is id "magic"}}d8{{else}}{{eff.die}}{{/icrpg-is}}+{{eff.value}}'
                             data-label='{{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}'>
                             {{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}
                         </label>
