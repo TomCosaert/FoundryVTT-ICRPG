@@ -27,9 +27,9 @@ Hooks.once('init', async function () {
     decimals: 2
   };
 
-  // Define custom Entity classes
-  CONFIG.Actor.entityClass = IcrpgActor;
-  CONFIG.Item.entityClass = IcrpgItem;
+  // Define custom Document classes
+  CONFIG.Actor.documentClass = IcrpgActor;
+  CONFIG.Item.documentClass = IcrpgItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

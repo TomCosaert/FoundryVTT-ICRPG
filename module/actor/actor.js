@@ -78,15 +78,4 @@ export class IcrpgActor extends Actor {
     }
     return data
   }
-
-  /* TODO: quantity decrease not applied after refreshing page
-    deleteOwnedItem(itemId) {
-      const item = this.getOwnedItem(itemId);
-      if (item.data.data.quantity > 1) {
-        item.data.data.quantity--;
-      } else {
-        super.deleteOwnedItem(itemId);
-      }
-    }
-  */
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.3] - 2021-06-06
+### Changed
+- Foundry VTT core compatibility version updated to 0.8.6.
+
 ## [1.2.2] - 2021-02-23
 ### Fixed
 - Fixed Effort Rolls in 1E Actor Sheets (thanks to victoriussinger).

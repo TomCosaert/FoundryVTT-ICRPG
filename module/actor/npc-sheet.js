@@ -68,7 +68,7 @@ export class IcrpgNpcSheet extends ActorSheet {
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${game.i18n.localize("ICRPG.Rolling")} ${dataset.label}` : '';
-      roll.roll().toMessage({
+      roll.evaluate({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       });

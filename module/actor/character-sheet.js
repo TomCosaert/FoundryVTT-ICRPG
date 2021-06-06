@@ -88,30 +88,31 @@ export class IcrpgCharacterSheet extends ActorSheet {
       delete itemData.data["type"];
 
       // Finally, create the item!
-      this.actor.createOwnedItem(itemData);
+      await this.actor.createEmbeddedDocuments("Item", [itemData]);
+      //const item = await Item.create(itemData, { parent: this.actor });
     }
 
     else if (action === "equip") {
       const li = $(header).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       await item.update({ "data.equipped": !item.data.data.equipped });
     }
 
     else if (action === "edit") {
       const li = $(header).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     }
 
     else if (action === "delete") {
       const li = $(header).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       const itemTypeCapitalized = item.type.charAt(0).toUpperCase() + item.type.slice(1);
       let d = Dialog.confirm({
         title: game.i18n.localize("ICRPG.Delete" + itemTypeCapitalized),
         content: "<p>" + game.i18n.localize("ICRPG.AreYouSure") + "</p>",
-        yes: () => {
-          this.actor.deleteOwnedItem(li.data("itemId"));
+        yes: async () => {
+          await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
           li.slideUp(200, () => this.render(false));
         },
         no: () => {
@@ -137,7 +138,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${game.i18n.localize("ICRPG.Rolling")} ${dataset.label}` : '';
-      roll.roll().toMessage({
+      roll.evaluate({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       });

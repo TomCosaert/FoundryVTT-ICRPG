@@ -7,12 +7,12 @@
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}"
                     placeholder='{{localize "ICRPG.Name"}}' /></h1>
             <div class="resource grid grid-2col">
-                <input type="text" name="data.bioform" value="{{data.bioform}}"
+                <input type="text" name="data.bioform" value="{{data.data.bioform}}"
                     placeholder='{{localize "ICRPG.BioForm"}}' />
-                <input type="text" name="data.class" value="{{data.class}}" placeholder='{{localize "ICRPG.Class"}}' />
+                <input type="text" name="data.class" value="{{data.data.class}}" placeholder='{{localize "ICRPG.Class"}}' />
             </div>
             <div class="resource story">
-                <input type="text" name="data.story" value="{{data.story}}" placeholder='{{localize "ICRPG.Story"}}' />
+                <input type="text" name="data.story" value="{{data.data.story}}" placeholder='{{localize "ICRPG.Story"}}' />
             </div>
         </div>
     </header>
@@ -41,7 +41,7 @@
 
                     {{!-- Stats --}}
                     {{#each (icrpg-array "str" "dex" "con" "int" "wis" "cha") as |id|}}
-                    {{#with (lookup ../data.stats id) as |stat|}}
+                    {{#with (lookup ../data.data.stats id) as |stat|}}
                     <div class="resource stat {{id}}">
                         <label for="data.stats.{{id}}.value" class="resource-label rollable"
                             data-roll='1d20+{{stat.value}}'
@@ -70,13 +70,13 @@
                     <div class="resource coin">
                         <label for="data.coin.value" class="resource-label"><i class="fa fa-coins"></i>
                             {{localize "ICRPG.Coin"}}</label>
-                        <input type="text" name="data.coin.value" value="{{data.coin.value}}" data-dtype="Number" />
+                        <input type="text" name="data.coin.value" value="{{data.data.coin.value}}" data-dtype="Number" />
                     </div>
 
                     {{!-- Hero Coin --}}
                     <div class="resource herocoin">
                         {{icrpg-assign 'icrpg-herocoin-id' (icrpg-randomid 'icrpg-herocoin-')}}
-                        <input type="checkbox" {{checked data.herocoin}} name="data.herocoin" value="{{data.herocoin}}"
+                        <input type="checkbox" {{checked data.data.herocoin}} name="data.herocoin" value="{{data.data.herocoin}}"
                             data-dtype="Boolean" id="{{@root.icrpg-herocoin-id}}" />
                         <label for="{{@root.icrpg-herocoin-id}}"></label>
                         <label for="data.herocoin" class="resource-label">{{localize "ICRPG.HeroCoin"}}</span>
@@ -94,7 +94,7 @@
 
                     {{!-- Effort --}}
                     {{#each (icrpg-array "basic" "weapon" "magic" "ultimate") as |id|}}
-                    {{#with (lookup ../data.effort id) as |eff|}}
+                    {{#with (lookup ../data.data.effort id) as |eff|}}
                     <div class="resource effort {{id}}">
                         <label for="data.effort.{{id}}.value"
                             class="resource-label {{#icrpg-is id 'magic'}}d8{{else}}{{eff.die}}{{/icrpg-is}} rollable"
@@ -124,9 +124,9 @@
                     <div class="resource armor">
                         <label for="data.armor.value" class="resource-label"> {{localize "ICRPG.Armor"}} </label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <span class="value">{{data.armor.value}}</span>
-                            <input type="text" name="data.armor.base" value="{{data.armor.base}}" data-dtype="Number" />
-                            <input type="text" name="data.armor.loot" value="{{data.armor.loot}}" data-dtype="Number" />
+                            <span class="value">{{data.data.armor.value}}</span>
+                            <input type="text" name="data.armor.base" value="{{data.data.armor.base}}" data-dtype="Number" />
+                            <input type="text" name="data.armor.loot" value="{{data.data.armor.loot}}" data-dtype="Number" />
                         </div>
                     </div>
 
@@ -140,10 +140,10 @@
                     <div class="resource health">
                         <label for="data.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.health.value" value="{{data.health.value}}"
+                            <input type="text" name="data.health.value" value="{{data.data.health.value}}"
                                 data-dtype="Number" />
                             <span class="separator">/</span>
-                            <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number" />
+                            <input type="text" name="data.health.max" value="{{data.data.health.max}}" data-dtype="Number" />
                         </div>
                     </div>
 
@@ -158,7 +158,7 @@
                         <label for="data.dying.value" class="resource-label death-d6 rollable" data-roll='1d6'
                             data-label='{{localize "ICRPG.Dying"}}'>{{localize "ICRPG.Dying"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.dying.value" value="{{data.dying.value}}"
+                            <input type="text" name="data.dying.value" value="{{data.data.dying.value}}"
                                 data-dtype="Number" />
                             <a class="resource-label revive rollable" data-roll='1d20'
                                 data-label='{{localize "ICRPG.Revive"}}'>{{localize "ICRPG.Revive"}}</a>
@@ -189,14 +189,14 @@
                 </li>
                 {{#each actor.items as |item id|}}
                 {{#icrpg-is item.type "item"}}
-                <li class="item flexrow" data-item-id="{{item._id}}"
-                    data-filterable="{{#if item.data.equipped}}equipped{{else}}unequipped{{/if}}">
+                <li class="item flexrow" data-item-id="{{item.id}}"
+                    data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                     </div>
                     <span class="item-name">
                         <a class="item-control"
-                            data-action="edit">{{#if (ne item.data.quantity 1)}}{{item.data.quantity}}x&nbsp;{{/if}}{{item.name}}</a>
-                        <a class="item-control {{#if item.data.equipped}}{{else}}hidden{{/if}}" data-action="equip"
+                            data-action="edit">{{#if (ne item.data.data.quantity 1)}}{{item.data.data.quantity}}x&nbsp;{{/if}}{{item.name}}</a>
+                        <a class="item-control {{#if item.data.data.equipped}}{{else}}hidden{{/if}}" data-action="equip"
                             title='{{localize "ICRPG.Equipped"}}'>
                             <i class="fas fa-star"></i>
                         </a>
@@ -209,8 +209,8 @@
                     </div>
                 </li>
                 <li class="item-description flexrow"
-                    data-filterable="{{#if item.data.equipped}}equipped{{else}}unequipped{{/if}}">
-                    <span>{{icrpg-preview item.data.description 150}}</span>
+                    data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
+                    <span>{{icrpg-preview item.data.data.description 150}}</span>
                 </li>
                 {{/icrpg-is}}
                 {{/each}}
@@ -219,7 +219,7 @@
 
         {{!-- Notes Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
     </section>
