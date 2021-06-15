@@ -46,5 +46,20 @@
     "ICRPG.Notes": "Notas",
     "ICRPG.Description": "Descripción",
     "ICRPG.Rolling": "Lanzando",
-    "ICRPG.Mastery": "Maestría"
+    "ICRPG.Mastery": "Maestría",
+    "ICRPG.Effects": "Effects",
+    "ICRPG.Rolls": "Rolls",
+    "ICRPG.ItemEffects": "Item Effects",
+    "ICRPG.Source": "Source",
+    "ICRPG.Duration": "Duration",
+    "ICRPG.EffectCreate": "Create Effects",
+    "ICRPG.EffectToggle": "Toggle Effects",
+    "ICRPG.EffectEdit": "Edit Effects",
+    "ICRPG.EffectDelete": "Delete Effects",
+    "ICRPG.StatRollFormula": "Stat Roll Formula",
+    "ICRPG.EffortRollFormula": "Effort Roll Formula",
+    "ICRPG.Add": "Add",
+    "ICRPG.StatRoll": "Stat Roll",
+    "ICRPG.EffortRoll": "Effort Roll",
+    "ICRPG.AbilityEffects": "Ability Effects"
 }

@@ -194,7 +194,7 @@
                 {{#each actor.items as |item id|}}
                 {{#icrpg-is item.type "ability"}}
                 <li class="item flexrow" data-item-id="{{item.id}}">
-                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <div class="item-image rollable"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                     </div>
                     <span class="item-name">
                         <a class="item-control" data-action="edit">{{item.name}}</a>
@@ -236,7 +236,7 @@
                 {{#icrpg-is item.type "item"}}
                 <li class="item flexrow" data-item-id="{{item.id}}"
                     data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
-                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <div class="item-image rollable"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                     </div>
                     <span class="item-name">
                         <a class="item-control"

@@ -179,7 +179,9 @@ input::-moz-selection {
 }
 
 .icrpg.sheet.item .item-form .sheet-tabs {
-  display: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40%;
+          flex: 1 0 40%;
 }
 
 .icrpg .sheet-header {

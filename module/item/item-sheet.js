@@ -2,6 +2,9 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
+ import {onManageActiveEffect} from "../effects.js";
+
+ 
 export class IcrpgItemSheet extends ItemSheet {
 
   /** @override */
@@ -50,7 +53,10 @@ export class IcrpgItemSheet extends ItemSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-
+	html.find(".effect-control").click(ev => {
+        if ( this.item.isOwned ) return ui.notifications.warn("Managing Active Effects within an Owned Item is not currently supported and will be added in a subsequent update.")
+        onManageActiveEffect(ev, this.item)
+      });
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
