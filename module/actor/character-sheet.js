@@ -45,6 +45,20 @@ export class IcrpgCharacterSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+	
+	// Drag events for macros.
+	if (this.actor.owner) {
+	  let handler = ev => this._onDragStart(ev);
+	  // Find all items on the character sheet.
+	  html.find('li.item').each((i, li) => {
+		// Ignore for the header row.
+		if (li.classList.contains("item-header")) return;
+		// Add draggable attribute and dragstart listener.
+		li.setAttribute("draggable", true);
+		li.addEventListener("dragstart", handler, false);
+	  });
+	}
+	
   }
 
   /* -------------------------------------------- */
@@ -134,7 +148,16 @@ export class IcrpgCharacterSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-
+	
+	// Check if we are clicking on a rollable item
+	let li = $(event.currentTarget).parents(".item");
+	let item = this.actor.items.get(li.data("item-id"));
+	
+	if (item) { // Roll the item according to the roll function in the item sheet 
+		item.roll(); 
+	}
+	
+	// Check if there is a roll already defined in the HTML object's data
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${game.i18n.localize("ICRPG.Rolling")} ${dataset.label}` : '';

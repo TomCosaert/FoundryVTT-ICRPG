@@ -1,9 +1,9 @@
 <form class="{{cssClass}} item-form" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
+    <header class="sheet-header">	
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <div class="header-fields">
+		<div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
@@ -22,22 +22,68 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{localize "ICRPG.Description"}}</a>
-        <!--<a class="item" data-tab="attributes">{{localize "ICRPG.Attributes"}}</a>-->
+        <a class="item" data-tab="effects">{{localize "ICRPG.Effects"}}</a>
+		<a class="item" data-tab="rolls">{{localize "ICRPG.Rolls"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        {{!-- Description Tab --}}		
+        <div class="tab description" data-group="primary" data-tab="description">
             {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
-        <!--
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
+		
+        {{!-- Effects Tab --}}
+        <div class="tab effects" data-group="primary" data-tab="effects">
+            <ol class="items-list effects-list">
+				<li class="item-header flexrow" data-effect-type="Item Effects">
+					<h3 class="item-name effect-name flexrow">{{localize "ICRPG.ItemEffects"}}</h3>
+					<div class="effect-source">{{localize "ICRPG.Source"}}</div>
+					<div class="effect-source">{{localize "ICRPG.Duration"}}</div>
+					<div class="item-controls effect-controls flexrow">
+						<a class="effect-control" data-action="create" title="{{localize 'ICRPG.EffectCreate'}}">
+							<i class="fas fa-plus"></i> {{localize "ICRPG.Add"}}
+						</a>
+					</div>
+				</li>
+
+				<ol class="item-list">
+				{{#each item.effects as |effect|}}
+					<li class="item effect flexrow" data-effect-id="{{effect.id}}">
+						<div class="item-name flexrow">
+							<h4>{{effect.data.label}}</h4>
+						</div>
+						<div class="effect-source">{{effect.sourceName}}</div>
+						<div class="effect-duration">{{effect.duration.label}}</div>
+						<div class="item-controls effect-controls flexrow">
+							<a class="effect-control" data-action="toggle" title="{{localize 'ICRPG.EffectToggle'}}">
+								<i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
+							</a>
+							<a class="effect-control" data-action="edit" title="{{localize 'ICRPG.EffectEdit'}}">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a class="effect-control" data-action="delete" title="{{localize 'ICRPG.EffectDelete'}}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</div>
+					</li>
+				{{/each}}
+				</ol>
+			</ol>
         </div>
--->
+		
+		{{!-- Rolls Tab --}}
+		<div class="tab rolls" data-group="primary" data-tab="rolls">
+			<div class="resource-content flexrow flex-center flex-between">
+				<label class="resource-label"> {{localize "ICRPG.StatRollFormula"}}: </label>
+				<input type="text" name="data.statRoll" value="{{data.data.statRoll}}"/>
+			</div>
+			<div class="resource-content flexrow flex-center flex-between">
+				<label class="resource-label"> {{localize "ICRPG.EffortRollFormula"}}:  </label>
+				<input type="text" name="data.effortRoll" value="{{data.data.effortRoll}}"/>
+			</div>
+		</div>
     </section>
 
 </form>
