@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.4] - 2021-06-25
+### Changed
+- Foundry VTT core compatibility version updated to 0.8.8.
+
 ## [1.2.3] - 2021-06-06
 ### Changed
 - Foundry VTT core compatibility version updated to 0.8.6.
