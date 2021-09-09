@@ -1,3 +1,9 @@
+![Index Card RPG](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FLeague-of-Foundry-Developers%2Fleague-repo-status%2Fshields-endpoint%2Fexample-not-maintained.json)
+
+---------------------------------------------
+> **NOTE**: I unfortunately can't spend any time on this project at the moment. If you're interested in taking over development, reach out to me (``Tom Cosaert#1943``) on Discord.
+---------------------------------------------
+
 # Index Card RPG System for Foundry VTT
 
 [Foundry Virtual Tabletop](https://foundryvtt.com/) (**Foundry VTT**) is a standalone application built for experiencing multiplayer tabletop RPGs using a feature-rich and modern self-hosted application where your players connect directly through the browser.
