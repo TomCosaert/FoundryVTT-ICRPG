@@ -1,4 +1,5 @@
 import { IcrpgUtility } from "../utility.js";
+import { IcrpgActiveEffect } from "../active-effect.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -27,6 +28,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     //for (let attr of Object.values(data.data.attributes)) {
     //  attr.isCheckbox = attr.dtype === "Boolean";
     //}
+    data.effects = IcrpgActiveEffect.prepareActiveEffectCategories(this.actor.effects);
     return data;
   }
 
@@ -45,6 +47,9 @@ export class IcrpgCharacterSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+
+    // Active Effects
+    html.find(`.effect-control`).click(ev => IcrpgActiveEffect.onManageActiveEffect(ev, this.actor));
   }
 
   /* -------------------------------------------- */

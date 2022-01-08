@@ -9,6 +9,7 @@ import { IcrpgItemSheet } from "./item/item-sheet.js";
 import { IcrpgAbilitySheet } from "./item/ability-sheet.js";
 import { IcrpgRegisterHelpers } from "./handlebars.js";
 import { IcrpgUtility } from "./utility.js";
+import { IcrpgActiveEffect } from "./active-effect.js";
 
 Hooks.once('init', async function () {
 
@@ -30,6 +31,12 @@ Hooks.once('init', async function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = IcrpgActor;
   CONFIG.Item.documentClass = IcrpgItem;
+  CONFIG.ActiveEffect.documentClass = IcrpgActiveEffect;
+
+  // Preload Handlebars Templates
+  await loadTemplates([
+    "systems/icrpg/templates/active-effects.html"
+  ]);
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

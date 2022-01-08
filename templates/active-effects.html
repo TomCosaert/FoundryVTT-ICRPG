@@ -1,0 +1,41 @@
+<ol class="items-list effects-list">
+    {{#each effects as |section sid|}}
+    {{#unless section.hidden}}
+    <li class="item flexrow item-header" data-effect-type="{{section.type}}">
+        <div class="item-image"></div>
+        <div class="item-name effect-name-header">{{localize section.label}}</div>
+        {{#unless ../isItem}}<div class="item-name">{{localize "ICRPG.EffectSource"}}</div>{{/unless}}
+        <div class="item-controls" {{#if (eq section.type "unequipped")}} style="visibility: hidden;"{{/if}}>
+            <a class="effect-control effect-create" data-action="create"
+                title='{{localize "ICRPG.AddEffect"}}' data-type="ability"><i class="fas fa-plus"></i></a>
+        </div>
+        
+    </li>
+
+    <ol class="item-list">
+        {{#each section.effects as |effect|}}
+        <li class="item flexrow" data-effect-id="{{effect.id}}">
+            <div class="item-image"><img src="{{effect.img}}" title="{{effect.name}}" width="24"
+                    height="24" />
+            </div>
+            <span class="item-name effect-name">
+                <a class="effect-control" data-action="edit">{{effect.name}}</a>
+            </span>
+            {{#unless ../../isItem}}<div class="effect-source">{{effect.sourceName}}</div>{{/unless}}
+            <div class="item-controls">
+                
+                <a class="effect-control" data-action="toggle" {{#if (eq section.type "unequipped")}}style="visibility: hidden"{{/if}}
+                    title='{{localize "ICRPG.ToggleEffect"}}'><i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
+                </a>
+                
+                <a class="effect-control item-edit" data-action="edit"
+                    title='{{localize "ICRPG.EditEffect"}}'><i class="fas fa-edit"></i></a>
+                <a class="effect-control item-delete" data-action="delete"
+                    title='{{localize "ICRPG.DeleteEffect"}}'><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+    {{/unless}}
+    {{/each}}
+</ol>

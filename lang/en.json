@@ -46,5 +46,15 @@
     "ICRPG.Notes": "Notes",
     "ICRPG.Description": "Description",
     "ICRPG.Rolling": "Rolling",
-    "ICRPG.Mastery": "Mastery"
+    "ICRPG.Mastery": "Mastery",
+    "ICRPG.Effects": "Effects",
+    "ICRPG.NewEffect": "New Effect",
+    "ICRPG.AddEffect": "Add Effect",
+    "ICRPG.EditEffect": "Edit Effect",
+    "ICRPG.DeleteEffect": "Delete Effect",
+    "ICRPG.EffectActive": "Active Effects",
+    "ICRPG.EffectInactive": "Inactive Effects",
+    "ICRPG.ToggleEffect": "Toggle Effect",
+    "ICRPG.EffectUnequipped": "Effects on Unequipped Items",
+    "ICRPG.EffectSource": "Source"
 }

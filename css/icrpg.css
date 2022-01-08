@@ -674,3 +674,13 @@ input::-moz-selection {
 .icrpg .items-list .is-hidden {
   display: none;
 }
+
+.icrpg .items-list .item-name.effect-name-header {
+  flex: 1 0 auto;
+  width: 70px;
+}
+
+.icrpg .items-list .item-name.effect-name {
+  flex: 1 0 auto;
+  width: 45px;
+}

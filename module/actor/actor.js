@@ -22,7 +22,7 @@ export class IcrpgActor extends Actor {
   }
 
   /**
-   * Prepare NPC type specific data
+   * Prepare data common to Characters and NPCs
    */
   _prepareCommonData(actorData) {
     const data = actorData.data;
@@ -65,6 +65,13 @@ export class IcrpgActor extends Actor {
   _prepareNpcData(actorData) {
     const data = actorData.data;
 
+  }
+
+  applyActiveEffects() {
+    // The Active Effects do not have access to their parent at preparation time so we wait until this stage to
+    // determine whether they are suppressed or not.
+    this.effects.forEach(e => e.determineSuppression());
+    return super.applyActiveEffects();
   }
 
   getRollData() {
