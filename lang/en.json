@@ -56,6 +56,5 @@
     "ICRPG.EffectInactive": "Inactive Effects",
     "ICRPG.ToggleEffect": "Toggle Effect",
     "ICRPG.EffectUnequipped": "Effects on Unequipped Items",
-    "ICRPG.EffectSource": "Source",
-    "ICRPG.CONBase": "CON Base"
+    "ICRPG.EffectSource": "Source"
 }
