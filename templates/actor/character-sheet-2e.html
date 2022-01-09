@@ -55,8 +55,7 @@
                                 name="data.stats.{{id}}.value">{{numberFormat stat.value decimals=0 sign=false}}</span>
                             <input type="text" name="data.stats.{{id}}.base" value="{{stat.base}}"
                                 data-dtype="Number" />
-                            <input type="text" name="data.stats.{{id}}.loot" value="{{stat.loot}}"
-                                data-dtype="Number" />
+                            <span class="base">{{numberFormat stat.loot decimals=0 sign=false}}</span>
                         </div>
                     </div>
                     {{/with}}
@@ -116,8 +115,7 @@
                                 name="data.effort.{{id}}.value">{{numberFormat eff.value decimals=0 sign=false}}</span>
                             <input type="text" name="data.effort.{{id}}.base" value="{{eff.base}}"
                                 data-dtype="Number" />
-                            <input type="text" name="data.effort.{{id}}.loot" value="{{eff.loot}}"
-                                data-dtype="Number" />
+                            <span class="base">{{numberFormat eff.loot decimals=0 sign=false}}</span>
                         </div>
                     </div>
                     {{/with}}
@@ -137,8 +135,8 @@
                             {{localize "ICRPG.Defense"}} </label>
                         <div class="resource-content flexrow flex-center flex-between">
                             <span class="value">{{icrpg-sum data.data.stats.con.value data.data.armor.loot}}</span>
-                            <span class="base">{{icrpg-sum data.data.stats.con.value data.data.armor.base}}</span>
-                            <input type="text" name="data.armor.loot" value="{{data.data.armor.loot}}" data-dtype="Number" />
+                            <input type="text" title='{{localize "ICRPG.CONBase"}}' value="{{data.data.stats.con.value}}" data-dtype="Number" disabled/>
+                            <span class="base">{{data.data.armor.loot}}</span>
                         </div>
                     </div>
 
