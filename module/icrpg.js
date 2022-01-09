@@ -10,6 +10,7 @@ import { IcrpgAbilitySheet } from "./item/ability-sheet.js";
 import { IcrpgRegisterHelpers } from "./handlebars.js";
 import { IcrpgUtility } from "./utility.js";
 import { IcrpgActiveEffect } from "./active-effect.js";
+import { IcrpgCharacterSheet2Eunlocked } from "./actor/character-sheet-2e-unlocked";
 
 Hooks.once('init', async function () {
 
@@ -41,6 +42,7 @@ Hooks.once('init', async function () {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("icrpg", IcrpgCharacterSheet2E, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("icrpg", IcrpgCharacterSheet2Eunlocked, { types: ["character"] });
   Actors.registerSheet("icrpg", IcrpgCharacterSheet, { types: ["character"] });
   Actors.registerSheet("icrpg", IcrpgNpcSheet2E, { types: ["npc"], makeDefault: true });
   Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"] });

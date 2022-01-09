@@ -1,0 +1,275 @@
+<form class="{{cssClass}} character-form" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}"
+                    placeholder='{{localize "ICRPG.Name"}}' /></h1>
+            <div class="resource grid grid-2col">
+                <input type="text" name="data.bioform" value="{{data.data.bioform}}"
+                    placeholder='{{localize "ICRPG.LifeForm"}}' />
+                <input type="text" name="data.class" value="{{data.data.class}}" placeholder='{{localize "ICRPG.Type"}}' />
+            </div>
+            <div class="resource story">
+                <input type="text" name="data.story" value="{{data.data.story}}" placeholder='{{localize "ICRPG.Story"}}' />
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="attributes">{{localize "ICRPG.Attributes"}}</a>
+        <a class="item" data-tab="abilities">{{localize "ICRPG.Abilities"}}</a>
+        <a class="item" data-tab="items">{{localize "ICRPG.Loot"}}</a>
+        <a class="item" data-tab="effects">{{localize "ICRPG.Effects"}}</a>
+        <a class="item" data-tab="description">{{localize "ICRPG.Notes"}}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            <div class="attributes-content">
+                <div class="resources">
+
+                    {{!-- Header --}}
+                    <div class="resource stat resource-header">
+                        <span class="header">{{localize "ICRPG.Stats"}}</span>
+                        <span class="header">{{localize "ICRPG.Base"}}</span>
+                        <span class="header">{{localize "ICRPG.Loot"}}</span>
+                    </div>
+
+                    {{!-- Stats --}}
+                    {{#each (icrpg-array "str" "dex" "con" "int" "wis" "cha") as |id|}}
+                    {{#with (lookup ../data.data.stats id) as |stat|}}
+                    <div class="resource stat {{id}}">
+                        <label for="data.stats.{{id}}.value" class="resource-label rollable"
+                            data-roll='1d20+{{stat.value}}'
+                            data-label='{{localize (icrpg-concat "ICRPG." (icrpg-toUpperCase id))}}'>
+                            {{localize (icrpg-concat "ICRPG." (icrpg-toUpperCase id))}}
+                        </label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <span class="value"
+                                name="data.stats.{{id}}.value">{{numberFormat stat.value decimals=0 sign=false}}</span>
+                            <input type="text" name="data.stats.{{id}}.base" value="{{stat.base}}"
+                                data-dtype="Number" />
+                            <span class="base">{{numberFormat stat.loot decimals=0 sign=false}}</span>
+                        </div>
+                    </div>
+                    {{/with}}
+                    {{/each}}
+
+                    {{!-- Header --}}
+                    <div class="resource coin resource-header">
+                        <span class="header">
+                            <!--{{localize "ICRPG.Resources"}}--></span>
+                    </div>
+
+                    {{!-- Coin --}}
+                    <div class="resource coin">
+                        <label for="data.coin.value" class="resource-label"><i class="fa fa-coins"></i>
+                            {{localize "ICRPG.Coin"}}</label>
+                        <input type="text" name="data.coin.value" value="{{data.data.coin.value}}" data-dtype="Number" />
+                    </div>
+
+                    {{!-- Mastery --}}
+                    <div class="resource mastery">
+                        <label for="data.mastery.value" class="resource-label">
+                            {{localize "ICRPG.Mastery"}}</label>
+                        <input type="text" name="data.mastery.value" value="{{data.data.mastery.value}}"
+                            data-dtype="Number" />
+                    </div>
+
+                    {{!-- Hero Coin --}}
+                    <div class="resource herocoin">
+                        {{icrpg-assign 'icrpg-herocoin-id' (icrpg-randomid 'icrpg-herocoin-')}}
+                        <input type="checkbox" {{checked data.data.herocoin}} name="data.herocoin" value="{{data.data.herocoin}}"
+                            data-dtype="Boolean" id="{{@root.icrpg-herocoin-id}}" />
+                        <label for="{{@root.icrpg-herocoin-id}}"></label>
+                        <label for="data.herocoin" class="resource-label">{{localize "ICRPG.HeroCoin"}}</span>
+                    </div>
+
+                </div>
+                <div class="resources">
+
+                    {{!-- Header --}}
+                    <div class="resource effort resource-header">
+                        <span class="header">{{localize "ICRPG.Effort"}}</span>
+                        <span class="header">{{localize "ICRPG.Base"}}</span>
+                        <span class="header">{{localize "ICRPG.Loot"}}</span>
+                    </div>
+
+                    {{!-- Effort --}}
+                    {{#each (icrpg-array "basic" "weapon" "gun" "magic" "ultimate") as |id|}}
+                    {{#with (lookup ../data.data.effort id) as |eff|}}
+                    <div class="resource effort {{id}}">
+                        <label for="data.effort.{{id}}.value" class="resource-label {{eff.die}} rollable"
+                            data-roll='1{{eff.die}}+{{eff.value}}'
+                            data-label='{{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}'>
+                            {{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}
+                        </label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <span class="value"
+                                name="data.effort.{{id}}.value">{{numberFormat eff.value decimals=0 sign=false}}</span>
+                            <input type="text" name="data.effort.{{id}}.base" value="{{eff.base}}"
+                                data-dtype="Number" />
+                            <span class="base">{{numberFormat eff.loot decimals=0 sign=false}}</span>
+                        </div>
+                    </div>
+                    {{/with}}
+                    {{/each}}
+
+                    {{!-- Header --}}
+                    <div class="resource armor resource-header">
+                        <span class="header">
+                            <!--{{localize "ICRPG.Defense"}}--></span>
+                    </div>
+
+                    {{!-- Armor --}}
+                    <div class="resource armor">
+                        <label for="data.armor.value" class="resource-label rollable"
+                            data-roll='1d20+{{icrpg-sum data.data.stats.con.value data.data.armor.loot}}'
+                            data-label='{{localize "ICRPG.Defense"}}'>
+                            {{localize "ICRPG.Defense"}} </label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <span class="value">{{icrpg-sum data.data.stats.con.value data.data.armor.loot}}</span>
+                            <input type="text" title='{{localize "ICRPG.CON"}}' value="{{data.data.stats.con.value}}" data-dtype="Number" disabled/>
+                            <span class="base">{{data.data.armor.loot}}</span>
+                        </div>
+                    </div>
+
+                    {{!-- Header --}}
+                    <div class="resource health resource-header">
+                        <span class="header">
+                            <!--{{localize "ICRPG.Health"}}--></span>
+                    </div>
+
+                    {{!-- HP --}}
+                    <div class="resource health">
+                        <label for="data.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <input type="text" name="data.health.value" value="{{data.data.health.value}}"
+                                data-dtype="Number" />
+                            <span class="separator">/</span>
+                            <input type="text" name="data.health.max" value="{{data.data.health.max}}" data-dtype="Number" />
+                        </div>
+                    </div>
+
+                    {{!-- Header --}}
+                    <div class="resource death resource-header">
+                        <span class="header">
+                            <!--{{localize "ICRPG.Death"}}--></span>
+                    </div>
+
+                    {{!-- Death --}}
+                    <div class="resource death">
+                        <label for="data.dying.value" class="resource-label death-d4 rollable" data-roll='1d4'
+                            data-label='{{localize "ICRPG.Dying"}}'>{{localize "ICRPG.Dying"}}</label>
+                        <div class="resource-content flexrow flex-center flex-between">
+                            <input type="text" name="data.dying.value" value="{{data.data.dying.value}}"
+                                data-dtype="Number" />
+                            <a class="resource-label revive rollable" data-roll='1d20'
+                                data-label='{{localize "ICRPG.Revive"}}'>{{localize "ICRPG.Revive"}}</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {{!--  Owned Abilities Tab --}}
+        <div class="tab abilities" data-group="primary" data-tab="abilities">
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name">{{localize "ICRPG.Name"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" data-action="create" title='{{localize "ICRPG.AddAbility"}}'
+                            data-type="ability"><i class="fas fa-plus"></i></a>
+                    </div>
+                </li>
+                {{#each actor.items as |item id|}}
+                {{#icrpg-is item.type "ability"}}
+                <li class="item flexrow" data-item-id="{{item.id}}">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    </div>
+                    <span class="item-name">
+                        <a class="item-control" data-action="edit">{{item.name}}</a>
+                    </span>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" data-action="edit" title='{{localize "ICRPG.EditAbility"}}'><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" data-action="delete"
+                            title='{{localize "ICRPG.DeleteAbility"}}'><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                <li class="item-description flexrow">
+                    <span>{{icrpg-preview item.data.data.description 150}}</span>
+                </li>
+                {{/icrpg-is}}
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!--  Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <ol class="items-list">
+                <li class="item-header flexrow">
+                    <div class="item-image"></div>
+                    <div class="item-name">{{localize "ICRPG.Name"}}</div>
+                    <div class="item-filters">
+                        <label title='{{localize "ICRPG.All"}}'><input type="radio" name="equipped" value="" checked>{{localize "ICRPG.All"}}</label>
+                        <label title='{{localize "ICRPG.Equipped"}}'><input type="radio" name="equipped" value="equipped"><i class="fas fa-star"></i></label>
+                        <label title='{{localize "ICRPG.Unequipped"}}'><input type="radio" name="equipped" value="unequipped"><i class="far fa-star"></i></label>
+                    </div>
+                    <div class="item-controls">
+                        <a class="item-control item-loot rollable" data-roll='1d100'
+                            data-label='{{localize "ICRPG.LootRoll"}}'>{{localize "ICRPG.LootRoll"}}</a>
+                        <a class="item-control item-create" data-action="create" title='{{localize "ICRPG.AddItem"}}'
+                            data-type="item"><i class="fas fa-plus"></i></a>
+                    </div>
+                </li>
+                {{#each actor.items as |item id|}}
+                {{#icrpg-is item.type "item"}}
+                <li class="item flexrow" data-item-id="{{item.id}}"
+                    data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    </div>
+                    <span class="item-name">
+                        <a class="item-control"
+                            data-action="edit">{{#if (ne item.data.data.quantity 1)}}{{item.data.data.quantity}}x&nbsp;{{/if}}{{item.name}}</a>
+                        <a class="item-control {{#if item.data.data.equipped}}{{else}}hidden{{/if}}" data-action="equip"
+                            title='{{localize "ICRPG.Equipped"}}'>
+                            <i class="fas fa-star"></i>
+                        </a>
+                    </span>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" data-action="edit" title='{{localize "ICRPG.EditItem"}}'><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" data-action="delete"
+                            title='{{localize "ICRPG.DeleteItem"}}'><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                <li class="item-description flexrow"
+                    data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
+                    <span>{{icrpg-preview item.data.data.description 150}}</span>
+                </li>
+                {{/icrpg-is}}
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!-- Effects Tab --}}
+        <div class="tab effects" data-group="primary" data-tab="effects">
+            {{> "systems/icrpg/templates/active-effects.html"}}
+        </div>
+
+        {{!-- Notes Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+    </section>
+</form>
