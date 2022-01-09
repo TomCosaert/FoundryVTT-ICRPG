@@ -131,11 +131,17 @@
   "Item": {
     "types": [
       "item",
-      "ability"
+      "ability",
+      "weapon",
+      "armor"
     ],
     "templates": {
       "base": {
         "description": ""
+      },
+      "equipment": {
+        "durability": 10,
+        "equipped": false
       }
     },
     "item": {
@@ -149,6 +155,13 @@
       "templates": [
         "base"
       ]
+    },
+    "weapon": {
+      "templates": ["base", "equipment"]
+    },
+    "armor": {
+      "templates": ["base", "equipment"],
+      "defenseBonus": 0
     }
   }
 }
