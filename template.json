@@ -141,7 +141,8 @@
       },
       "equipment": {
         "durability": 10,
-        "equipped": false
+        "equipped": false,
+        "quantity": 1
       }
     },
     "item": {

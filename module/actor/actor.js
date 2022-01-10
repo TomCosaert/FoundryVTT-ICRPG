@@ -7,9 +7,7 @@ export class IcrpgActor extends Actor {
   /**
    * Augment the basic actor data with additional dynamic data.
    */
-  prepareData() {
-    super.prepareData();
-
+  prepareDerivedData() {
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
@@ -50,13 +48,17 @@ export class IcrpgActor extends Actor {
       eff.value = Number(eff.base) + Number(eff.loot);
     }
 
+    const items = actorData.items.contents;
+
     data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
-    /*
-        data.armour = actorData
-          .items
-          .map(item => item.data.armour * item.data.equipped)
-          .reduce((a,b) => a + b, 0)
-    */
+    const defenseBonus = !items.length
+      ? 0
+      : items
+        .map(i => i.data.data.defenseBonus * i.data.data.equipped)
+        .reduce((acc, n) => acc + n);
+
+    data.armor.loot = defenseBonus;
+    data.armor.value = data.stats.con.value + defenseBonus + 10;
   }
 
   /**

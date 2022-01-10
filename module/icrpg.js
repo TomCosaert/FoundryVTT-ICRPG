@@ -10,7 +10,7 @@ import { IcrpgAbilitySheet } from "./item/ability-sheet.js";
 import { IcrpgRegisterHelpers } from "./handlebars.js";
 import { IcrpgUtility } from "./utility.js";
 import { IcrpgActiveEffect } from "./active-effect.js";
-import { IcrpgCharacterSheet2Eunlocked } from "./actor/character-sheet-2e-unlocked";
+import { IcrpgCharacterSheet2Eunlocked } from "./actor/character-sheet-2e-unlocked.js";
 
 Hooks.once('init', async function () {
 

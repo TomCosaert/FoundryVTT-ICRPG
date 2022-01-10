@@ -7,8 +7,13 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
+                    {{#if data.data.defenseBonus}}
+                    <label for="data.defenseBonus" class="resource-label">{{localize "ICRPG.DefenseBonus"}}</label>
+                    <input type="text" name="data.defenseBonus" value="{{data.data.defenseBonus}}" data-dtype="Number" />
+                    {{else}}
                     <label for="data.quantity" class="resource-label">{{localize "ICRPG.Quantity"}}</label>
                     <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
+                    {{/if}}
                 </div>
                 <div class="resource flex-group-center">
                     <label for="data.equipped" class="resource-label">{{localize "ICRPG.Equipped"}}</label>
