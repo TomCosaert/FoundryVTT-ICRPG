@@ -120,6 +120,13 @@
       "mastery": {
         "value": 0
       },
+      "spellTypeMastery": {
+        "spellType": "",
+        "value": 0
+      },
+      "stunPoints":{
+        "value": 10
+      },
       "herocoin": false
     },
     "npc": {
