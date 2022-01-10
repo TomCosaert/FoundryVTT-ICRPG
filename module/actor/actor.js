@@ -54,6 +54,7 @@ export class IcrpgActor extends Actor {
     const defenseBonus = !items.length
       ? 0
       : items
+        .filter(i => !!i.data.data.defenseBonus)
         .map(i => i.data.data.defenseBonus * i.data.data.equipped * !!i.data.data.durability)
         .reduce((acc, n) => acc + n);
 
