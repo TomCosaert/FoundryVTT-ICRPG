@@ -4,6 +4,37 @@
  */
 export class IcrpgActor extends Actor {
 
+  prepareBaseData() {
+    const data = this.data.data;
+
+    // Apply loot-based active effects first
+    this.applyActiveEffects(true);
+
+    for (let [id, stat] of Object.entries(data.stats)) {
+      stat.value = Number(stat.base) + Number(stat.loot);
+    }
+
+    for (let [id, eff] of Object.entries(data.effort)) {
+      eff.value = Number(eff.base) + Number(eff.loot);
+    }
+  }
+
+  applyActiveEffects(loot = false) {
+    this.effects.forEach(e => e.determineSuppression());
+
+    const filteredEffects = this.effects.filter(e => {
+      if (e.isSuppressed) return false;
+
+      const lootChanges = e.data.changes.find(c => c.key.includes("loot"));
+      if (loot) return !!!lootChanges;
+      else return !!lootChanges;
+    });
+
+    filteredEffects.forEach(e => {e.isSuppressed = true});
+    super.applyActiveEffects();
+    filteredEffects.forEach(e => {e.isSuppressed = false});
+  }
+
   /**
    * Augment the basic actor data with additional dynamic data.
    */
@@ -39,27 +70,18 @@ export class IcrpgActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
-
-    for (let [id, stat] of Object.entries(data.stats)) {
-      stat.value = Number(stat.base) + Number(stat.loot);
-    }
-
-    for (let [id, eff] of Object.entries(data.effort)) {
-      eff.value = Number(eff.base) + Number(eff.loot);
-    }
-
     const items = actorData.items.contents;
 
-    data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
-    const defenseBonus = !items.length
+    //data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
+    const armorItems = items.filter(i => "defenseBonus" in i.data.data);
+    const defenseBonus = !armorItems.length
       ? 0
-      : items
-        .filter(i => !!i.data.data.defenseBonus)
+      : armorItems
         .map(i => i.data.data.defenseBonus * i.data.data.equipped * !!i.data.data.durability)
         .reduce((acc, n) => acc + n);
 
     data.armor.loot = defenseBonus;
-    data.armor.value = data.stats.con.value + defenseBonus + 10;
+    data.armor.value = data.stats.con.value + data.armor.loot + 10;
   }
 
   /**
@@ -68,13 +90,6 @@ export class IcrpgActor extends Actor {
   _prepareNpcData(actorData) {
     const data = actorData.data;
 
-  }
-
-  applyActiveEffects() {
-    // The Active Effects do not have access to their parent at preparation time so we wait until this stage to
-    // determine whether they are suppressed or not.
-    this.effects.forEach(e => e.determineSuppression());
-    return super.applyActiveEffects();
   }
 
   getRollData() {
