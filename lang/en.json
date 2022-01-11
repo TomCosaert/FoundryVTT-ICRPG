@@ -57,5 +57,7 @@
     "ICRPG.ToggleEffect": "Toggle Effect",
     "ICRPG.EffectUnequipped": "Effects on Unequipped Items",
     "ICRPG.EffectSource": "Source",
-    "ICRPG.DefenseBonus": "Defense Bonus"
+    "ICRPG.DefenseBonus": "Defense Bonus",
+    "ICRPG.GlobalDC": "Global DC",
+    "ICRPG.SetGlobalDC": "Set Global DC"
 }

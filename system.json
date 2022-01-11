@@ -41,6 +41,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": null,
+  "socket": true,
   "url": "https://github.com/TomCosaert/FoundryVTT-ICRPG/",
   "manifest": "https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/system.json",
   "download": "https://github.com/TomCosaert/FoundryVTT-ICRPG/archive/master.zip",

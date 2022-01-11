@@ -684,3 +684,28 @@ input::-moz-selection {
   flex: 1 0 auto;
   width: 45px;
 }
+
+/* Global DC */
+#icrpg-globalDC .window-header {
+  display: none;
+}
+
+#icrpg-globalDC .window-content {
+  padding: 0;
+  background-image: url("/icons/svg/d20-grey.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 1px;
+  overflow: hidden;
+}
+
+#icrpg-globalDC .container {
+  display: flex;
+  justify-content: center;
+}
+
+#icrpg-globalDC .container .child {
+  font-size: 72px;
+  color: white;
+  line-height: 105px;
+}

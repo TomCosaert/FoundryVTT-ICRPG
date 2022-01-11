@@ -11,13 +11,15 @@ import { IcrpgRegisterHelpers } from "./handlebars.js";
 import { IcrpgUtility } from "./utility.js";
 import { IcrpgActiveEffect } from "./active-effect.js";
 import { IcrpgCharacterSheet2Eunlocked } from "./actor/character-sheet-2e-unlocked.js";
+import { IcrpgGlobalDC } from "./apps/globalDC.js";
 
 Hooks.once('init', async function () {
 
   game.icrpg = {
     IcrpgActor,
     IcrpgItem,
-    IcrpgUtility
+    IcrpgUtility,
+    IcrpgGlobalDC
   };
 
   /**
@@ -39,6 +41,36 @@ Hooks.once('init', async function () {
     "systems/icrpg/templates/active-effects.html"
   ]);
 
+  game.settings.register("icrpg", "globalDC", {
+    name: "",
+    hint: "",
+    scope: "world",
+    config: false,
+    type: Number,
+    default: 10
+  });
+
+  game.settings.register("icrpg", "globalDCposition", {
+    name: "",
+    hint: "",
+    scope: "world",
+    config: false,
+    type: Object,
+    default: {
+      left: window.innerWidth - 200,
+      top: 5
+    }
+  });
+
+  socket.on("system.icrpg", data => {
+    if (data.action === "positionGlobalDC") {
+      Object.values(ui.windows).find(w => w.id === "icrpg-globalDC").setPosition({
+        left: data.position.left * (window.innerWidth - 100),
+        top: data.position.top * (window.innerHeight - 100),
+      });
+    }
+  });
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("icrpg", IcrpgCharacterSheet2E, { types: ["character"], makeDefault: true });
@@ -52,3 +84,8 @@ Hooks.once('init', async function () {
 
   IcrpgRegisterHelpers.init();
 });
+
+Hooks.once("ready", () => {
+  new game.icrpg.IcrpgGlobalDC().render(true, { left: game.settings.get("icrpg", "globalDCposition").left, top: game.settings.get("icrpg", "globalDCposition").top, width: 200, height: 200 });
+});
+
