@@ -709,3 +709,13 @@ input::-moz-selection {
   color: white;
   line-height: 105px;
 }
+
+/* Roll Pass/Fail Flagging */
+
+h4.dice-total.icrpg-pass {
+  background-color: rgb(45 255 1 / 41%);
+}
+
+h4.dice-total.icrpg-fail {
+  background-color: rgb(255 1 1 / 41%)
+}

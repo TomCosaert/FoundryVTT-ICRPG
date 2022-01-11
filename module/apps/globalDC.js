@@ -75,8 +75,8 @@ class GlobalDCConfig extends Application {
         super.activateListeners(html);
 
         html.find("button").click(() => {
-            const globalDC = parseInt(html.find("input").val());
-            if (globalDC) game.settings.set("icrpg", "globalDC", globalDC);
+            const globalDC = parseInt(html.find("input").val()) ?? undefined;
+            if (globalDC !== undefined) game.settings.set("icrpg", "globalDC", globalDC);
             this.close();
         });
     }

@@ -12,6 +12,7 @@ import { IcrpgUtility } from "./utility.js";
 import { IcrpgActiveEffect } from "./active-effect.js";
 import { IcrpgCharacterSheet2Eunlocked } from "./actor/character-sheet-2e-unlocked.js";
 import { IcrpgGlobalDC } from "./apps/globalDC.js";
+import {IcrpgChatMessage } from "./chatMessage.js";
 
 Hooks.once('init', async function () {
 
@@ -34,6 +35,7 @@ Hooks.once('init', async function () {
   CONFIG.Actor.documentClass = IcrpgActor;
   CONFIG.Item.documentClass = IcrpgItem;
   CONFIG.ActiveEffect.documentClass = IcrpgActiveEffect;
+  CONFIG.ChatMessage.documentClass = IcrpgChatMessage;
 
   // Preload Handlebars Templates
   await loadTemplates([
