@@ -40,6 +40,8 @@ export class IcrpgGlobalDC extends Application {
     async _render(force = false, options = {}) {
         await super._render(force, options);
         this.element.css({ "height": "100px", "width": "100px" });
+        if (game.settings.get("icrpg", "globalDCvisible")) this.element.css("display", "");
+        else this.element.css("display", "none");
 
         // Can't dodge escape-close this way because app needs to be in ui.windows to change position
         //delete ui.windows[this.appId];
@@ -53,7 +55,7 @@ export class IcrpgGlobalDC extends Application {
 
 class GlobalDCConfig extends Application {
     static get defaultOptions() {
-        const globalDCapp = Object.values(ui.windows).find(w => w.id === "icrpg-globalDC");
+        const globalDCapp = game.icrpg.globalDC;
         return mergeObject(super.defaultOptions, {
             template: "/systems/icrpg/templates/globalDC/global-DC-config.html",
             title: game.i18n.localize("ICRPG.GlobalDC"),
@@ -72,11 +74,10 @@ class GlobalDCConfig extends Application {
     activateListeners(html) {
         super.activateListeners(html);
 
-        html.find("button").click(async () => {
+        html.find("button").click(() => {
             const globalDC = parseInt(html.find("input").val());
-            if (globalDC) await game.settings.set("icrpg", "globalDC", globalDC);
+            if (globalDC) game.settings.set("icrpg", "globalDC", globalDC);
             this.close();
-            Object.values(ui.windows).find(w => w.id === "icrpg-globalDC").render();
         });
     }
 

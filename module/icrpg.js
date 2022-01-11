@@ -18,8 +18,7 @@ Hooks.once('init', async function () {
   game.icrpg = {
     IcrpgActor,
     IcrpgItem,
-    IcrpgUtility,
-    IcrpgGlobalDC
+    IcrpgUtility
   };
 
   /**
@@ -47,7 +46,8 @@ Hooks.once('init', async function () {
     scope: "world",
     config: false,
     type: Number,
-    default: 10
+    default: 10,
+    onChange: () => game.icrpg.globalDC.render()
   });
 
   game.settings.register("icrpg", "globalDCposition", {
@@ -60,6 +60,16 @@ Hooks.once('init', async function () {
       left: window.innerWidth - 200,
       top: 5
     }
+  });
+
+  game.settings.register("icrpg", "globalDCvisible", {
+    name: "",
+    hint: "",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: true,
+    onChange: () => game.icrpg.globalDC.render()
   });
 
   socket.on("system.icrpg", data => {
@@ -86,6 +96,19 @@ Hooks.once('init', async function () {
 });
 
 Hooks.once("ready", () => {
-  new game.icrpg.IcrpgGlobalDC().render(true, { left: game.settings.get("icrpg", "globalDCposition").left, top: game.settings.get("icrpg", "globalDCposition").top, width: 200, height: 200 });
+  game.icrpg.globalDC = new IcrpgGlobalDC().render(true, { left: game.settings.get("icrpg", "globalDCposition").left, top: game.settings.get("icrpg", "globalDCposition").top, width: 200, height: 200 });
 });
 
+Hooks.on("getSceneControlButtons", controls => {
+  if (!game.user.isGM) return;
+
+  const bar = controls.find(c => c.name === "token");
+  bar.tools.push({
+    name: "Global DC",
+    title: game.i18n.localize("ICRPG.GlobalDC"),
+    icon: "fas fa-dice-d20",
+    toggle: true,
+    active: game.settings.get("icrpg", "globalDCvisible"),
+    onClick: toggle => game.settings.set("icrpg", "globalDCvisible", toggle)
+  });
+});
