@@ -2,11 +2,11 @@
   "name": "icrpg",
   "title": "Index Card RPG",
   "description": "Index Card RPG (ICRPG) system for Foundry VTT.",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9",
   "templateVersion": 2,
-  "author": "Tom Cosaert#1943",
+  "author": "enso#0361",
   "esmodules": [
     "module/icrpg.js"
   ],
@@ -41,8 +41,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/TomCosaert/FoundryVTT-ICRPG/",
-  "manifest": "https://raw.githubusercontent.com/TomCosaert/FoundryVTT-ICRPG/master/system.json",
-  "download": "https://github.com/TomCosaert/FoundryVTT-ICRPG/archive/master.zip",
+  "url": "https://github.com/jessev14/FoundryVTT-ICRPG/",
+  "manifest": "https://github.com/jessev14/FoundryVTT-ICRPG/raw/master/template.json",
+  "download": "https://github.com/jessev14/FoundryVTT-ICRPG/archive/master.zip",
   "license": "LICENSE"
 }
