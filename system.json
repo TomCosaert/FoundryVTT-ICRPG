@@ -43,6 +43,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/jessev14/FoundryVTT-ICRPG/",
   "manifest": "https://github.com/jessev14/FoundryVTT-ICRPG/raw/master/template.json",
-  "download": "https://github.com/jessev14/FoundryVTT-ICRPG/archive/master.zip",
+  "download": "https://github.com/jessev14/FoundryVTT-ICRPG/releases/latest/download/icrpg.zip",
   "license": "LICENSE"
 }
