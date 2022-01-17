@@ -9,13 +9,14 @@ export class IcrpgActor extends Actor {
 
     // Apply loot-based active effects first
     this.applyActiveEffects(true);
+    if (this.data.type === "character") {
+      for (let [id, stat] of Object.entries(data.stats)) {
+        stat.value = Number(stat.base) + Number(stat.loot);
+      }
 
-    for (let [id, stat] of Object.entries(data.stats)) {
-      stat.value = Number(stat.base) + Number(stat.loot);
-    }
-
-    for (let [id, eff] of Object.entries(data.effort)) {
-      eff.value = Number(eff.base) + Number(eff.loot);
+      for (let [id, eff] of Object.entries(data.effort)) {
+        eff.value = Number(eff.base) + Number(eff.loot);
+      }
     }
   }
 
