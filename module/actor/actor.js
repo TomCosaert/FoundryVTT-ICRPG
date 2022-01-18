@@ -104,4 +104,10 @@ export class IcrpgActor extends Actor {
     }
     return data
   }
+
+  async applyDamage(amount) {
+    const newHP = Math.clamped(this.data.data.health.value - amount, 0, this.data.data.health.max);
+
+    return this.update({"data.health.value": newHP});
+  }
 }

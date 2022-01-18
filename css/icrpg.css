@@ -200,6 +200,7 @@ input::-moz-selection {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-bottom: 10px;
+  align-items: flex-start !important;
 }
 
 .icrpg .sheet-header .profile-img {
@@ -591,11 +592,20 @@ input::-moz-selection {
   padding: 3px 0;
 }
 
+.icrpg .items-list .item.effortable:hover .item-image {
+  background-image: url("../../../icons/svg/d20-grey.svg") !important;
+}
+
+.icrpg .items-list .item.effortable .item-image:hover {
+  background-image: url("../../../icons/svg/d20-black.svg") !important;
+}
+
 .icrpg .items-list .item .item-image {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 24px;
           flex: 0 0 24px;
   margin-right: 5px;
+  background-size: contain;
 }
 
 .icrpg .items-list .item img {
@@ -683,4 +693,13 @@ input::-moz-selection {
 .icrpg .items-list .item-name.effect-name {
   flex: 1 0 auto;
   width: 45px;
+}
+
+.dialog-content .icrpg.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.dialog-content .icrpg.form-group > * {
+  flex: 1
 }

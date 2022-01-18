@@ -39,6 +39,24 @@ Hooks.once('init', async function () {
     "systems/icrpg/templates/active-effects.html"
   ]);
 
+  // Register module settings
+  game.settings.register("icrpg", "NPCdefense", {
+    name: "ICRPG.NPCdefense",
+    hint: "",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("icrpg" ,"globalDC" , {
+    name: "",
+    hint: "",
+    scope: "world",
+    config: false,
+    type: Number,
+    default: 10
+  });
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("icrpg", IcrpgCharacterSheet2E, { types: ["character"], makeDefault: true });
@@ -47,8 +65,41 @@ Hooks.once('init', async function () {
   Actors.registerSheet("icrpg", IcrpgNpcSheet2E, { types: ["npc"], makeDefault: true });
   Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("icrpg", IcrpgItemSheet, { types: ["item", "weapon", "armor"], makeDefault: true });
+  Items.registerSheet("icrpg", IcrpgItemSheet, { types: ["item", "weapon", "armor", "spell", "gun"], makeDefault: true });
   Items.registerSheet("icrpg", IcrpgAbilitySheet, { types: ["ability"], makeDefault: true });
 
   IcrpgRegisterHelpers.init();
+});
+
+
+// Chat message context menu to apply effort roll
+Hooks.on("getChatLogEntryContext", (html, options) => {
+  const canApply = li => {
+    const message = game.messages.get(li.data("messageId"));
+    return message.isRoll && message?.isContentVisible && canvas.tokens?.controlled.length;
+  };
+
+  options.push(
+    {
+      name: game.i18n.localize("ICRPG.ChatApplyDamage"),
+      icon: '<i class="fas fa-user-minus"></i>',
+      condition: canApply,
+      callback: li => {
+        const message = game.messages.get(li.data("messageId"));
+        const roll = message.roll;
+        return Promise.all(canvas.tokens.controlled.map(t => t.actor.applyDamage(roll.total)));
+      }
+    },
+    {
+      name: game.i18n.localize("ICRPG.ChatApplyHeal"),
+      icon: '<i class="fas fa-user-plus"></i>',
+      condition: canApply,
+      callback: li => {
+        const message = game.messages.get(li.data("messageId"));
+        const roll = message.roll;
+        return Promise.all(canvas.tokens.controlled.map(t => t.actor.applyDamage(-1 * roll.total)));
+      }
+    }
+  );
+
 });

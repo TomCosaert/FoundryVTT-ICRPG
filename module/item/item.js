@@ -14,4 +14,136 @@ export class IcrpgItem extends Item {
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
   }
+
+  async rollCheck() {
+    let targets = game.user.targets.ids.map(id => canvas.tokens.get(id));
+    if (!targets.length) targets = [{
+      actor: {
+        data: {
+          data: {
+            defense: {
+              value: game.settings.get("icrpg", "globalDC")
+            }
+          }
+        }
+      }
+    }];
+
+    for (const target of targets) {
+      const title = this.name + (target.name ? ` - Target: ${target.name}` : ``);
+
+      const d20formula = await new Promise(resolve => {
+        new Dialog({
+          title,
+          content: `
+            <div class="icrpg form-group">
+            <label>${game.i18n.localize("ICRPG.Modifiers")}</label>
+            <input type="text" data-type="String" placeholder="e.g. + 5 or + @str"/>
+            </div>
+          `,
+          buttons: {
+            easy: {
+              label: game.i18n.localize("ICRPG.Easy"),
+              callback: html => {
+                const mod = html.find(`input`).val();
+                const formula = `1d20 + 3` + `${mod}`;
+                resolve(formula);
+              }
+            },
+            normal: {
+              label: game.i18n.localize("ICRPG.Normal"),
+              callback: html => {
+                const mod = html.find(`input`).val();
+                const formula = `1d20` + `${mod}`;
+                resolve(formula);
+              }
+            },
+            hard: {
+              label: game.i18n.localize("ICRPG.Hard"),
+              callback: html => {
+                const mod = html.find(`input`).val();
+                const formula = `1d20 - 3` + `${mod}`;
+                resolve(formula);
+              }
+            }
+          },
+          default: "normal"
+        }, { width: 300 }).render(true);
+      });
+
+      const d20Roll = await new Roll(d20formula, this.actor.getRollData()).roll();
+      const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+      await d20Roll.toMessage({
+        speaker,
+        flavor: title
+      });
+
+      const isHit = game.settings.get("icrpg", "NPCdefense")
+        ? d20Roll.total >= target.actor.data.data.defense.value
+        : d20Roll.total >= game.settings.get("icrpg", "globalDC");
+
+      if (!isHit) {
+        await ChatMessage.create({
+          speaker,
+          content: game.i18n.format("ICRPG.EffortMissed", {
+            actorName: this.actor.name,
+            targetName: target.name ? ` ${target.name} ` : ` `,
+            itemName: this.name
+          })
+        });
+        continue;
+      }
+
+      await this.rollEffort(target)
+    }
+  }
+
+  async rollEffort(target = {}) {
+    const title = this.name + (target.name ? ` - Target: ${target.name}` : ``);
+
+    const effortFormula = await new Promise(resolve => {
+      new Dialog({
+        title,
+        content: `
+          <div class="icrpg form-group">
+          <label>${game.i18n.localize("ICRPG.Modifiers")}</label>
+          <input type="text" data-type="String" placeholder="e.g. + 5 or + @str"/>
+          </div>
+        `,
+        buttons: {
+          normal: {
+            label: game.i18n.localize("ICRPG.Roll"),
+            callback: html => {
+              const mod = html.find(`input`).val() || "";
+              const effortFormula = this.data.data.effortFormula + mod;
+              resolve(effortFormula);
+            }
+          },
+          ultimate: {
+            label: game.i18n.localize("ICRPG.EffortUltimate"),
+            callback: html => {
+              const mod = html.find(`input`).val() || "";
+              const effortFormula = this.data.data.effortFormula + `+1d12` + mod;
+              resolve(effortFormula);
+            }
+          }
+        },
+        default: "roll"
+      }, { width: 300 }).render(true);
+    });
+
+    if (!effortFormula) {
+      ui.notification.error(game.i18n.localize("ICRPG.ImproperEffortFormula"));
+      return;
+    }
+
+    const effortRoll = await new Roll(effortFormula, this.actor.getRollData()).roll();
+    await effortRoll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: title
+    });
+
+    if (target.name) await target.actor.applyDamage(effortRoll.total);
+  }
+
 }

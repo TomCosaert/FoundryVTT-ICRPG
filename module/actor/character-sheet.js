@@ -44,6 +44,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     // Item controls
     html.find(".items").on("click", ".item-control", this._onClickItemControl.bind(this));
     html.find(".items").on("change", "input[name='equipped']", this._onClickItemFilter.bind(this));
+    html.find(".items").on("click", ".item-image",  this._onClickItemImg.bind(this));
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -182,5 +183,15 @@ export class IcrpgCharacterSheet extends ActorSheet {
     el_filtered.forEach(el => el.classList.remove('is-hidden'));
   }
 
+  /* -------------------------------------------- */
+
+  _onClickItemImg(event) {
+    event.stopPropagation();
+
+    const itemID = $(event.currentTarget).closest(`li.item`).data("itemId");
+    const item = this.actor.items.get(itemID);
+
+    item.rollCheck();
+  }
   /* -------------------------------------------- */
 }

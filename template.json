@@ -124,7 +124,7 @@
         "spellType": "",
         "value": 0
       },
-      "stunPoints":{
+      "stunPoints": {
         "value": 10
       },
       "herocoin": false
@@ -132,7 +132,10 @@
     "npc": {
       "templates": [
         "base"
-      ]
+      ],
+      "defense": {
+        "value": 10
+      }
     }
   },
   "Item": {
@@ -140,7 +143,9 @@
       "item",
       "ability",
       "weapon",
-      "armor"
+      "armor",
+      "spell",
+      "gun"
     ],
     "templates": {
       "base": {
@@ -157,7 +162,8 @@
         "base"
       ],
       "quantity": 1,
-      "equipped": false
+      "equipped": false,
+      "effortFormula": "1d4"
     },
     "ability": {
       "templates": [
@@ -165,11 +171,28 @@
       ]
     },
     "weapon": {
-      "templates": ["base", "equipment"]
+      "templates": [
+        "base",
+        "equipment"
+      ],
+      "effortFormula": "1d6"
     },
     "armor": {
-      "templates": ["base", "equipment"],
+      "templates": [
+        "base",
+        "equipment"
+      ],
       "defenseBonus": 0
+    },
+    "spell": {
+      "effortFormula": "1d10"
+    },
+    "gun": {
+      "templates": [
+        "base",
+        "equipment"
+      ],
+      "effortFormula": "1d8"
     }
   }
 }

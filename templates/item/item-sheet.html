@@ -10,9 +10,11 @@
                     <label for="data.defenseBonus" class="resource-label">{{localize "ICRPG.DefenseBonus"}}</label>
                     <input type="text" name="data.defenseBonus" value="{{data.data.defenseBonus}}" data-dtype="Number" />
                     {{else}}
+                    {{#icrpg-quantity item}}
                     <label for="data.quantity" class="resource-label">{{localize "ICRPG.Quantity"}}</label>
                     <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
-                    {{/if}}
+                    {{/icrpg-quantity}}
+                    {{/if}} 
                 </div>
                 <div class="resource flex-group-center">
                     <label for="data.equipped" class="resource-label">{{localize "ICRPG.Equipped"}}</label>
@@ -20,6 +22,24 @@
                         data-dtype="Boolean" />
                 </div>
             </div>
+            {{#icrpg-effortable item}}
+            <div class="resource grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label for="data.effortFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Effort"}}</label>
+                    <input type="text" name="data.effortFormula" value="{{data.data.effortFormula}}"
+                        data-dtype="text" />
+                </div>
+            </div>
+            {{/icrpg-effortable}}
+            {{#icrpg-has item "durability"}}
+            <div class="resource grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label for="data.durability" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Durability"}}</label>
+                    <input type="text" name="data.durability" value="{{data.data.durability}}"
+                        data-dtype="Number" />
+                </div>
+            </div>
+            {{/icrpg-has}}
         </div>
     </header>
 

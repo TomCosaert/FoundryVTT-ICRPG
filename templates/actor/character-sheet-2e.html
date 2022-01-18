@@ -233,10 +233,10 @@
                 </li>
                 {{#each actor.items as |item id|}}
                 {{#unless (eq item.type "ability")}}
-                <li class="item flexrow" data-item-id="{{item.id}}"
+                <li class="item flexrow {{#if item.data.data.effortFormula}}effortable{{/if}}" data-item-id="{{item.id}}"
                     data-filterable="{{#if item.data.data.equipped}}equipped{{else}}unequipped{{/if}}">
-                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    </div>
+                    <a class="item-image" style='background-image: url("{{item.img}}")' title="{{item.name}}" width="24" height="24">
+                    </a>
                     <span class="item-name">
                         <a class="item-control"
                             data-action="edit">{{#if (ne item.data.data.quantity 1)}}{{item.data.data.quantity}}x&nbsp;{{/if}}{{item.name}}</a>
