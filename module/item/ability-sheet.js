@@ -1,3 +1,5 @@
+import { IcrpgItemEffectsConfig } from "../active-effect.js";
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -56,6 +58,23 @@ export class IcrpgAbilitySheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
   }
+
+    /** @inheritdoc */
+    _getHeaderButtons() {
+      const buttons = super._getHeaderButtons();
+
+      // Active Effects
+      //if (game.user.isGM) {} // if only GMs should be able to see/edit AEs on items
+      buttons.unshift({
+        label: game.i18n.localize("ICRPG.Effects"),
+        class: "effects",
+        icon: "fas fa-exchange-alt",
+        onclick: () => new IcrpgItemEffectsConfig(this.document).render(true)
+      });
+
+      return buttons;
+    }
+
 
   /* -------------------------------------------- */
 }

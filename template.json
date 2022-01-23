@@ -118,13 +118,15 @@
         "value": 0
       },
       "mastery": {
-        "value": 0
+        "Arcane": 0,
+        "Holy": 0,
+        "Infernal": 0
       },
       "spellTypeMastery": {
         "spellType": "",
         "value": 0
       },
-      "stunPoints": {
+      "stun": {
         "value": 10
       },
       "herocoin": false
@@ -155,6 +157,9 @@
         "durability": 10,
         "equipped": false,
         "quantity": 1
+      },
+      "mastery": {
+        "mastery": 0
       }
     },
     "item": {
@@ -167,8 +172,10 @@
     },
     "ability": {
       "templates": [
-        "base"
-      ]
+        "base",
+        "mastery"
+      ],
+      "equipped": true
     },
     "weapon": {
       "templates": [
@@ -185,14 +192,24 @@
       "defenseBonus": 0
     },
     "spell": {
-      "effortFormula": "1d10"
+      "templates": [
+        "base",
+        "mastery"
+      ],
+      "effortFormula": "1d10",
+      "quantity": 1,
+      "spellLevel": 1,
+      "spellPower": 1,
+      "spellType": "Arcane",
+      "equipped": true
     },
     "gun": {
       "templates": [
-        "base",
-        "equipment"
+        "base"
       ],
-      "effortFormula": "1d8"
+      "effortFormula": "1d8",
+      "quantity": 1,
+      "equipped": false
     }
   }
 }

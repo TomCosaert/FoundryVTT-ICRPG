@@ -65,5 +65,14 @@
     "ICRPG.Easy": "Easy",
     "ICRPG.Normal": "Normal",
     "ICRPG.Hard": "Hard",
-    "ICRPG.Roll": "Roll"
+    "ICRPG.Roll": "Roll",
+    "ICRPG.NoDurability": "Item has 0 durability!",
+    "ICRPG.Stun": "Stun",
+    "ICRPG.Power": "Power",
+    "ICRPG.NoStun": "No Stun available to use spell!",
+    "ICRPG.Spells": "Spells",
+    "ICRPG.Arcane": "Arcane",
+    "ICRPG.Holy": "Holy",
+    "ICRPG.Infernal": "Infernal",
+    "ICRPG.SpellType": "Spell Type"
 }

@@ -28,6 +28,11 @@ Hooks.once('init', async function () {
     formula: "1d20",
     decimals: 2
   };
+  CONFIG.SpellTypes = {
+    Arcane: "ICRPG.Arcane",
+    Holy: "ICRPG.Holy",
+    Infernal: "ICRPG.Infernal"
+  };
 
   // Define custom Document classes
   CONFIG.Actor.documentClass = IcrpgActor;

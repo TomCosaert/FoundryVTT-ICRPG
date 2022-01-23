@@ -40,6 +40,16 @@
                 </div>
             </div>
             {{/icrpg-has}}
+            {{#icrpg-has item "spellType"}}
+            <div class="resource grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label for="data.spellType" class="resource-label" style="margin-left: 9px">{{localize "ICRPG.SpellType"}}</label>
+                    <select name="data.spellType">
+                        {{selectOptions config.SpellTypes selected=item.data.data.spellType localize=true}}
+                    </select>
+                </div>
+            </div>
+            {{/icrpg-has}}
         </div>
     </header>
 

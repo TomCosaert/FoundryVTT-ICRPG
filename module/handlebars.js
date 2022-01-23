@@ -74,5 +74,10 @@ export class IcrpgRegisterHelpers {
             if (property in item.data.data) return opts.fn(this);
             return opts.inverse(this);
         });
+
+        Handlebars.registerHelper("icrpg-localize", function (key) {
+            if (!key) return "";
+            return game.i18n.localize(`ICRPG.${key}`);
+        });
     }
 }

@@ -28,6 +28,7 @@ export class IcrpgItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+    data.config = CONFIG;
     return data;
   }
 
