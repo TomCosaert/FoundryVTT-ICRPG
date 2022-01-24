@@ -16,7 +16,7 @@ export class IcrpgItem extends Item {
   }
 
   async rollCheck() {
-    if (this.data.data.durability <= 0 ) return ui.notifications.warn(game.i18n.localize("IRCRPG.NoDurability"));
+    if (this.data.data.durability <= 0) return ui.notifications.warn(game.i18n.localize("IRCRPG.NoDurability"));
 
     let targets = game.user.targets.ids.map(id => canvas.tokens.get(id));
     if (!targets.length) targets = [{
@@ -32,10 +32,11 @@ export class IcrpgItem extends Item {
     }];
 
     const isSpell = this.type === "spell";
-    const actorStunPoints = this.actor.data.data.stun.value;
-    if (isSpell && !actorStunPoints) return ui.notifications.warn(game.i18n.localize("ICRPG.NoStun"));    
+
 
     for (const target of targets) {
+      const actorStunPoints = this.actor.data.data.stun.value;
+      if (isSpell && !actorStunPoints) return ui.notifications.warn(game.i18n.localize("ICRPG.NoStun"));
       const title = this.name + (target.name ? ` - Target: ${target.name}` : ``);
       let content = `
         <div class="icrpg form-group">
@@ -45,7 +46,7 @@ export class IcrpgItem extends Item {
       `;
       if (isSpell) {
         let options = ``;
-        
+
         for (let i = 1; i < actorStunPoints + 1; i++) {
           options += `<option value="${i}">${i}</option>`;
         }
@@ -71,7 +72,7 @@ export class IcrpgItem extends Item {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
-                  await this.actor.update({"data.stun.value": newStun});
+                  await this.actor.update({ "data.stun.value": newStun });
                 }
                 resolve(formula);
               }
@@ -85,7 +86,7 @@ export class IcrpgItem extends Item {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
-                  await this.actor.update({"data.stun.value": newStun});
+                  await this.actor.update({ "data.stun.value": newStun });
                 }
                 resolve(formula);
               }
@@ -99,7 +100,7 @@ export class IcrpgItem extends Item {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
-                  await this.actor.update({"data.stun.value": newStun});
+                  await this.actor.update({ "data.stun.value": newStun });
                 }
                 resolve(formula);
               }
@@ -108,6 +109,7 @@ export class IcrpgItem extends Item {
           default: "normal"
         }, { width: 300 }).render(true);
       });
+      if (!d20formula) continue;
 
       const d20Roll = await new Roll(d20formula, this.actor.getRollData()).roll();
       const speaker = ChatMessage.getSpeaker({ actor: this.actor });
@@ -129,10 +131,10 @@ export class IcrpgItem extends Item {
             itemName: this.name
           })
         });
-        return;
+        continue;
       }
 
-      if (isSpell && !this.data.data.effortFormula) return;
+      if (isSpell && !this.data.data.effortFormula) continue;
 
       await this.rollEffort(target);
     }
