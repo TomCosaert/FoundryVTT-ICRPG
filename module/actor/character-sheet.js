@@ -13,7 +13,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
       classes: ["icrpg", "sheet", "actor"],
       template: "systems/icrpg/templates/actor/character-sheet.html",
       width: 400,
-      height: 520,
+      height: 531,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
       dragDrop: [{ dragSelector: ".items-list .item", dropSelector: null }]
     });
@@ -25,10 +25,33 @@ export class IcrpgCharacterSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    //for (let attr of Object.values(data.data.attributes)) {
-    //  attr.isCheckbox = attr.dtype === "Boolean";
-    //}
     data.effects = IcrpgActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+
+    data.items = [];
+    data.abilities = [];
+    data.spells = [];
+    for (const item of data.actor.items.contents) {
+      switch (item.type) {
+        case "spell":
+          data.spells.push(item);
+          break;
+        case "ability":
+          data.abilities.push(item);
+          break;
+        default:
+          data.items.push(item);
+      }
+    }
+
+    // Mastery
+    data.mastery = Object.entries(this.actor.data.data.mastery).map(([k, v]) => {
+      return {
+        key: k,
+        label: game.i18n.localize(`ICRPG.${k}`),
+        value: v
+      };
+    });
+    
     return data;
   }
 
@@ -44,6 +67,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     // Item controls
     html.find(".items").on("click", ".item-control", this._onClickItemControl.bind(this));
     html.find(".items").on("change", "input[name='equipped']", this._onClickItemFilter.bind(this));
+    html.find(".items").on("click", ".item-image",  this._onClickItemImg.bind(this));
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -182,5 +206,15 @@ export class IcrpgCharacterSheet extends ActorSheet {
     el_filtered.forEach(el => el.classList.remove('is-hidden'));
   }
 
+  /* -------------------------------------------- */
+
+  _onClickItemImg(event) {
+    event.stopPropagation();
+
+    const itemID = $(event.currentTarget).closest(`li.item`).data("itemId");
+    const item = this.actor.items.get(itemID);
+
+    item.rollCheck();
+  }
   /* -------------------------------------------- */
 }

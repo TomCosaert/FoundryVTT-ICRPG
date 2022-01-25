@@ -59,5 +59,25 @@ export class IcrpgRegisterHelpers {
         Handlebars.registerHelper("icrpg-sum", function (a, b) {
             return a + b;
         });
+
+        Handlebars.registerHelper("icrpg-effortable", function (item, opts) {
+            if ("effortFormula" in item.data.data) return opts.fn(this);
+            return opts.inverse(this);
+        });
+
+        Handlebars.registerHelper("icrpg-quantity", function (item, opts) {
+            if (!["spell", "ability"].includes(item.type)) return opts.fn(this);
+            return opts.inverse(this);
+        });
+
+        Handlebars.registerHelper("icrpg-has", function (item, property, opts) {
+            if (property in item.data.data) return opts.fn(this);
+            return opts.inverse(this);
+        });
+
+        Handlebars.registerHelper("icrpg-localize", function (key) {
+            if (!key) return "";
+            return game.i18n.localize(`ICRPG.${key}`);
+        });
     }
 }

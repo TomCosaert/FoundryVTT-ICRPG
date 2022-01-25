@@ -200,6 +200,7 @@ input::-moz-selection {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-bottom: 10px;
+  align-items: flex-start !important;
 }
 
 .icrpg .sheet-header .profile-img {
@@ -320,6 +321,7 @@ input::-moz-selection {
 .icrpg .resource.resource-header.effort > .header:first-child,
 .icrpg .resource.resource-header.armor > .header:first-child,
 .icrpg .resource.resource-header.health > .header:first-child,
+.icrpg .resource.resource-header.stun > .header:first-child,
 .icrpg .resource.resource-header.death > .header:first-child {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100px;
@@ -427,6 +429,10 @@ input::-moz-selection {
 }
 
 .icrpg .resource.health > .resource-label {
+  background-image: url("../images/heart.svg");
+}
+
+.icrpg .resource.stun.health > .resource-label {
   background-image: url("../images/heart.svg");
 }
 
@@ -591,11 +597,20 @@ input::-moz-selection {
   padding: 3px 0;
 }
 
+.icrpg .items-list .item.effortable:hover .item-image {
+  background-image: url("../../../icons/svg/d20-grey.svg") !important;
+}
+
+.icrpg .items-list .item.effortable .item-image:hover {
+  background-image: url("../../../icons/svg/d20-black.svg") !important;
+}
+
 .icrpg .items-list .item .item-image {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 24px;
           flex: 0 0 24px;
   margin-right: 5px;
+  background-size: contain;
 }
 
 .icrpg .items-list .item img {
@@ -711,11 +726,25 @@ input::-moz-selection {
 }
 
 /* Roll Pass/Fail Flagging */
-
 h4.dice-total.icrpg-pass {
   background-color: rgb(45 255 1 / 41%);
 }
 
 h4.dice-total.icrpg-fail {
   background-color: rgb(255 1 1 / 41%)
+
+}
+
+.dialog-content .icrpg.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.dialog-content .icrpg.form-group > * {
+  flex: 1
+}
+
+.icrpg .items-list .mastery-list {
+  align-items: center;
+  width: 100px;
 }
