@@ -42,11 +42,12 @@ Hooks.once('init', async function () {
   CONFIG.ActiveEffect.documentClass = IcrpgActiveEffect;
   CONFIG.ChatMessage.documentClass = IcrpgChatMessage;
 
-  // Preload Handlebars Templates
+  // Preload Handlebars templates
   await loadTemplates([
     "systems/icrpg/templates/active-effects.html"
   ]);
 
+  // Register system settings
   game.settings.register("icrpg", "globalDC", {
     name: "",
     hint: "",
@@ -87,6 +88,7 @@ Hooks.once('init', async function () {
     default: false
   });
 
+  // Setup socket handler
   socket.on("system.icrpg", data => {
     if (data.action === "positionGlobalDC") {
       game.icrpg.globalDC.setPosition({
@@ -111,9 +113,11 @@ Hooks.once('init', async function () {
 });
 
 Hooks.once("ready", () => {
+  // Create global DC application and store outside of ui.windows
   game.icrpg.globalDC = new IcrpgGlobalDC().render(true, { left: game.settings.get("icrpg", "globalDCposition").left, top: game.settings.get("icrpg", "globalDCposition").top, width: 200, height: 200 });
 });
 
+// Add global DC visibility toggle control button
 Hooks.on("getSceneControlButtons", controls => {
   if (!game.user.isGM) return;
 
