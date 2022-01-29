@@ -122,7 +122,16 @@ export class IcrpgItem extends Item {
         ? d20Roll.total >= target.actor.data.data.defense.value
         : d20Roll.total >= game.settings.get("icrpg", "globalDC");
 
-      if (!isHit) {
+      if (isHit) {
+        await ChatMessage.create({
+          speaker,
+          content: game.i18n.format("ICRPG.EffortHit", {
+            actorName: this.actor.name,
+            targetName: target.name ? ` ${target.name} ` : ` `,
+            itemName: this.name
+          })
+        });
+      } else {
         await ChatMessage.create({
           speaker,
           content: game.i18n.format("ICRPG.EffortMissed", {

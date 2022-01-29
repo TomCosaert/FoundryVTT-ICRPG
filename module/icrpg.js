@@ -70,6 +70,9 @@ Hooks.once('init', async function () {
   });
 
   game.settings.register("icrpg", "globalDCvisible", {
+    name: "",
+    hint:"",
+    scope: "world",
     type: Boolean,
     default: true,
     onChange: () => game.icrpg.globalDC.render()
@@ -79,14 +82,14 @@ Hooks.once('init', async function () {
     name: "ICRPG.NPCdefense",
     hint: "",
     scope: "world",
-    config: true,
+    config: false,
     type: Boolean,
     default: false
   });
 
   socket.on("system.icrpg", data => {
     if (data.action === "positionGlobalDC") {
-      Object.values(ui.windows).find(w => w.id === "icrpg-globalDC").setPosition({
+      game.icrpg.globalDC.setPosition({
         left: data.position.left * (window.innerWidth - 100),
         top: data.position.top * (window.innerHeight - 100),
       });

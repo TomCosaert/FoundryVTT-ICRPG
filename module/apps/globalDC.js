@@ -19,7 +19,7 @@ export class IcrpgGlobalDC extends Application {
             const draggable = new Draggable(this, html, this.element[0], false);
             draggable._onDragMouseUp = event => {
                 Draggable.prototype._onDragMouseUp.call(draggable, event);
-                
+
                 const position = {
                     left: this.position.left,
                     top: this.position.top
@@ -33,6 +33,7 @@ export class IcrpgGlobalDC extends Application {
                 });
                 game.settings.set("icrpg", "globalDCposition", position);
             };
+
             html[0].addEventListener("contextmenu", function (event) { new GlobalDCConfig().render(true) });
         }
     }
@@ -43,14 +44,10 @@ export class IcrpgGlobalDC extends Application {
         if (game.settings.get("icrpg", "globalDCvisible")) this.element.css("display", "");
         else this.element.css("display", "none");
 
-        // Can't dodge escape-close this way because app needs to be in ui.windows to change position
-        //delete ui.windows[this.appId];
+        // Dodge escape-close
+        delete ui.windows[this.appId];
     }
 
-    // Dodge escape-close
-    close() {
-        return false;
-    }
 }
 
 class GlobalDCConfig extends Application {
@@ -75,8 +72,11 @@ class GlobalDCConfig extends Application {
         super.activateListeners(html);
 
         html.find("button").click(() => {
-            const globalDC = parseInt(html.find("input").val()) ?? undefined;
-            if (globalDC !== undefined) game.settings.set("icrpg", "globalDC", globalDC);
+            const input = html.find("input");
+            const val = input.val();
+            const globalDC = parseInt(val);
+            if (globalDC) game.settings.set("icrpg", "globalDC", globalDC);
+
             this.close();
         });
     }
