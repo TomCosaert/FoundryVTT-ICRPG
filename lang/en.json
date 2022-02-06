@@ -77,5 +77,6 @@
     "ICRPG.Arcane": "Arcane",
     "ICRPG.Holy": "Holy",
     "ICRPG.Infernal": "Infernal",
-    "ICRPG.SpellType": "Spell Type"
+    "ICRPG.SpellType": "Spell Type",
+    "ICRPG.NPCdefense": "Use NPC Defense Value"
 }

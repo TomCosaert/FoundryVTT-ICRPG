@@ -83,7 +83,7 @@ Hooks.once('init', async function () {
     name: "ICRPG.NPCdefense",
     hint: "",
     scope: "world",
-    config: false,
+    config: true,
     type: Boolean,
     default: false
   });

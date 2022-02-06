@@ -164,7 +164,8 @@
     },
     "item": {
       "templates": [
-        "base"
+        "base",
+        "mastery"
       ],
       "quantity": 1,
       "equipped": false,
@@ -180,7 +181,8 @@
     "weapon": {
       "templates": [
         "base",
-        "equipment"
+        "equipment",
+        "mastery"
       ],
       "effortFormula": "1d6"
     },
@@ -205,7 +207,8 @@
     },
     "gun": {
       "templates": [
-        "base"
+        "base",
+        "mastery"
       ],
       "effortFormula": "1d8",
       "quantity": 1,

@@ -50,6 +50,15 @@
                 </div>
             </div>
             {{/icrpg-has}}
+            {{#icrpg-has item "mastery"}}
+            <div class="resource grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label for="data.mastery" class="resource-label" style="margin-left: -2px">{{localize "ICRPG.Mastery"}}</label>
+                    <input type="text" name="data.mastery" value="{{data.data.mastery}}"
+                        data-dtype="Number" />
+                </div>
+            </div>
+            {{/icrpg-has}}
         </div>
     </header>
 
