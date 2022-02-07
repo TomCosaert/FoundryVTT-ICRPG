@@ -79,8 +79,36 @@ Hooks.once('init', async function () {
     onChange: () => game.icrpg.globalDC.render()
   });
 
+  // Optional rules
   game.settings.register("icrpg", "NPCdefense", {
     name: "ICRPG.NPCdefense",
+    hint: "",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("icrpg", "itemDurability", {
+    name: "ICRPG.itemDurabilitySetting",
+    hint: "",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("icrpg", "spellMastery", {
+    name: "ICRPG.spellMasterySetting",
+    hint: "",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("icrpg", "abilityMastery", {
+    name: "ICRPG.abilityMasterySetting",
     hint: "",
     scope: "world",
     config: true,
@@ -161,4 +189,10 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       }
     }
   );
+});
+
+Hooks.on("renderItemSheet", (app, html, appData) => {
+  if (game.settings.get("icrpg", "itemDurability")) html.find(`label[for="data.durability"]`).closest(`div.grid`).remove();
+  if (game.settings.get("icrpg", "spellMastery")) html.find(`label[for="data.mastery"]`).closest(`div.grid`).remove();
+  if (game.settings.get("icrpg", "abilityMastery")) html.find(`label[for="data.mastery"]`).closest(`div.grid`).remove();
 });
