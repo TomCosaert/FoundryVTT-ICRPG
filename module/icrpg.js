@@ -82,7 +82,7 @@ Hooks.once('init', async function () {
   // Optional rules
   game.settings.register("icrpg", "NPCdefense", {
     name: "ICRPG.NPCdefense",
-    hint: "",
+    hint: "ICRPG.NPCdefenseHint",
     scope: "world",
     config: true,
     type: Boolean,
