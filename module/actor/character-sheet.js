@@ -51,6 +51,9 @@ export class IcrpgCharacterSheet extends ActorSheet {
         value: v
       };
     });
+
+    // Armor
+    data.armor = {value: this.actor.data.data.armor.value - 10};
     
     return data;
   }

@@ -81,8 +81,8 @@ export class IcrpgActor extends Actor {
         .map(i => i.data.data.defenseBonus * i.data.data.equipped * !!i.data.data.durability)
         .reduce((acc, n) => acc + n);
 
-    data.armor.loot = defenseBonus;
-    data.armor.value = data.stats.con.value + data.armor.loot + 10;
+    data.armor.loot = defenseBonus + (data.armor.loot || 0);
+    data.armor.value = data.stats.con.value + data.armor.loot + 10 + (data.armor.value || 0);
   }
 
   /**
