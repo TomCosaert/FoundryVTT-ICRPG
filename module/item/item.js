@@ -16,7 +16,16 @@ export class IcrpgItem extends Item {
   }
 
   async rollCheck() {
-    if (this.data.data.durability <= 0) return ui.notifications.warn(game.i18n.localize("IRCRPG.NoDurability"));
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+
+    if (!game.settings.get("icrpg", "itemDurability") && this.data.data.durability <= 0) {
+      ChatMessage.create({
+        speaker,
+        content: game.i18n.format("ICRPG.BrokenMessage", { character: this.actor.name })
+      });
+      ui.notifications.warn(game.i18n.format("ICRPG.NoDurability", { itemName: this.name }));
+      return;
+    }
 
     let targets = game.user.targets.ids.map(id => canvas.tokens.get(id));
     if (!targets.length) targets = [{
@@ -112,7 +121,6 @@ export class IcrpgItem extends Item {
       if (!d20formula) continue;
 
       const d20Roll = await new Roll(d20formula, this.actor.getRollData()).roll();
-      const speaker = ChatMessage.getSpeaker({ actor: this.actor });
       await d20Roll.toMessage({
         speaker,
         flavor: (isSpell ? `[${game.i18n.localize("ICRPG.Power")}: ${power}] ` : ``) + title

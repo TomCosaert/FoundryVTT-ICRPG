@@ -69,7 +69,8 @@
     "ICRPG.Normal": "Normal",
     "ICRPG.Hard": "Hard",
     "ICRPG.Roll": "Roll",
-    "ICRPG.NoDurability": "Item has 0 durability!",
+    "ICRPG.NoDurability": "{itemName} is broken!",
+    "ICRPG.BrokenMessage": "{character} cannot attack with a broken weapon (0 Durability).",
     "ICRPG.Stun": "Stun",
     "ICRPG.Power": "Power",
     "ICRPG.NoStun": "No Stun available to use spell!",
@@ -82,5 +83,5 @@
     "ICRPG.NPCdefenseHint": "Enable to use NPC defense value instead of target for effort rolls.",
     "ICRPG.itemDurabilitySetting": "Disable Item Durability",
     "ICRPG.spellMasterySetting": "Disable Spell Mastery",
-    "ICRPG.abilityMasterySetting": "Disable Ability Durability"
+    "ICRPG.abilityMasterySetting": "Disable Ability Mastery"
 }
