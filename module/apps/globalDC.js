@@ -34,7 +34,14 @@ export class IcrpgGlobalDC extends Application {
                 game.settings.set("icrpg", "globalDCposition", position);
             };
 
-            html[0].addEventListener("contextmenu", function (event) { new GlobalDCConfig().render(true) });
+            html[0].addEventListener("contextmenu", function (event) {
+                const globalDCinput = Object.values(ui.windows).find(w => w.id === "icrpg-globalDCinput");
+                if (globalDCinput) {
+                    globalDCinput.setPosition({ top: game.icrpg.globalDC.position.top, left: game.icrpg.globalDC.position.left + 110 });
+                    globalDCinput.bringToTop();
+                }
+                else new GlobalDCConfig().render(true);
+            });
         }
     }
 
@@ -51,9 +58,14 @@ export class IcrpgGlobalDC extends Application {
 }
 
 class GlobalDCConfig extends Application {
+    constructor() {
+        super();
+        this._disable_popout_module = true;
+    }
     static get defaultOptions() {
         const globalDCapp = game.icrpg.globalDC;
         return mergeObject(super.defaultOptions, {
+            id: "icrpg-globalDCinput",
             template: "/systems/icrpg/templates/globalDC/global-DC-config.html",
             title: game.i18n.localize("ICRPG.GlobalDC"),
             width: "130px",
