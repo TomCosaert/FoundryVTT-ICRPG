@@ -1,7 +1,5 @@
-![Index Card RPG](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FLeague-of-Foundry-Developers%2Fleague-repo-status%2Fshields-endpoint%2Fexample-not-maintained.json)
-
 ---------------------------------------------
-> **NOTE**: I unfortunately can't spend any time on this project at the moment. If you're interested in taking over development, reach out to me (``Tom Cosaert#1943``) on Discord.
+> **NOTE**: This project has been abandoned. See [this fork](https://github.com/jessev14/FoundryVTT-ICRPG/) for continued development and further improvements.
 ---------------------------------------------
 
 # Index Card RPG System for Foundry VTT
