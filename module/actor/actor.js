@@ -5,11 +5,11 @@
 export class IcrpgActor extends Actor {
 
   prepareBaseData() {
-    const data = this.data.data;
+    const data = this.system;
 
     // Apply loot-based active effects first
     this.applyActiveEffects(true);
-    if (this.data.type === "character") {
+    if (this.type === "character") {
       for (let [id, stat] of Object.entries(data.stats)) {
         stat.value = Number(stat.base) + Number(stat.loot);
       }
@@ -40,8 +40,8 @@ export class IcrpgActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const data = actorData.system;
     const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -55,7 +55,7 @@ export class IcrpgActor extends Actor {
    * Prepare data common to Characters and NPCs
    */
   _prepareCommonData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     data.effort.basic.die = "d4";
     data.effort.weapon.die = "d6";
@@ -70,11 +70,11 @@ export class IcrpgActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     const items = actorData.items.contents;
 
     //data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
-    const armorItems = items.filter(i => "defenseBonus" in i.data.data);
+    const armorItems = items.filter(i => "defenseBonus" in i.system);
     const defenseBonus = !armorItems.length
       ? 0
       : armorItems
