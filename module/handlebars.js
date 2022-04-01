@@ -61,7 +61,7 @@ export class IcrpgRegisterHelpers {
         });
 
         Handlebars.registerHelper("icrpg-effortable", function (item, opts) {
-            if ("effortFormula" in item.data.data) return opts.fn(this);
+            if ("effortFormula" in item.system) return opts.fn(this);
             return opts.inverse(this);
         });
 
@@ -71,7 +71,7 @@ export class IcrpgRegisterHelpers {
         });
 
         Handlebars.registerHelper("icrpg-has", function (item, property, opts) {
-            if (property in item.data.data) return opts.fn(this);
+            if (property in item.system) return opts.fn(this);
             return opts.inverse(this);
         });
 
