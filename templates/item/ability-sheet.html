@@ -9,11 +9,11 @@
 {{!-- 
                 <div class="resource flex-group-center">
                     <label for="data.quantity" class="resource-label">{{localize "ICRPG.Quantity"}}</label>
-                    <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number" />
+                    <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
                 </div>
                 <div class="resource flex-group-center">
                     <label for="data.equipped" class="resource-label">{{localize "ICRPG.Equipped"}}</label>
-                    <input type="checkbox" {{checked system.equipped}} name="system.equipped" value="{{system.equipped}}"
+                    <input type="checkbox" {{checked data.data.equipped}} name="data.equipped" value="{{data.data.equipped}}"
                         data-dtype="Boolean" />
                 </div>
 --}}
@@ -21,7 +21,7 @@
                 <div class="resource grid grid-2col">
                     <div class="resource flex-group-center">
                         <label for="data.mastery" class="resource-label" style="margin-left: -2px">{{localize "ICRPG.Mastery"}}</label>
-                        <input type="text" name="system.mastery" value="{{system.mastery}}"
+                        <input type="text" name="data.mastery" value="{{data.data.mastery}}"
                             data-dtype="Number" />
                     </div>
                 </div>
@@ -42,7 +42,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
         <!--
         {{!-- Attributes Tab --}}
