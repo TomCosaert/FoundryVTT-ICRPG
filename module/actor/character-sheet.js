@@ -44,7 +44,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     }
 
     // Mastery
-    data.mastery = Object.entries(this.actor.system.mastery).map(([k, v]) => {
+    data.mastery = Object.entries(this.actor.data.data.mastery).map(([k, v]) => {
       return {
         key: k,
         label: game.i18n.localize(`ICRPG.${k}`),
@@ -53,7 +53,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     });
 
     // Armor
-    data.armor = {value: this.actor.system.armor.value - 10};
+    data.armor = {value: this.actor.data.data.armor.value - 10};
     
     return data;
   }
