@@ -4,6 +4,7 @@ import { IcrpgCharacterSheet } from "./actor/character-sheet.js";
 import { IcrpgCharacterSheet2E } from "./actor/character-sheet-2e.js";
 import { IcrpgNpcSheet } from "./actor/npc-sheet.js";
 import { IcrpgNpcSheet2E } from "./actor/npc-sheet-2e.js";
+import { IcrpgVehicleSheet2E } from "./actor/vehicle-sheet-2e.js";
 import { IcrpgItem } from "./item/item.js";
 import { IcrpgItemSheet } from "./item/item-sheet.js";
 import { IcrpgAbilitySheet } from "./item/ability-sheet.js";
@@ -133,6 +134,7 @@ Hooks.once('init', async function () {
   Actors.registerSheet("icrpg", IcrpgCharacterSheet, { types: ["character"] });
   Actors.registerSheet("icrpg", IcrpgNpcSheet2E, { types: ["npc"], makeDefault: true });
   Actors.registerSheet("icrpg", IcrpgNpcSheet, { types: ["npc"] });
+  Actors.registerSheet("icrpg", IcrpgVehicleSheet2E, { types: ["vehicle"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("icrpg", IcrpgItemSheet, { types: ["item", "weapon", "armor", "spell", "gun"], makeDefault: true });
   Items.registerSheet("icrpg", IcrpgAbilitySheet, { types: ["ability"], makeDefault: true });

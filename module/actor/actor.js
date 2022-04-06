@@ -9,7 +9,7 @@ export class IcrpgActor extends Actor {
 
     // Apply loot-based active effects first
     this.applyActiveEffects(true);
-    if (this.data.type === "character") {
+    if (["character", "vehicle"].includes(this.data.type)) {
       for (let [id, stat] of Object.entries(data.stats)) {
         stat.value = Number(stat.base) + Number(stat.loot);
       }
@@ -49,6 +49,7 @@ export class IcrpgActor extends Actor {
     this._prepareCommonData(actorData)
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
     if (actorData.type === 'npc') this._prepareNpcData(actorData);
+    if (actorData.type === 'vehicle') this._prepareVehicleData(actorData);
   }
 
   /**
@@ -92,6 +93,16 @@ export class IcrpgActor extends Actor {
     const data = actorData.data;
 
   }
+
+    /**
+   * Prepare Vehicle type specific data
+   */
+     _prepareVehicleData(actorData) {
+      this._prepareCharacterData(actorData);
+
+
+     }
+
 
   getRollData() {
     const data = super.getRollData();

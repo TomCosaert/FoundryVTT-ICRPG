@@ -44,13 +44,16 @@ export class IcrpgCharacterSheet extends ActorSheet {
     }
 
     // Mastery
-    data.mastery = Object.entries(this.actor.data.data.mastery).map(([k, v]) => {
-      return {
-        key: k,
-        label: game.i18n.localize(`ICRPG.${k}`),
-        value: v
-      };
-    });
+    if (this.actor.data.data.mastery) {
+      data.mastery = Object.entries(this.actor.data.data.mastery).map(([k, v]) => {
+        return {
+          key: k,
+          label: game.i18n.localize(`ICRPG.${k}`),
+          value: v
+        };
+      });
+    }
+    
 
     // Armor
     data.armor = {value: this.actor.data.data.armor.value - 10};

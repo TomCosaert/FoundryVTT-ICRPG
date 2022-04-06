@@ -748,3 +748,13 @@ h4.dice-total.icrpg-fail {
   align-items: center;
   width: 100px;
 }
+
+/* Vehicle Sheet */
+
+.icrpg .vehicle-resource {
+  align-items: center;
+}
+
+.icrpg .landing {
+  justify-content: space-between;
+}

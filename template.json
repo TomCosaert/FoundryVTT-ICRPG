@@ -2,7 +2,8 @@
   "Actor": {
     "types": [
       "character",
-      "npc"
+      "npc",
+      "vehicle"
     ],
     "templates": {
       "base": {
@@ -138,6 +139,72 @@
       "defense": {
         "value": 10
       }
+    },
+    "vehicle": {
+      "templates": ["base"],
+      "stats": {
+        "str": {
+          "base": 0,
+          "loot": 0
+        },
+        "dex": {
+          "base": 0,
+          "loot": 0
+        },
+        "con": {
+          "base": 0,
+          "loot": 0
+        },
+        "int": {
+          "base": 0,
+          "loot": 0
+        },
+        "wis": {
+          "base": 0,
+          "loot": 0
+        },
+        "cha": {
+          "base": 0,
+          "loot": 0
+        }
+      },
+      "effort": {
+        "basic": {
+          "base": 0,
+          "loot": 0
+        },
+        "weapon": {
+          "base": 0,
+          "loot": 0
+        },
+        "gun": {
+          "base": 0,
+          "loot": 0
+        },
+        "magic": {
+          "base": 0,
+          "loot": 0
+        },
+        "ultimate": {
+          "base": 0,
+          "loot": 0
+        }
+      },
+      "armor": {
+        "value": 0,
+        "base": 0,
+        "loot": 0
+      },
+      "stun": 0,
+      "size": "none",
+      "class": "",
+      "health": {
+        "shield": 0
+      },
+      "speed": 0,
+      "hardpoints": 0,
+      "landing": false,
+      "crew": 0
     }
   },
   "Item": {

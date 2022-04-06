@@ -83,5 +83,16 @@
     "ICRPG.NPCdefenseHint": "Enable to use NPC defense value instead of target for effort rolls.",
     "ICRPG.itemDurabilitySetting": "Disable Item Durability",
     "ICRPG.spellMasterySetting": "Disable Spell Mastery",
-    "ICRPG.abilityMasterySetting": "Disable Ability Mastery"
+    "ICRPG.abilityMasterySetting": "Disable Ability Mastery",
+    "ICRPG.Shield": "Shield",
+    "ICRPG.Size": "Size",
+    "ICRPG.Fighter": "Fighter",
+    "ICRPG.Small": "Small",
+    "ICRPG.Medium": "Medium",
+    "ICRPG.Large": "Large",
+    "ICRPG.Massive": "Massive",
+    "ICRPG.Speed": "Speed",
+    "ICRPG.Hardpoints": "Hardpoints",
+    "ICRPG.Crew": "Crew",
+    "ICRPG.Landing": "Landing"
 }
