@@ -121,14 +121,23 @@ export class IcrpgItem extends Item {
       if (!d20formula) continue;
 
       const d20Roll = await new Roll(d20formula, this.actor.getRollData()).roll();
-      await d20Roll.toMessage({
-        speaker,
-        flavor: (isSpell ? `[${game.i18n.localize("ICRPG.Power")}: ${power}] ` : ``) + title
-      });
 
       const isHit = game.settings.get("icrpg", "NPCdefense")
         ? d20Roll.total >= target.actor.data.data.defense.value
         : d20Roll.total >= game.settings.get("icrpg", "globalDC");
+
+      const messageData = {
+        speaker,
+        flavor: (isSpell ? `[${game.i18n.localize("ICRPG.Power")}: ${power}] ` : ``) + title,
+        flags: {
+          icrpg: {
+            itemID: this.id,
+            pass: isHit
+          }
+        }
+      };
+
+      await d20Roll.toMessage(messageData);
 
       if (isHit) {
         await ChatMessage.create({
