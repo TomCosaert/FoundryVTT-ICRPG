@@ -20,6 +20,6 @@ export class IcrpgCharacterSheet2E extends IcrpgCharacterSheet {
     super.activateListeners(html);
 
     // Item controls
-    html.find(".abilities").on("click", ".item-control", this._onClickItemControl.bind(this));
+    //html.find(".abilities").on("click", ".item-control", this._onClickItemControl.bind(this));
   }
 }
