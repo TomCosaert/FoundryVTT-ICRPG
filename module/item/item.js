@@ -144,14 +144,26 @@ export class IcrpgItem extends Item {
       await d20Roll.toMessage(messageData);
 
       if (isHit) {
+        const heartHP = game.settings.get("icrpg", "heartHP") && target.actor.type === "npc";
+        const isCrit = d20Roll.dice[0].total === 20;
+
+        let content = game.i18n.format("ICRPG.EffortHit", {
+          actorName: this.actor.name,
+          targetName: target.name ? ` ${target.name} ` : ` `,
+          itemName: this.name
+        });
+
+        if (heartHP && isCrit) content = game.i18n.localize("ICRPG.CRITICAL") + content;
+  
         await ChatMessage.create({
           speaker,
-          content: game.i18n.format("ICRPG.EffortHit", {
-            actorName: this.actor.name,
-            targetName: target.name ? ` ${target.name} ` : ` `,
-            itemName: this.name
-          })
+          content
         });
+        
+        if (heartHP) {
+          await this.rollHPdamage(target, isCrit);
+          continue;
+        }
       } else {
         await ChatMessage.create({
           speaker,
@@ -167,6 +179,8 @@ export class IcrpgItem extends Item {
       if (isSpell && !this.data.data.effortFormula) continue;
 
       await this.rollEffort(target);
+
+      return d20Roll;
     }
   }
 
@@ -216,6 +230,10 @@ export class IcrpgItem extends Item {
     });
 
     if (target.name) await target.actor.applyDamage(effortRoll.total);
+  }
+
+  async rollHPdamage(target = {}, isCrit = false) {
+    if (target.name) await target.actor.applyDamage(isCrit ? 2 : 1);
   }
 
 }

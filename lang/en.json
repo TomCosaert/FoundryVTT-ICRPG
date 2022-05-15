@@ -95,5 +95,7 @@
     "ICRPG.Hardpoints": "Hardpoints",
     "ICRPG.Crew": "Crew",
     "ICRPG.Landing": "Landing",
-    "ICRPG.Use": "Use"
+    "ICRPG.Use": "Use",
+    "ICRPG.heartHPsetting": "NPCs Use Heart HP",
+    "ICRPG.CRITICAL": "[ CRITICAL ] "
 }

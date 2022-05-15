@@ -117,6 +117,14 @@ Hooks.once('init', async function () {
     default: false
   });
 
+  game.settings.register("icrpg", "heartHP", {
+    name: "ICRPG.heartHPsetting",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   // Setup socket handler
   socket.on("system.icrpg", data => {
     if (data.action === "positionGlobalDC") {
