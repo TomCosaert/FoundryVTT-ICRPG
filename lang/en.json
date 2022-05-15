@@ -94,5 +94,6 @@
     "ICRPG.Speed": "Speed",
     "ICRPG.Hardpoints": "Hardpoints",
     "ICRPG.Crew": "Crew",
-    "ICRPG.Landing": "Landing"
+    "ICRPG.Landing": "Landing",
+    "ICRPG.Use": "Use"
 }

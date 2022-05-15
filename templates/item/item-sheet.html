@@ -25,6 +25,13 @@
             {{#icrpg-effortable item}}
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
+                    <label for="data.useFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Use"}}</label>
+                    <input type="text" name="data.useFormula" value="{{data.data.useFormula}}" placeholder="1d20"
+                        data-dtype="text" />
+                </div>
+            </div>
+            <div class="resource grid grid-2col">
+                <div class="resource flex-group-center">
                     <label for="data.effortFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Effort"}}</label>
                     <input type="text" name="data.effortFormula" value="{{data.data.effortFormula}}"
                         data-dtype="text" />

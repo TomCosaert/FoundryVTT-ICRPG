@@ -41,6 +41,7 @@ export class IcrpgItem extends Item {
     }];
 
     const isSpell = this.type === "spell";
+    let useFormula = this.data.data.useFormula || `1d20`;
 
 
     for (const target of targets) {
@@ -76,42 +77,45 @@ export class IcrpgItem extends Item {
               label: game.i18n.localize("ICRPG.Easy"),
               callback: async html => {
                 const mod = html.find(`input`).val();
-                const formula = `1d20 + 3` + `${mod}`;
+                //const formula = `1d20 + 3` + `${mod}`;
+                useFormula = useFormula += ` + 3 + ${mod}`;
                 if (isSpell) {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
                   await this.actor.update({ "data.stun.value": newStun });
                 }
-                resolve(formula);
+                resolve(useFormula);
               }
             },
             normal: {
               label: game.i18n.localize("ICRPG.Normal"),
               callback: async html => {
                 const mod = html.find(`input`).val();
-                const formula = `1d20` + `${mod}`;
+                //const formula = `1d20` + `${mod}`;
+                useFormula += mod;
                 if (isSpell) {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
                   await this.actor.update({ "data.stun.value": newStun });
                 }
-                resolve(formula);
+                resolve(useFormula);
               }
             },
             hard: {
               label: game.i18n.localize("ICRPG.Hard"),
               callback: async html => {
                 const mod = html.find(`input`).val();
-                const formula = `1d20 - 3` + `${mod}`;
+                //const formula = `1d20 - 3` + `${mod}`;
+                useFormula += ` - 3 + ${mod}`;
                 if (isSpell) {
                   power = parseInt(html.find(`select`).val());
                   const currentStun = this.actor.data.data.stun.value;
                   const newStun = Math.max(currentStun - power, 0);
                   await this.actor.update({ "data.stun.value": newStun });
                 }
-                resolve(formula);
+                resolve(useFormula);
               }
             }
           },
