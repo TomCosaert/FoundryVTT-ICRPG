@@ -126,7 +126,7 @@ Hooks.once('init', async function () {
   });
 
   // Setup socket handler
-  socket.on("system.icrpg", data => {
+  game.socket.on("system.icrpg", data => {
     if (data.action === "positionGlobalDC") {
       game.icrpg.globalDC.setPosition({
         left: data.position.left * (window.innerWidth - 100),
