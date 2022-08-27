@@ -1,12 +1,19 @@
 {
-  "name": "icrpg",
+  "id": "icrpg",
   "title": "Index Card RPG",
   "description": "Index Card RPG (ICRPG) system for Foundry VTT.",
-  "version": "3.0.4",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "version": "3.1.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
   "templateVersion": 2,
-  "author": "enso#0361",
+  "authors": [{
+    "name": "Jesse Vo",
+    "url": "https://github.com/jessev14",
+    "discord": "enso#0361"
+  }],
   "esmodules": [
     "module/icrpg.js"
   ],
