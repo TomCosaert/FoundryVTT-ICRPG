@@ -7,33 +7,33 @@
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
                     {{#if (eq item.type "armor")}}
-                    <label for="data.defenseBonus" class="resource-label">{{localize "ICRPG.DefenseBonus"}}</label>
-                    <input type="text" name="data.defenseBonus" value="{{data.data.defenseBonus}}" data-dtype="Number" />
+                    <label for="system.defenseBonus" class="resource-label">{{localize "ICRPG.DefenseBonus"}}</label>
+                    <input type="text" name="system.defenseBonus" value="{{data.system.defenseBonus}}" data-dtype="Number" />
                     {{else}}
                     {{#icrpg-quantity item}}
-                    <label for="data.quantity" class="resource-label">{{localize "ICRPG.Quantity"}}</label>
-                    <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
+                    <label for="system.quantity" class="resource-label">{{localize "ICRPG.Quantity"}}</label>
+                    <input type="text" name="system.quantity" value="{{data.system.quantity}}" data-dtype="Number" />
                     {{/icrpg-quantity}}
                     {{/if}} 
                 </div>
                 <div class="resource flex-group-center">
-                    <label for="data.equipped" class="resource-label">{{localize "ICRPG.Equipped"}}</label>
-                    <input type="checkbox" {{checked data.data.equipped}} name="data.equipped" value="{{data.data.equipped}}"
+                    <label for="system.equipped" class="resource-label">{{localize "ICRPG.Equipped"}}</label>
+                    <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" value="{{data.system.equipped}}"
                         data-dtype="Boolean" />
                 </div>
             </div>
             {{#icrpg-effortable item}}
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
-                    <label for="data.useFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Use"}}</label>
-                    <input type="text" name="data.useFormula" value="{{data.data.useFormula}}" placeholder="1d20"
+                    <label for="system.useFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Use"}}</label>
+                    <input type="text" name="system.useFormula" value="{{data.system.useFormula}}" placeholder="1d20"
                         data-dtype="text" />
                 </div>
             </div>
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
-                    <label for="data.effortFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Effort"}}</label>
-                    <input type="text" name="data.effortFormula" value="{{data.data.effortFormula}}"
+                    <label for="system.effortFormula" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Effort"}}</label>
+                    <input type="text" name="system.effortFormula" value="{{data.system.effortFormula}}"
                         data-dtype="text" />
                 </div>
             </div>
@@ -41,8 +41,8 @@
             {{#icrpg-has item "durability"}}
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
-                    <label for="data.durability" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Durability"}}</label>
-                    <input type="text" name="data.durability" value="{{data.data.durability}}"
+                    <label for="system.durability" class="resource-label" style="margin-left: {{#icrpg-quantity item}}-2px{{else}}7px{{/icrpg-quantity}}">{{localize "ICRPG.Durability"}}</label>
+                    <input type="text" name="system.durability" value="{{data.system.durability}}"
                         data-dtype="Number" />
                 </div>
             </div>
@@ -50,9 +50,9 @@
             {{#icrpg-has item "spellType"}}
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
-                    <label for="data.spellType" class="resource-label" style="margin-left: 9px">{{localize "ICRPG.SpellType"}}</label>
-                    <select name="data.spellType">
-                        {{selectOptions config.SpellTypes selected=item.data.data.spellType localize=true}}
+                    <label for="system.spellType" class="resource-label" style="margin-left: 9px">{{localize "ICRPG.SpellType"}}</label>
+                    <select name="system.spellType">
+                        {{selectOptions config.SpellTypes selected=item.data.system.spellType localize=true}}
                     </select>
                 </div>
             </div>
@@ -60,8 +60,8 @@
             {{#icrpg-has item "mastery"}}
             <div class="resource grid grid-2col">
                 <div class="resource flex-group-center">
-                    <label for="data.mastery" class="resource-label" style="margin-left: -2px">{{localize "ICRPG.Mastery"}}</label>
-                    <input type="text" name="data.mastery" value="{{data.data.mastery}}"
+                    <label for="system.mastery" class="resource-label" style="margin-left: -2px">{{localize "ICRPG.Mastery"}}</label>
+                    <input type="text" name="system.mastery" value="{{data.system.mastery}}"
                         data-dtype="Number" />
                 </div>
             </div>
@@ -80,7 +80,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
         <!--
         {{!-- Attributes Tab --}}

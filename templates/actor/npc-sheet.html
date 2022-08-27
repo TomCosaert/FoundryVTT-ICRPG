@@ -11,9 +11,9 @@
             <div class="resource health">
                 <label for="data.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.health.value" value="{{data.data.health.value}}" data-dtype="Number" />
+                    <input type="text" name="data.health.value" value="{{system.health.value}}" data-dtype="Number" />
                     <span class="separator">/</span>
-                    <input type="text" name="data.health.max" value="{{data.data.health.max}}" data-dtype="Number" />
+                    <input type="text" name="data.health.max" value="{{system.health.max}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
 
                     {{!-- Stats --}}
                     {{#each (icrpg-array "str" "dex" "con") as |id|}}
-                    {{#with (lookup ../data.data.stats id) as |stat|}}
+                    {{#with (lookup ../system.stats id) as |stat|}}
                     <div class="resource stat {{id}}">
                         <label for="data.stats.{{id}}.value" class="resource-label rollable"
                             data-roll='1d20+{{stat.value}}'
@@ -69,7 +69,7 @@
 
                     {{!-- Stats --}}
                     {{#each (icrpg-array "int" "wis" "cha") as |id|}}
-                    {{#with (lookup ../data.data.stats id) as |stat|}}
+                    {{#with (lookup ../system.stats id) as |stat|}}
                     <div class="resource stat {{id}}">
                         <label for="data.stats.{{id}}.value" class="resource-label rollable"
                             data-roll='1d20+{{stat.value}}'
@@ -98,7 +98,7 @@
 
                     {{!-- Effort --}}
                     {{#each (icrpg-array "basic" "weapon" "magic" "ultimate") as |id|}}
-                    {{#with (lookup ../data.data.effort id) as |eff|}}
+                    {{#with (lookup ../system.effort id) as |eff|}}
                     <div class="resource effort {{id}}">
                         <label for="data.effort.{{id}}.value" class="resource-label {{eff.die}} rollable"
                         data-roll='1{{#icrpg-is id "magic"}}d8{{else}}{{eff.die}}{{/icrpg-is}}+{{eff.value}}'
@@ -119,7 +119,7 @@
 
         {{!-- Notes Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=system.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
     </section>

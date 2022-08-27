@@ -23,7 +23,7 @@ export class IcrpgNpcSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    //for (let attr of Object.values(data.data.attributes)) {
+    //for (let attr of Object.values(system.attributes)) {
     //  attr.isCheckbox = attr.dtype === "Boolean";
     //}
     return data;
@@ -66,7 +66,7 @@ export class IcrpgNpcSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let roll = new Roll(dataset.roll, this.actor.system);
       let label = dataset.label ? `${game.i18n.localize("ICRPG.Rolling")} ${dataset.label}` : '';
       roll.evaluate({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

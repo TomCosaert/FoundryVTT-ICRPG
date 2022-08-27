@@ -37,7 +37,7 @@ export class IcrpgActiveEffect extends ActiveEffect {
         if ((parentType !== "Actor") || (parentId !== this.parent.id) || (documentType !== "Item")) return;
         const item = this.parent.items.get(documentId);
         if (!item) return;
-        this.isSuppressed = !item.data.data.equipped; // suppress if item is not equipped; may have to add more flexibility to this
+        this.isSuppressed = !item.system.equipped; // suppress if item is not equipped; may have to add more flexibility to this
     }
 
     /* --------------------------------------------- */

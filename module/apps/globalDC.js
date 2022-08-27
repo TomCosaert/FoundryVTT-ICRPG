@@ -55,6 +55,10 @@ export class IcrpgGlobalDC extends Application {
         delete ui.windows[this.appId];
     }
 
+    _replaceHTML(element, html) {
+        element.find(".window-content").html(html);
+    }
+
 }
 
 class GlobalDCConfig extends Application {

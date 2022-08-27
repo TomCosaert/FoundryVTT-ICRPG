@@ -5,11 +5,11 @@
 export class IcrpgActor extends Actor {
 
   prepareBaseData() {
-    const data = this.data.data;
+    const data = this.system;
 
     // Apply loot-based active effects first
     this.applyActiveEffects(true);
-    if (["character", "vehicle"].includes(this.data.type)) {
+    if (["character", "vehicle"].includes(this.type)) {
       for (let [id, stat] of Object.entries(data.stats)) {
         stat.value = Number(stat.base) + Number(stat.loot);
       }
@@ -40,8 +40,8 @@ export class IcrpgActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const data = actorData.system;
     const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -56,7 +56,7 @@ export class IcrpgActor extends Actor {
    * Prepare data common to Characters and NPCs
    */
   _prepareCommonData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     data.effort.basic.die = "d4";
     data.effort.weapon.die = "d6";
@@ -71,15 +71,15 @@ export class IcrpgActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     const items = actorData.items.contents;
 
     //data.armor.value = Math.min(20, 10 + Number(data.armor.base) + Number(data.armor.loot));
-    const armorItems = items.filter(i => "defenseBonus" in i.data.data);
+    const armorItems = items.filter(i => "defenseBonus" in i.system);
     const defenseBonus = !armorItems.length
       ? 0
       : armorItems
-        .map(i => i.data.data.defenseBonus * i.data.data.equipped * !!i.data.data.durability)
+        .map(i => i.system.defenseBonus * i.system.equipped * !!i.system.durability)
         .reduce((acc, n) => acc + n);
 
     data.armor.loot = defenseBonus + (data.armor.loot || 0);
@@ -90,7 +90,7 @@ export class IcrpgActor extends Actor {
    * Prepare NPC type specific data
    */
   _prepareNpcData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
   }
 
@@ -117,7 +117,7 @@ export class IcrpgActor extends Actor {
   }
 
   async applyDamage(amount) {
-    const newHP = Math.clamped(this.data.data.health.value - amount, 0, this.data.data.health.max);
+    const newHP = Math.clamped(this.system.health.value - amount, 0, this.system.health.max);
 
     return this.update({"data.health.value": newHP});
   }

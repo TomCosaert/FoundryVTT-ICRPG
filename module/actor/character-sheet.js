@@ -44,8 +44,8 @@ export class IcrpgCharacterSheet extends ActorSheet {
     }
 
     // Mastery
-    if (this.actor.data.data.mastery) {
-      data.mastery = Object.entries(this.actor.data.data.mastery).map(([k, v]) => {
+    if (this.actor.system.mastery) {
+      data.mastery = Object.entries(this.actor.system.mastery).map(([k, v]) => {
         return {
           key: k,
           label: game.i18n.localize(`ICRPG.${k}`),
@@ -56,7 +56,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     
 
     // Armor
-    data.armor = {value: this.actor.data.data.armor.value - 10};
+    data.armor = {value: this.actor.system.armor.value - 10};
     
     return data;
   }
@@ -120,7 +120,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
         data: data
       };
       // Remove the type from the dataset since it's in the itemData.type prop.
-      delete itemData.data["type"];
+      delete itemsystem["type"];
 
       // Finally, create the item!
       await this.actor.createEmbeddedDocuments("Item", [itemData]);
@@ -130,7 +130,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     else if (action === "equip") {
       const li = $(header).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      await item.update({ "data.equipped": !item.data.data.equipped });
+      await item.update({ "data.equipped": !item.system.equipped });
     }
 
     else if (action === "edit") {
@@ -171,7 +171,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let roll = new Roll(dataset.roll, this.actor.system);
       let label = dataset.label ? `${game.i18n.localize("ICRPG.Rolling")} ${dataset.label}` : '';
       roll.evaluate({async: false}).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
