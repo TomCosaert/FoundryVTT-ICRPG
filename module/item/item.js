@@ -11,7 +11,7 @@ export class IcrpgItem extends Item {
 
     // Get the Item's data
     const itemData = this;
-    const actorData = this.actor ? this.actor.data : {};
+    const actorData = this.actor ?? {};
     const data = itemData.system;
   }
 

@@ -130,7 +130,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
     else if (action === "equip") {
       const li = $(header).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      await item.update({ "data.equipped": !item.system.equipped });
+      await item.update({ "system.equipped": !item.system.equipped });
     }
 
     else if (action === "edit") {

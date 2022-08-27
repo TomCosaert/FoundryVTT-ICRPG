@@ -4,8 +4,8 @@ export class IcrpgChatMessage extends ChatMessage {
         if (!foundry.utils.hasProperty(this, "flags.icrpg.pass")) {
             if (this.rolls[0]?.terms[0].faces === 20) {
                 const globalDC = game.settings.get("icrpg", "globalDC");
-                const pass = this.roll.total >= globalDC;
-                this.data.update({ "flags.icrpg": { pass } });
+                const pass = this.rolls[0].total >= globalDC;
+                this.updateSource({ "flags.icrpg": { pass } });
             }
         }
 
@@ -19,7 +19,7 @@ export class IcrpgChatMessage extends ChatMessage {
         const passInFlags = "pass" in icrpgFlags;
         if (!passInFlags) return html;
 
-        if (this.data.flags.icrpg.pass) html.find("h4.dice-total").addClass("icrpg-pass");
+        if (this.flags.icrpg.pass) html.find("h4.dice-total").addClass("icrpg-pass");
         else html.find("h4.dice-total").addClass("icrpg-fail");
 
         return html;
