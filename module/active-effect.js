@@ -10,11 +10,11 @@ export class IcrpgActiveEffect extends ActiveEffect {
     isSuppressed = false;
 
     get name() {
-        return this.data.label;
+        return this.label;
     }
 
     get img() {
-        return this.data.icon;
+        return this.icon;
     }
 
     /* --------------------------------------------- */
@@ -33,7 +33,7 @@ export class IcrpgActiveEffect extends ActiveEffect {
     determineSuppression() {
         this.isSuppressed = false;
         if ((this.parent.documentName !== "Actor")) return;
-        const [parentType, parentId, documentType, documentId] = this.data.origin?.split(".") ?? [];
+        const [parentType, parentId, documentType, documentId] = this.origin?.split(".") ?? [];
         if ((parentType !== "Actor") || (parentId !== this.parent.id) || (documentType !== "Item")) return;
         const item = this.parent.items.get(documentId);
         if (!item) return;
@@ -67,7 +67,7 @@ export class IcrpgActiveEffect extends ActiveEffect {
             case "delete":
                 return effect.delete();
             case "toggle":
-                return effect.update({ disabled: !effect.data.disabled });
+                return effect.update({ disabled: !effect.disabled });
         }
     }
 
@@ -102,7 +102,7 @@ export class IcrpgActiveEffect extends ActiveEffect {
         for (let e of effects) {
             e._getSourceName(); // Trigger a lookup for the source name
             if (e.isSuppressed) categories.unequipped.effects.push(e);
-            else if (e.data.disabled) categories.inactive.effects.push(e);
+            else if (e.disabled) categories.inactive.effects.push(e);
             else categories.active.effects.push(e);
         }
 

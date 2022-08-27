@@ -202,7 +202,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
 });
 
 Hooks.on("renderItemSheet", (app, html, appData) => {
-  if (game.settings.get("icrpg", "itemDurability")) html.find(`label[for="data.durability"]`).closest(`div.grid`).remove();
-  if (game.settings.get("icrpg", "spellMastery")) html.find(`label[for="data.mastery"]`).closest(`div.grid`).remove();
-  if (game.settings.get("icrpg", "abilityMastery")) html.find(`label[for="data.mastery"]`).closest(`div.grid`).remove();
+  if (game.settings.get("icrpg", "itemDurability")) html.find(`label[for="system.durability"]`).closest(`div.grid`).remove();
+  if (game.settings.get("icrpg", "spellMastery")) html.find(`label[for="system.mastery"]`).closest(`div.grid`).remove();
+  if (game.settings.get("icrpg", "abilityMastery")) html.find(`label[for="system.mastery"]`).closest(`div.grid`).remove();
 });

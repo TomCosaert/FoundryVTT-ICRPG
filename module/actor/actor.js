@@ -26,7 +26,7 @@ export class IcrpgActor extends Actor {
     const filteredEffects = this.effects.filter(e => {
       if (e.isSuppressed) return false;
 
-      const lootChanges = e.data.changes.find(c => c.key.includes("loot"));
+      const lootChanges = e.changes.find(c => c.key.includes("loot"));
       if (loot) return !!!lootChanges;
       else return !!lootChanges;
     });
