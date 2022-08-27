@@ -1,8 +1,8 @@
 export class IcrpgChatMessage extends ChatMessage {
     async _preCreate(data, options, user) {
 
-        if (!foundry.utils.hasProperty(this.data, "flags.icrpg.pass")) {
-            if (this.roll?.terms[0].faces === 20) {
+        if (!foundry.utils.hasProperty(this, "flags.icrpg.pass")) {
+            if (this.rolls[0]?.terms[0].faces === 20) {
                 const globalDC = game.settings.get("icrpg", "globalDC");
                 const pass = this.roll.total >= globalDC;
                 this.data.update({ "flags.icrpg": { pass } });
@@ -15,7 +15,7 @@ export class IcrpgChatMessage extends ChatMessage {
     async getHTML() {
         const html = await super.getHTML();
         
-        const icrpgFlags = this.data.flags.icrpg || {};
+        const icrpgFlags = this.flags.icrpg || {};
         const passInFlags = "pass" in icrpgFlags;
         if (!passInFlags) return html;
 

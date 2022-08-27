@@ -9,19 +9,19 @@
 
             {{!-- Health --}}
             <div class="resource health">
-                <label for="data.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
+                <label for="system.health.value" class="resource-label"> {{localize "ICRPG.HP"}} </label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.health.value" value="{{system.health.value}}" data-dtype="Number" />
+                    <input type="text" name="system.health.value" value="{{data.system.health.value}}" data-dtype="Number" />
                     <span class="separator">/</span>
-                    <input type="text" name="data.health.max" value="{{system.health.max}}" data-dtype="Number" />
+                    <input type="text" name="system.health.max" value="{{data.system.health.max}}" data-dtype="Number" />
                 </div>
             </div>
 
             {{!-- Defense --}}
             <div class="resource armor">
-                <label for="data.defense.value" class="resource-label"> {{localize "ICRPG.Defense"}} </label>
+                <label for="system.defense.value" class="resource-label"> {{localize "ICRPG.Defense"}} </label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.defense.value" value="{{system.defense.value}}" data-dtype="Number" />
+                    <input type="text" name="system.defense.value" value="{{data.system.defense.value}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
@@ -48,29 +48,29 @@
 
                     {{!-- Stats --}}
                     <div class="resource stat">
-                        <label for="data.stats.str.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.str.value}}'
+                        <label for="system.stats.str.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.str.value}}'
                             data-label='{{localize "ICRPG.STR"}}'>{{localize "ICRPG.STR"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.str.value" value="{{system.stats.str.value}}"
+                            <input type="text" name="system.stats.str.value" value="{{data.system.stats.str.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource stat">
-                        <label for="data.stats.dex.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.dex.value}}'
+                        <label for="system.stats.dex.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.dex.value}}'
                             data-label='{{localize "ICRPG.DEX"}}'>{{localize "ICRPG.DEX"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.dex.value" value="{{system.stats.dex.value}}"
+                            <input type="text" name="system.stats.dex.value" value="{{data.system.stats.dex.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource stat">
-                        <label for="data.stats.con.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.con.value}}'
+                        <label for="system.stats.con.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.con.value}}'
                             data-label='{{localize "ICRPG.CON"}}'>{{localize "ICRPG.CON"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.con.value" value="{{system.stats.con.value}}"
+                            <input type="text" name="system.stats.con.value" value="{{data.system.stats.con.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
@@ -85,29 +85,29 @@
 
                     {{!-- Stats --}}
                     <div class="resource stat">
-                        <label for="data.stats.int.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.int.value}}'
+                        <label for="system.stats.int.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.int.value}}'
                             data-label='{{localize "ICRPG.INT"}}'>{{localize "ICRPG.INT"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.int.value" value="{{system.stats.int.value}}"
+                            <input type="text" name="system.stats.int.value" value="{{data.system.stats.int.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource stat">
-                        <label for="data.stats.wis.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.wis.value}}'
+                        <label for="system.stats.wis.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.wis.value}}'
                             data-label='{{localize "ICRPG.WIS"}}'>{{localize "ICRPG.WIS"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.wis.value" value="{{system.stats.wis.value}}"
+                            <input type="text" name="system.stats.wis.value" value="{{data.system.stats.wis.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource stat">
-                        <label for="data.stats.cha.value" class="resource-label rollable"
-                            data-roll='1d20+{{system.stats.cha.value}}'
+                        <label for="system.stats.cha.value" class="resource-label rollable"
+                            data-roll='1d20+{{data.system.stats.cha.value}}'
                             data-label='{{localize "ICRPG.CHA"}}'>{{localize "ICRPG.CHA"}}</label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.stats.cha.value" value="{{system.stats.cha.value}}"
+                            <input type="text" name="system.stats.cha.value" value="{{data.system.stats.cha.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
@@ -122,15 +122,15 @@
 
                     {{!-- Effort --}}
                     {{#each (icrpg-array "basic" "weapon" "gun" "magic" "ultimate") as |id|}}
-                    {{#with (lookup ../system.effort id) as |eff|}}
+                    {{#with (lookup ../data.system.effort id) as |eff|}}
                     <div class="resource effort {{id}}">
-                        <label for="data.effort.{{id}}.value" class="resource-label {{eff.die}} rollable"
+                        <label for="system.effort.{{id}}.value" class="resource-label {{eff.die}} rollable"
                             data-roll='1{{eff.die}}+{{eff.value}}'
                             data-label='{{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}'>
                             {{localize (icrpg-concat "ICRPG.Effort" (icrpg-capitalize id))}}
                         </label>
                         <div class="resource-content flexrow flex-center flex-between">
-                            <input type="text" name="data.effort.{{id}}.value" value="{{eff.value}}"
+                            <input type="text" name="system.effort.{{id}}.value" value="{{eff.value}}"
                                 data-dtype="Number" />
                         </div>
                     </div>
@@ -143,7 +143,7 @@
 
         {{!-- Notes Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
-            {{editor content=system.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
 
     </section>
