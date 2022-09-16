@@ -1,5 +1,9 @@
+👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 ---------------------------------------------
+
 > **NOTE**: This project has been abandoned. See [this fork](https://github.com/jessev14/FoundryVTT-ICRPG/) for continued development and further improvements.
+
+👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 ---------------------------------------------
 
 # Index Card RPG System for Foundry VTT
