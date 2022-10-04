@@ -120,7 +120,7 @@ export class IcrpgCharacterSheet extends ActorSheet {
         data: data
       };
       // Remove the type from the dataset since it's in the itemData.type prop.
-      delete itemsystem["type"];
+      // delete itemsystem["type"];
 
       // Finally, create the item!
       await this.actor.createEmbeddedDocuments("Item", [itemData]);
